@@ -1,0 +1,9 @@
+/*******************************
+        Global Overrides
+*******************************/
+
+@subsiteBackgroundGradient: linear-gradient(
+  248.86deg,
+  @insitu-brand 24.22%,
+  @insitu-brand 97.12%
+);

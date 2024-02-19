@@ -1,0 +1,15 @@
+/*******************************
+            Footer
+*******************************/
+
+@mobileFooterBackgroundGradient: linear-gradient(
+  212.33deg,
+  @insitu-brand 12%,
+  @insitu-brand 80%
+);
+
+@computerFooterBackgroundGradient: linear-gradient(
+  212.33deg,
+  @insitu-brand 12%,
+  @insitu-brand 80%
+);
