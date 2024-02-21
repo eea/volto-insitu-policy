@@ -1,0 +1,39 @@
+/*******************************
+            Header
+*******************************/
+
+/*----------------------------------------------------------------------------
+   HEADER MAIN BAR
+----------------------------------------------------------------------------*/
+
+.top.bar {
+  background-color: @insitu-brand !important;
+  .divider.text {
+    color: #e6e7e8;
+  }
+  .ui.dropdown {
+    color: #e6e7e8;
+  }
+}
+
+.main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.eea.header .eea-logo {
+  height: 50px;
+}
+
+.main.bar .ui.container .ui.text.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main-menu .item a {
+  font-size: 18px;
+}

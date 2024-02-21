@@ -1,4 +1,6 @@
 import { Sitemap } from '@plone/volto/components';
+import copernicusLogo from '@eeacms/volto-insitu-policy/../theme/assets/images/Header/copernicus_eu_logo.svg';
+import insituLogo from '@eeacms/volto-insitu-policy/../theme/assets/images/Header/in_situ_logo.svg';
 import athmosphere from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/athmosphere.svg';
 import marine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/marine.svg';
 import land from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/land.svg';
@@ -9,12 +11,22 @@ import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/ass
 import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
 
 const applyConfig = (config) => {
+  //Routes
   config.addonRoutes = [
     {
       path: '/sitemap',
       component: Sitemap,
     },
   ];
+
+  //EEA customizations
+  config.settings.eea = {
+    ...(config.settings.eea || {}),
+    headerOpts: {
+      ...(config.settings.eea?.headerOpts || {}),
+      logo: [copernicusLogo, insituLogo],
+    },
+  };
 
   config.settings.eea.footerOpts.managedBy = [
     {

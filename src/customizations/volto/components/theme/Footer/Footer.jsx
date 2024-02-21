@@ -5,17 +5,17 @@
 
 import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
-import { flattenToAppURL } from '@plone/volto/helpers';
+// import { flattenToAppURL } from '@plone/volto/helpers';
 import EEAFooter from '@eeacms/volto-eea-design-system/ui/Footer/Footer';
 import config from '@plone/volto/registry';
 import { Grid, Input, Checkbox } from 'semantic-ui-react';
 
 const Footer = () => {
   const { eea } = config.settings;
-  const logo = eea.footerOpts.logoWhite;
+  // const logo = eea.footerOpts.logoWhite;
   const {
-    footerActions = [],
-    copyrightActions = [],
+    // footerActions = [],
+    // copyrightActions = [],
     socialActions = [],
   } = useSelector(
     (state) => ({
@@ -26,21 +26,21 @@ const Footer = () => {
     shallowEqual,
   );
   // ZMI > portal_actions > footer_actions
-  const actions = footerActions.length
-    ? footerActions.map((action) => ({
-        title: action.title,
-        link: flattenToAppURL(action.url),
-      }))
-    : eea.footerOpts.actions;
+  // const actions = footerActions.length
+  //   ? footerActions.map((action) => ({
+  //       title: action.title,
+  //       link: flattenToAppURL(action.url),
+  //     }))
+  //   : eea.footerOpts.actions;
 
   // ZMI > portal_actions > copyright_actions
-  const copyright = copyrightActions.length
-    ? copyrightActions.map((action) => ({
-        title: action.title,
-        site: action.title,
-        link: flattenToAppURL(action.url),
-      }))
-    : eea.footerOpts.copyright;
+  // const copyright = copyrightActions.length
+  //   ? copyrightActions.map((action) => ({
+  //       title: action.title,
+  //       site: action.title,
+  //       link: flattenToAppURL(action.url),
+  //     }))
+  //   : eea.footerOpts.copyright;
 
   // ZMI > portal_actions > social_actions
   const social = socialActions.length
@@ -51,7 +51,7 @@ const Footer = () => {
       }))
     : eea.footerOpts.social;
 
-  const siteUrl = eea?.logoTargetUrl;
+  // const siteUrl = eea?.logoTargetUrl;
 
   const options = {
     ...eea.footerOpts,
