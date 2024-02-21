@@ -91,4 +91,3 @@ See [LICENSE.md](https://github.com/eea/volto-insitu-policy/blob/master/LICENSE.
 ## Funding
 
 [European Environment Agency (EU)](http://eea.europa.eu)
-ency (EU)](http://eea.europa.eu)
