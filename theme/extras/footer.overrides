@@ -1,0 +1,3 @@
+footer .footer-wrapper {
+  background-image: none;
+}

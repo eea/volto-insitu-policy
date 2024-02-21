@@ -7,3 +7,11 @@
   @insitu-brand 24.22%,
   @insitu-brand 97.12%
 );
+
+.social a {
+  color: @socialLinkColor;
+}
+
+.social a i.icon {
+  font-size: 2.5rem;
+}

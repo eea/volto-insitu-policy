@@ -13,5 +13,6 @@
 // @ccaGreenColor: #8a9c39;
 
 @linkColor: @insitu-brand;
+@socialLinkColor: #fff;
 // @linkHoverColor: @primaryColor;
 // @linkActiveColor: @linkHoverColor;
