@@ -33,22 +33,22 @@ const applyConfig = (config) => {
       url: 'https://www.copernicus.eu/en',
       src: copernicusLogoWhite,
       alt: 'Copernicus Logo',
-      className: 'site logo',
+      className: 'site logo copernicus',
       columnSize: {
         mobile: 6,
-        tablet: 12,
-        computer: 5,
+        tablet: 6,
+        computer: 6,
       },
     },
     {
       url: 'https://www.eea.europa.eu/',
       src: eeaLogoWhite,
       alt: 'Copernicus Logo',
-      className: 'site logo',
+      className: 'site logo eea',
       columnSize: {
         mobile: 6,
-        tablet: 12,
-        computer: 5,
+        tablet: 6,
+        computer: 6,
       },
     },
   ];

@@ -18,6 +18,12 @@
 // @linkActiveColor: @linkHoverColor;
 
 /*-------------------
+    Input Border
+--------------------*/
+
+@border: 1px solid #fff;
+
+/*-------------------
      Breakpoints
 --------------------*/
 

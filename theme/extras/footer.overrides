@@ -1,3 +1,49 @@
-footer .footer-wrapper {
-  background-image: none;
+footer {
+  .footer-wrapper {
+    background-image: none;
+  }
+
+  .subfooter .ui.grid .six.wide.computer.column .item {
+    &:has(.site.logo.copernicus) {
+      justify-content: flex-end;
+    }
+
+    &:has(.site.logo.eea) {
+      justify-content: flex-start;
+    }
+  }
+
+  // input
+  .ui.action {
+    &.input input {
+      background: transparent;
+    }
+
+    .ui.button {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem;
+      background-color: #d3c5c2;
+      color: @primaryColor;
+    }
+  }
+
+  .ui.checkbox {
+    margin-top: 1rem;
+
+    label {
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .social a {
+    color: @socialLinkColor;
+
+    i.icon {
+      font-size: 2rem;
+    }
+  }
 }

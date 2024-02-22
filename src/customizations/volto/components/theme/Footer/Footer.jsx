@@ -8,7 +8,7 @@ import { useSelector, shallowEqual } from 'react-redux';
 // import { flattenToAppURL } from '@plone/volto/helpers';
 import EEAFooter from '@eeacms/volto-eea-design-system/ui/Footer/Footer';
 import config from '@plone/volto/registry';
-import { Grid, Input, Checkbox } from 'semantic-ui-react';
+import { Grid, Input, Checkbox, Divider } from 'semantic-ui-react';
 
 const Footer = () => {
   const { eea } = config.settings;
@@ -65,22 +65,25 @@ const Footer = () => {
       <Grid stackable relaxed>
         <Grid.Row>
           <Grid.Column width={4}>
-            <h3>Copernicus Services</h3>
+            <h4>Copernicus Services</h4>
+            <Divider />
             <EEAFooter.Sites sites={eea.footerOpts.sites} />
           </Grid.Column>
           <Grid.Column width={4}>
-            <h3>Sign up to In Situ updates</h3>
+            <h4>Sign up to In Situ updates</h4>
             {/* add form to connect the input and checkbox */}
             <Input
               placeholder="Enter an email address"
               action={{ content: 'Subscribe' }}
             />
-            <Checkbox label="I agree to privacy policy" required />
-            <h3>Follow us</h3>
+            <Checkbox label="I agree to the privacy policy" required />
+            <h4>Follow us</h4>
+            <Divider />
             <EEAFooter.Social social={social} />
           </Grid.Column>
           <Grid.Column width={4}>
-            <h3>Copernicus</h3>
+            <h4>Copernicus</h4>
+            <Divider />
             <p>
               Copernicus is the Earth Observation component of the European
               Union's space programme, looking at our planet and its environment

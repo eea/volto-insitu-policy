@@ -8,10 +8,17 @@
   @insitu-brand 97.12%
 );
 
-.social a {
-  color: @socialLinkColor;
+.ui.input input {
+  border: @border !important;
+
+  &:active,
+  &:focus {
+    border: 1px solid #fff;
+  }
 }
 
-.social a i.icon {
-  font-size: 2.5rem;
+.ui.stackable.relaxed.grid
+  .ui.action.input:not([class*='left action'])
+  > input {
+  border-right-color: #fff !important;
 }
