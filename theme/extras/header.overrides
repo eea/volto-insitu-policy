@@ -1,0 +1,72 @@
+/*******************************
+            Header
+*******************************/
+
+/*----------------------------------------------------------------------------
+   HEADER MAIN BAR
+----------------------------------------------------------------------------*/
+
+.top.bar {
+  background-color: @insitu-brand !important;
+  .divider.text {
+    color: @socialLinkColor;
+  }
+  .ui.dropdown {
+    color: @socialLinkColor;
+  }
+}
+
+.main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.65rem;
+  max-width: 340px;
+}
+
+.eea.header .eea-logo {
+  height: 50px;
+}
+
+/* Medium screens */
+// @media (max-width: 1185px) {
+//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+//     max-width: 300px !important;
+//     align-self: center;
+//   }
+
+//   .eea.header .eea-logo {
+//     height: 40px !important;
+//   }
+// }
+
+/* Small screens */
+@media (max-width: 480px) {
+  .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+    max-width: 220px !important;
+  }
+
+  .eea.header .eea-logo {
+    height: 30px !important;
+  }
+}
+
+.main.bar .ui.container .ui.text.menu {
+  display: flex;
+  justify-content: space-between;
+  // flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 15px !important;
+}
+
+.main-menu .item a {
+  font-size: 18px;
+}
+
+/*----------------------------------------------------------------------------
+  Header Actions - Burger and Search Icons
+----------------------------------------------------------------------------*/
+.burger-action {
+  background-color: #45241e !important;
+}
