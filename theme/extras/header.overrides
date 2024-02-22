@@ -29,21 +29,21 @@
 }
 
 /* Medium screens */
-@media (max-width: 1185px) {
-  .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-    max-width: 300px !important;
-    align-self: center;
-  }
+// @media (max-width: 1185px) {
+//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+//     max-width: 300px !important;
+//     align-self: center;
+//   }
 
-  .eea.header .eea-logo {
-    height: 40px !important;
-  }
-}
+//   .eea.header .eea-logo {
+//     height: 40px !important;
+//   }
+// }
 
 /* Small screens */
 @media (max-width: 480px) {
   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-    max-width: 180px;
+    max-width: 220px !important;
   }
 
   .eea.header .eea-logo {
