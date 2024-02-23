@@ -8,7 +8,14 @@ import { useSelector, shallowEqual } from 'react-redux';
 // import { flattenToAppURL } from '@plone/volto/helpers';
 import EEAFooter from '@eeacms/volto-eea-design-system/ui/Footer/Footer';
 import config from '@plone/volto/registry';
-import { Grid, Input, Checkbox, Divider } from 'semantic-ui-react';
+import {
+  Grid,
+  Input,
+  Checkbox,
+  Divider,
+  Form,
+  FormField,
+} from 'semantic-ui-react';
 
 const Footer = () => {
   const { eea } = config.settings;
@@ -64,24 +71,27 @@ const Footer = () => {
       <EEAFooter.SubFooter {...options} />
       <Grid stackable relaxed>
         <Grid.Row>
-          <Grid.Column width={4}>
+          <Grid.Column mobile={12} tablet={12} computer={4}>
             <h4>Copernicus Services</h4>
             <Divider />
             <EEAFooter.Sites sites={eea.footerOpts.sites} />
           </Grid.Column>
-          <Grid.Column width={4}>
+          <Grid.Column mobile={12} tablet={12} computer={4}>
             <h4>Sign up to In Situ updates</h4>
-            {/* add form to connect the input and checkbox */}
-            <Input
-              placeholder="Enter an email address"
-              action={{ content: 'Subscribe' }}
-            />
-            <Checkbox label="I agree to the privacy policy" required />
+            <Form>
+              <FormField>
+                <Input
+                  placeholder="Enter an email address"
+                  action={{ content: 'Subscribe' }}
+                />
+                <Checkbox label="I agree to the privacy policy" required />
+              </FormField>
+            </Form>
             <h4>Follow us</h4>
             <Divider />
             <EEAFooter.Social social={social} />
           </Grid.Column>
-          <Grid.Column width={4}>
+          <Grid.Column mobile={12} tablet={12} computer={4}>
             <h4>Copernicus</h4>
             <Divider />
             <p>

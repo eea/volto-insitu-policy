@@ -28,28 +28,32 @@ footer {
     }
   }
 
-  // input
-  .ui.action {
-    &.input input {
-      background: transparent;
+  // Footer Form
+  .ui.form .field {
+    .ui.action {
+      &.input input {
+        height: 42px;
+        background: transparent;
+      }
+
+      .ui.button {
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+        background-color: #d3c5c2;
+        color: @primaryColor;
+      }
     }
 
-    .ui.button {
-      padding-right: 1.25rem;
-      padding-left: 1.25rem;
-      background-color: #d3c5c2;
-      color: @primaryColor;
-    }
-  }
+    .ui.checkbox {
+      display: block;
+      margin-top: 1rem;
 
-  .ui.checkbox {
-    margin-top: 1rem;
-
-    label {
-      color: #fff;
-
-      &:hover {
+      label {
         color: #fff;
+
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }
