@@ -1,4 +1,8 @@
 footer {
+  h4 {
+    font-weight: 400;
+  }
+
   .ui.stackable.relaxed.grid .ui.input {
     input {
       border: 1px solid #fff !important;
@@ -34,6 +38,7 @@ footer {
       &.input input {
         height: 42px;
         background: transparent;
+        color: #fff;
       }
 
       .ui.button {
