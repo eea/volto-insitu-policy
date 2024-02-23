@@ -1,4 +1,19 @@
 footer {
+  .ui.stackable.relaxed.grid .ui.input {
+    input {
+      border: 1px solid #fff !important;
+
+      &:active,
+      &:focus {
+        border: 1px solid #fff;
+      }
+    }
+
+    &.action:not([class*='left action']) > input {
+      border-right-color: #fff !important;
+    }
+  }
+
   .footer-wrapper {
     background-image: none;
   }

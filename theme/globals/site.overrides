@@ -7,18 +7,3 @@
   @insitu-brand 24.22%,
   @insitu-brand 97.12%
 );
-
-.ui.input input {
-  border: @border !important;
-
-  &:active,
-  &:focus {
-    border: 1px solid #fff;
-  }
-}
-
-.ui.stackable.relaxed.grid
-  .ui.action.input:not([class*='left action'])
-  > input {
-  border-right-color: #fff !important;
-}
