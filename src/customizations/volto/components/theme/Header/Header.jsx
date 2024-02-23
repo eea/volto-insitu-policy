@@ -142,12 +142,12 @@ const EEAHeader = ({ pathname, token, items, history, subsite }) => {
         headerSearchBox={headerSearchBox}
         logo={
           <div>
-            {headerOpts.logo.map((logo) => (
+            {headerOpts.logo.map((logo, index) => (
               <Logo
                 src={logo}
                 title={eea.websiteTitle}
                 alt={eea.organisationName}
-                url={eea.logoTargetUrl}
+                url={eea.logoTargetUrl[index]}
                 key={logo}
               />
             ))}

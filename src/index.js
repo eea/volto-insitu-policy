@@ -26,6 +26,7 @@ const applyConfig = (config) => {
       ...(config.settings.eea?.headerOpts || {}),
       logo: [copernicusLogo, insituLogo],
     },
+    logoTargetUrl: ['https://www.copernicus.eu/en', '/'],
   };
 
   config.settings.eea.footerOpts.managedBy = [
