@@ -21,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 0.65rem;
-  max-width: 340px;
+  // max-width: 340px;
 }
 
 .eea.header .eea-logo {
@@ -29,16 +29,21 @@
 }
 
 /* Medium screens */
-// @media (max-width: 1185px) {
-//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-//     max-width: 300px !important;
-//     align-self: center;
-//   }
+@media (max-width: 1185px) {
+  .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+    max-width: 350px !important;
+  }
+}
 
-//   .eea.header .eea-logo {
-//     height: 40px !important;
-//   }
-// }
+@media (max-width: @tabletBreakpoint) {
+  .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+    max-width: 300px !important;
+  }
+  .eea.header .eea-logo {
+    height: 40px !important;
+    max-width: 170px !important;
+  }
+}
 
 /* Small screens */
 @media (max-width: 480px) {

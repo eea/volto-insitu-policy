@@ -29,6 +29,9 @@ const applyConfig = (config) => {
     logoTargetUrl: ['https://www.copernicus.eu/en', '/'],
   };
 
+  config.settings.eea.headerOpts.partnerLinks.title =
+    'Copernicus Services' || '';
+
   config.settings.eea.footerOpts.managedBy = [
     {
       url: 'https://www.copernicus.eu/en',

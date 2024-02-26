@@ -21,13 +21,4 @@
      Breakpoints
 --------------------*/
 
-@mobileBreakpoint: 320px;
-@mobileLandscapeBreakpoint: 480px; // introduced for the design system
-@tabletBreakpoint: 768px;
-@contentBreakpoint: 835px; // introduced for the design system
 @computerBreakpoint: 1200px;
-@smallMonitorBreakpoint: 1024px; // introduced for the design system
-@largeMonitorBreakpoint: 1200px;
-@laptopMonitorBreakpoint: 1280px; // introduced for the design system
-@siteBreakpoint: 1400px; // introduced for the design system
-@widescreenMonitorBreakpoint: 1920px;
