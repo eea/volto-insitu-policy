@@ -49,7 +49,7 @@ footer {
   }
 
   .footer-wrapper {
-    padding: 72px 0;
+    padding: 20px 0 0 0;
     background-image: none;
   }
 
@@ -116,6 +116,19 @@ footer {
 
     i.icon {
       font-size: 2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  footer {
+    .footer-wrapper {
+      .footer-services {
+        padding-left: 0px !important;
+      }
+      .footer-about {
+        padding-right: 0px !important;
+      }
     }
   }
 }

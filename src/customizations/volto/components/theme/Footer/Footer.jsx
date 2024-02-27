@@ -72,12 +72,22 @@ const Footer = () => {
         <EEAFooter.SubFooter {...options} />
         <Grid stackable relaxed padded>
           <Grid.Row>
-            <Grid.Column mobile={12} tablet={12} computer={4}>
+            <Grid.Column
+              mobile={12}
+              tablet={12}
+              computer={4}
+              className="footer-services"
+            >
               <h4 className="footer-section-title">Copernicus Services</h4>
               <Divider />
               <EEAFooter.Sites sites={eea.footerOpts.sites} />
             </Grid.Column>
-            <Grid.Column mobile={12} tablet={12} computer={4}>
+            <Grid.Column
+              mobile={12}
+              tablet={12}
+              computer={4}
+              className="footer-follow-us"
+            >
               <h4 className="footer-section-title">
                 Sign up to In Situ updates
               </h4>
@@ -102,7 +112,12 @@ const Footer = () => {
               <Divider />
               <EEAFooter.Social social={social} />
             </Grid.Column>
-            <Grid.Column mobile={12} tablet={12} computer={4}>
+            <Grid.Column
+              mobile={12}
+              tablet={12}
+              computer={4}
+              className="footer-about"
+            >
               <h4 className="footer-section-title">Copernicus</h4>
               <Divider />
               <p>
