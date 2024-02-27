@@ -61,31 +61,37 @@ const applyConfig = (config) => {
         link: 'https://www.eea.europa.eu/',
         src: athmosphere,
         alt: 'EEA',
+        title: 'Atmosphere',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: marine,
         alt: 'EEA',
+        title: 'Marine',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: land,
         alt: 'EEA',
+        title: 'Land',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: security,
         alt: 'EEA',
+        title: 'Security',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: climateChange,
         alt: 'EEA',
+        title: 'Climate Change',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: emergency,
         alt: 'EEA',
+        title: 'Emergency',
       },
     ],
   };

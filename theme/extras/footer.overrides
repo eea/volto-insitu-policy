@@ -1,6 +1,36 @@
 footer {
   h4 {
+    font-size: 24px;
     font-weight: 400;
+  }
+
+  .ui.grid > .row {
+    padding-top: 0.7rem;
+  }
+
+  .theme-sites {
+    padding-top: 0;
+
+    .logos .ui.grid .row .logo.column {
+      &:nth-child(-n + 3) {
+        padding-bottom: 2rem !important;
+      }
+
+      img {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .logo-title {
+    padding-top: 0.5rem;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .footer-section-title {
+    padding-top: 1rem;
   }
 
   .ui.stackable.relaxed.grid .ui.input {
@@ -19,6 +49,7 @@ footer {
   }
 
   .footer-wrapper {
+    padding: 72px 0;
     background-image: none;
   }
 
@@ -29,6 +60,7 @@ footer {
 
     &:has(.site.logo.eea) {
       justify-content: flex-start;
+      padding-left: 72px;
     }
   }
 
@@ -37,6 +69,7 @@ footer {
     .ui.action {
       &.input input {
         height: 42px;
+        padding-left: 9.7142px;
         background: transparent;
         color: #fff;
       }
@@ -59,6 +92,21 @@ footer {
         &:hover {
           color: #fff;
         }
+
+        a {
+          color: #fff;
+          font-weight: normal;
+          text-decoration: underline;
+
+          &:visited {
+            color: #fff;
+          }
+
+          &:hover {
+            color: #fff;
+            font-weight: 500;
+          }
+        }
       }
     }
   }
@@ -68,6 +116,51 @@ footer {
 
     i.icon {
       font-size: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: @mobileLandscapeBreakpoint) {
+  footer {
+    .footer-wrapper {
+      padding: 36px 0 !important;
+      background-image: none;
+    }
+
+    .theme-sites .logos .logo img {
+      max-width: 70%;
+      margin-bottom: 0;
+    }
+
+    .subfooter .ui.grid .six.wide.computer.column .item {
+      &:has(.site.logo.copernicus) {
+        justify-content: flex-end;
+      }
+
+      &:has(.site.logo.eea) {
+        justify-content: flex-start;
+        padding-left: 0;
+      }
+    }
+
+    .footer-section-title {
+      padding-top: 1rem;
+    }
+  }
+}
+
+.footer-menu-actions {
+  .ui.grid > .row {
+    padding-bottom: 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    a {
+      padding: 25px 50px;
     }
   }
 }

@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
-// import { flattenToAppURL } from '@plone/volto/helpers';
+import { flattenToAppURL } from '@plone/volto/helpers';
 import EEAFooter from '@eeacms/volto-eea-design-system/ui/Footer/Footer';
 import config from '@plone/volto/registry';
 import {
@@ -21,7 +21,7 @@ const Footer = () => {
   const { eea } = config.settings;
   // const logo = eea.footerOpts.logoWhite;
   const {
-    // footerActions = [],
+    footerActions = [],
     // copyrightActions = [],
     socialActions = [],
   } = useSelector(
@@ -33,12 +33,12 @@ const Footer = () => {
     shallowEqual,
   );
   // ZMI > portal_actions > footer_actions
-  // const actions = footerActions.length
-  //   ? footerActions.map((action) => ({
-  //       title: action.title,
-  //       link: flattenToAppURL(action.url),
-  //     }))
-  //   : eea.footerOpts.actions;
+  const actions = footerActions.length
+    ? footerActions.map((action) => ({
+        title: action.title,
+        link: flattenToAppURL(action.url),
+      }))
+    : eea.footerOpts.actions;
 
   // ZMI > portal_actions > copyright_actions
   // const copyright = copyrightActions.length
@@ -66,43 +66,56 @@ const Footer = () => {
   };
 
   return (
-    <EEAFooter>
-      <EEAFooter.Header>{eea.footerOpts.logosHeader}</EEAFooter.Header>
-      <EEAFooter.SubFooter {...options} />
-      <Grid stackable relaxed>
-        <Grid.Row>
-          <Grid.Column mobile={12} tablet={12} computer={4}>
-            <h4>Copernicus Services</h4>
-            <Divider />
-            <EEAFooter.Sites sites={eea.footerOpts.sites} />
-          </Grid.Column>
-          <Grid.Column mobile={12} tablet={12} computer={4}>
-            <h4>Sign up to In Situ updates</h4>
-            <Form>
-              <FormField>
-                <Input
-                  placeholder="Enter an email address"
-                  action={{ content: 'Subscribe' }}
-                />
-                <Checkbox label="I agree to the privacy policy" required />
-              </FormField>
-            </Form>
-            <h4>Follow us</h4>
-            <Divider />
-            <EEAFooter.Social social={social} />
-          </Grid.Column>
-          <Grid.Column mobile={12} tablet={12} computer={4}>
-            <h4>Copernicus</h4>
-            <Divider />
-            <p>
-              Copernicus is the Earth Observation component of the European
-              Union's space programme, looking at our planet and its environment
-              for the benefit of Europe's citizens.
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </EEAFooter>
+    <>
+      <EEAFooter>
+        <EEAFooter.Header>{eea.footerOpts.logosHeader}</EEAFooter.Header>
+        <EEAFooter.SubFooter {...options} />
+        <Grid stackable relaxed padded>
+          <Grid.Row>
+            <Grid.Column mobile={12} tablet={12} computer={4}>
+              <h4 className="footer-section-title">Copernicus Services</h4>
+              <Divider />
+              <EEAFooter.Sites sites={eea.footerOpts.sites} />
+            </Grid.Column>
+            <Grid.Column mobile={12} tablet={12} computer={4}>
+              <h4 className="footer-section-title">
+                Sign up to In Situ updates
+              </h4>
+              <Form>
+                <FormField>
+                  <Input
+                    placeholder="Enter an email address"
+                    action={{ content: 'Subscribe' }}
+                  />
+                  <Checkbox
+                    label={
+                      <label>
+                        I agree to the{' '}
+                        <a href="/privacy-policy">privacy policy</a>
+                      </label>
+                    }
+                    required
+                  />
+                </FormField>
+              </Form>
+              <h4 className="footer-section-title">Follow us</h4>
+              <Divider />
+              <EEAFooter.Social social={social} />
+            </Grid.Column>
+            <Grid.Column mobile={12} tablet={12} computer={4}>
+              <h4 className="footer-section-title">Copernicus</h4>
+              <Divider />
+              <p>
+                Copernicus is the Earth Observation component of the European
+                Union's space programme, looking at our planet and its
+                environment for the benefit of Europe's citizens.
+              </p>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </EEAFooter>
+      <EEAFooter.Actions actions={actions} />
+    </>
   );
 };
 

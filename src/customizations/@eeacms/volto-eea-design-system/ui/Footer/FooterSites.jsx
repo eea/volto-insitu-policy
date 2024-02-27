@@ -17,6 +17,7 @@ const Sites = (props) => {
               alt={''}
               loading="lazy"
             ></Image>
+            <div className="logo-title">{item.title}</div>
           </a>
         </Grid.Column>,
       );
@@ -32,8 +33,8 @@ const Sites = (props) => {
   return (
     <div className="theme-sites">
       <div className="logos">
-        <Grid columns={3} stackable relaxed>
-          {getLogoColumns(props.sites)}
+        <Grid columns={3} relaxed>
+          <Grid.Row>{getLogoColumns(props.sites)}</Grid.Row>
         </Grid>
       </div>
     </div>
