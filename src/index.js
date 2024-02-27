@@ -8,7 +8,8 @@ import security from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/
 import climateChange from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/climate-change.svg';
 import emergency from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/emergency.svg';
 import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Header/copernicus_eu_logo_white.svg';
-import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
+// import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
+import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
 
 const applyConfig = (config) => {
   //Routes
@@ -43,7 +44,7 @@ const applyConfig = (config) => {
     },
     {
       url: 'https://www.eea.europa.eu/',
-      src: eeaLogoWhite,
+      src: eeaLogoWhiteBy,
       alt: 'Copernicus Logo',
       className: 'site logo eea',
       columnSize: {
