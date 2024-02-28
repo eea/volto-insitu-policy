@@ -1,0 +1,53 @@
+.hero-block-inner-wrapper {
+  width: 45% !important;
+}
+.hero-block-text.color-fg-white.text-left {
+  color: #ffffff !important;
+  h2 {
+    font-size: 2rem !important;
+    font-family: 'Arial' !important;
+    line-height: 0.2 !important;
+    margin-bottom: 2rem !important;
+  }
+  p {
+    font-size: 1.2rem !important;
+    font-weight: 400 !important;
+    font-family: 'Arial' !important;
+    letter-spacing: -1px !important;
+  }
+  .slate-editor p {
+    line-height: 1 !important;
+  }
+}
+
+.hero-block-image {
+  border-bottom: 24px solid @primaryColor;
+}
+
+.hero-block-inner-wrapper {
+  padding-block: 5% 5% !important;
+}
+
+.ui.basic.segment.content-area {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+//TODO: Make full responsive
+
+@media (max-width: 480px) {
+  .hero-block-inner-wrapper {
+    width: 100% !important;
+  }
+  .hero-block-text.color-fg-white.text-left {
+    h2 {
+      font-size: 6vw !important;
+      line-height: 0.5vw !important;
+    }
+    p {
+      font-size: 4vw !important;
+      line-height: 4vw !important;
+      margin-bottom: 1vw !important;
+    }
+  }
+}
