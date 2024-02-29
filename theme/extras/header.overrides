@@ -16,7 +16,7 @@
   }
 }
 
-.main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+.logo-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,49 +24,95 @@
   max-width: 340px;
 }
 
+@media only screen and (min-width: @computerBreakpoint) {
+  .main.bar .ui.text.menu {
+    gap: 0 0.8rem;
+  }
+}
+
+.main-menu .item a {
+  font-size: 18px !important;
+}
+
 .eea.header .eea-logo {
   height: 50px;
 }
 
-/* Medium screens */
-// @media (max-width: 1185px) {
-//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-//     max-width: 300px !important;
-//     align-self: center;
-//   }
+.burger-action {
+  background-color: #45241e !important;
+}
 
-//   .eea.header .eea-logo {
-//     height: 40px !important;
-//   }
-// }
-
-/* Small screens */
-@media (max-width: 480px) {
-  .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-    max-width: 220px !important;
+@media (max-width: @largeMonitorBreakpoint) {
+  .logo-container {
+    max-width: 300px;
   }
-
   .eea.header .eea-logo {
+    height: 40px;
+  }
+  .main-menu .item a {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: @tabletBreakpoint) {
+  .logo-container {
+    max-width: 350px !important;
+  }
+  .eea.header .eea-logo {
+    max-width: 250px !important;
+    height: 50px !important;
+  }
+}
+
+@media (max-width: @mobileLandscapeBreakpoint) {
+  .logo-container {
+    max-width: 300px !important;
+  }
+  .eea.header .eea-logo {
+    max-width: 200px !important;
+    height: 35px !important;
+  }
+}
+
+@media (max-width: 410px) {
+  .logo-container {
+    max-width: 240px !important;
+  }
+  .eea.header .eea-logo {
+    max-width: 180px !important;
     height: 30px !important;
   }
 }
 
-.main.bar .ui.container .ui.text.menu {
-  display: flex;
-  justify-content: space-between;
-  // flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 15px !important;
+@media (max-width: @mobileBreakpoint) {
+  .logo-container {
+    max-width: 200px !important;
+  }
+  .eea.header .eea-logo {
+    max-width: 150px !important;
+    height: 25px !important;
+  }
 }
 
-.main-menu .item a {
-  font-size: 18px;
-}
+//
+// }
 
-/*----------------------------------------------------------------------------
-  Header Actions - Burger and Search Icons
-----------------------------------------------------------------------------*/
-.burger-action {
-  background-color: #45241e !important;
-}
+/* Small screens */
+// @media (max-width: 480px) {
+//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
+//     max-width: 220px !important;
+//   }
+
+//   .eea.header .eea-logo {
+//     height: 30px !important;
+//   }
+// }
+
+// .main.bar .ui.container .ui.text.menu {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   gap: 0.5rem;
+//   font-size: 15px !important;
+// }

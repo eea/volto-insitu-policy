@@ -20,6 +20,8 @@ const applyConfig = (config) => {
     },
   ];
 
+  config.settings.eea.headerOpts.partnerLinks.title = 'Copernicus Services';
+
   //EEA customizations
   config.settings.eea = {
     ...(config.settings.eea || {}),

@@ -1,31 +1,28 @@
 .hero-block-inner-wrapper {
-  width: 45% !important;
-}
-.hero-block-text.color-fg-white.text-left {
-  color: #ffffff !important;
-  h2 {
-    font-size: 2rem !important;
-    font-family: 'Arial' !important;
-    line-height: 0.2 !important;
-    margin-bottom: 2rem !important;
-  }
-  p {
-    font-size: 1.2rem !important;
-    font-weight: 400 !important;
-    font-family: 'Arial' !important;
-    letter-spacing: -1px !important;
-  }
-  .slate-editor p {
-    line-height: 1 !important;
-  }
+  width: 41% !important;
 }
 
 .hero-block-image {
   border-bottom: 24px solid @primaryColor;
 }
 
-.hero-block-inner-wrapper {
-  padding-block: 5% 5% !important;
+.hero-block-text.color-fg-white.text-left {
+  h2 {
+    font-family: 'Arial' !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.3rem !important;
+  }
+  p {
+    font-weight: 500 !important;
+    font-family: 'Arial' !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .hero-block-inner-wrapper {
+    padding-block-start: 2vw;
+    padding-block-end: calc(2vw - 24px);
+  }
 }
 
 .ui.basic.segment.content-area {
@@ -35,19 +32,31 @@
 
 //TODO: Make full responsive
 
-@media (max-width: 480px) {
+@media (max-width: 1200px) {
   .hero-block-inner-wrapper {
-    width: 100% !important;
-  }
-  .hero-block-text.color-fg-white.text-left {
-    h2 {
-      font-size: 6vw !important;
-      line-height: 0.5vw !important;
-    }
-    p {
-      font-size: 4vw !important;
-      line-height: 4vw !important;
-      margin-bottom: 1vw !important;
-    }
+    width: 60% !important;
   }
 }
+
+@media (max-width: 500px) {
+  .hero-block-inner-wrapper {
+    width: 80% !important;
+  }
+}
+
+// @media (max-width: 480px) {
+//   .hero-block-inner-wrapper {
+//     width: 100% !important;
+//   }
+//   .hero-block-text.color-fg-white.text-left {
+//     h2 {
+//       font-size: 6vw !important;
+//       line-height: 0.5vw !important;
+//     }
+//     p {
+//       font-size: 4vw !important;
+//       line-height: 4vw !important;
+//       margin-bottom: 1vw !important;
+//     }
+//   }
+// }
