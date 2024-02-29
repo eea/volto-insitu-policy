@@ -141,7 +141,7 @@ const EEAHeader = ({ pathname, token, items, history, subsite }) => {
         pathname={pathname}
         headerSearchBox={headerSearchBox}
         logo={
-          <div>
+          <div className="logo-container">
             {headerOpts.logo.map((logo, index) => (
               <Logo
                 src={logo}
