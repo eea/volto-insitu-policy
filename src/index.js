@@ -8,7 +8,8 @@ import security from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/
 import climateChange from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/climate-change.svg';
 import emergency from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/emergency.svg';
 import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Header/copernicus_eu_logo_white.svg';
-import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
+// import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
+import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
 
 const applyConfig = (config) => {
   //Routes
@@ -26,6 +27,7 @@ const applyConfig = (config) => {
       ...(config.settings.eea?.headerOpts || {}),
       logo: [copernicusLogo, insituLogo],
     },
+    logoTargetUrl: ['https://www.copernicus.eu/en', '/'],
   };
 
   config.settings.eea.footerOpts.managedBy = [
@@ -42,7 +44,7 @@ const applyConfig = (config) => {
     },
     {
       url: 'https://www.eea.europa.eu/',
-      src: eeaLogoWhite,
+      src: eeaLogoWhiteBy,
       alt: 'Copernicus Logo',
       className: 'site logo eea',
       columnSize: {
@@ -60,31 +62,37 @@ const applyConfig = (config) => {
         link: 'https://www.eea.europa.eu/',
         src: athmosphere,
         alt: 'EEA',
+        title: 'Atmosphere',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: marine,
         alt: 'EEA',
+        title: 'Marine',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: land,
         alt: 'EEA',
+        title: 'Land',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: security,
         alt: 'EEA',
+        title: 'Security',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: climateChange,
         alt: 'EEA',
+        title: 'Climate Change',
       },
       {
         link: 'https://www.eea.europa.eu/',
         src: emergency,
         alt: 'EEA',
+        title: 'Emergency',
       },
     ],
   };
