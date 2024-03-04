@@ -1,0 +1,2 @@
+TODO:
+Bug: links are not working in footer - bottom menu - in Sitemap page.
