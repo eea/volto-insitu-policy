@@ -1,27 +1,44 @@
-.hero-block-inner-wrapper {
-  width: 41% !important;
-}
-
-.hero-block-image {
-  border-bottom: 24px solid @primaryColor;
-}
-
-.hero-block-text.color-fg-white.text-left {
-  h2 {
-    font-family: 'Arial' !important;
-    font-weight: 700 !important;
-    margin-bottom: 0.3rem !important;
-  }
-  p {
-    font-weight: 500 !important;
-    font-family: 'Arial' !important;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
+.hero-block {
   .hero-block-inner-wrapper {
-    padding-block-start: 2vw;
-    padding-block-end: calc(2vw - 24px);
+    width: 41% !important;
+  }
+
+  .hero-block-image-wrapper.full-width {
+    min-height: 0 !important;
+  }
+
+  .hero-block-image {
+    border-bottom: 24px solid @primaryColor;
+  }
+
+  .hero-block-text.color-fg-white.text-left {
+    h2 {
+      font-family: 'Arial' !important;
+      font-weight: 700 !important;
+      margin-bottom: 0.3rem !important;
+    }
+    p {
+      font-weight: 500 !important;
+      font-family: 'Arial' !important;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .hero-block-inner-wrapper {
+      padding-block-start: 2vw;
+      padding-block-end: calc(2vw - 24px);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .hero-block-inner-wrapper {
+      width: 60% !important;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .hero-block-inner-wrapper {
+      width: 80% !important;
+    }
   }
 }
 
@@ -29,34 +46,3 @@
   margin: 0 !important;
   padding: 0 !important;
 }
-
-//TODO: Make full responsive
-
-@media (max-width: 1200px) {
-  .hero-block-inner-wrapper {
-    width: 60% !important;
-  }
-}
-
-@media (max-width: 500px) {
-  .hero-block-inner-wrapper {
-    width: 80% !important;
-  }
-}
-
-// @media (max-width: 480px) {
-//   .hero-block-inner-wrapper {
-//     width: 100% !important;
-//   }
-//   .hero-block-text.color-fg-white.text-left {
-//     h2 {
-//       font-size: 6vw !important;
-//       line-height: 0.5vw !important;
-//     }
-//     p {
-//       font-size: 4vw !important;
-//       line-height: 4vw !important;
-//       margin-bottom: 1vw !important;
-//     }
-//   }
-// }
