@@ -11,8 +11,8 @@ const SubFooter = (props) => {
     <div className={'subfooter'}>
       <div className="subfooter-logo-container">
         {props.managedBy &&
-          props.managedBy.map((manager, index) => (
-            <a href={manager.url}>
+          props.managedBy.map((manager) => (
+            <a href={manager.url} key={manager.src}>
               <Image src={manager.src} alt={manager.alt} loading="lazy"></Image>
             </a>
           ))}
