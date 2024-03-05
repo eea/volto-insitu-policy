@@ -9,30 +9,23 @@ const SubFooter = (props) => {
 
   return (
     <div className={'subfooter'}>
-      <Grid>
+      <div className="subfooter-logo-container">
         {props.managedBy &&
           props.managedBy.map((manager, index) => (
-            <Grid.Column
-              mobile={manager.columnSize.mobile}
-              tablet={manager.columnSize.tablet}
-              computer={manager.columnSize.computer}
-              key={index}
-              className="mobile hidden"
-            >
-              <div className="item">
-                <div className={manager.className}>
-                  <a href={manager.url}>
-                    <Image
-                      src={manager.src}
-                      alt={manager.alt}
-                      loading="lazy"
-                    ></Image>
-                  </a>
-                </div>
+            <div className="item">
+              <div className={manager.className}>
+                <a href={manager.url}>
+                  <Image
+                    src={manager.src}
+                    alt={manager.alt}
+                    loading="lazy"
+                  ></Image>
+                </a>
               </div>
-            </Grid.Column>
+            </div>
+            // </Grid.Column>
           ))}
-      </Grid>
+      </div>
 
       <Grid className="mobile only">
         {props.managedBy &&
