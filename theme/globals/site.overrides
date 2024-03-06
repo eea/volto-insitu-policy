@@ -2,6 +2,8 @@
         Global Overrides
 *******************************/
 
+@import '../extras/report-card.less';
+
 @subsiteBackgroundGradient: linear-gradient(
   248.86deg,
   @insitu-brand 24.22%,
