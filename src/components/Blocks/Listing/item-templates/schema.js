@@ -9,50 +9,6 @@ const ALIGN_INFO_MAP = {
   center: [alignCenterSVG, 'Center'],
 };
 
-const CallToActionSchema = ({ formData }) => {
-  return {
-    fieldsets: [
-      {
-        id: 'default',
-        fields: [
-          'enable',
-          ...(formData?.itemModel?.callToAction?.enable
-            ? [
-                'label',
-                formData?.['@type'] === 'listing' ? 'urlTemplate' : 'href',
-              ]
-            : []),
-        ],
-        title: 'Default',
-      },
-    ],
-    properties: {
-      enable: {
-        type: 'boolean',
-        title: 'Show action',
-      },
-      label: {
-        title: 'Action label',
-        default: 'Read more',
-        defaultValue: 'Read more',
-      },
-      href: {
-        title: 'Action URL',
-        widget: 'object_browser',
-        mode: 'link',
-        selectedItemAttrs: ['Title', 'Description'],
-        allowExternals: true,
-      },
-      urlTemplate: {
-        title: 'Action URL Template',
-        description:
-          'Enter a path. Available placeholders: $URL, $PORTAL_URL. If empty, the result URL will be used.',
-      },
-    },
-    required: [],
-  };
-};
-
 export const setCardModelSchema = (args) => {
   const { formData, schema } = args;
 
