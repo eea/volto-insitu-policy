@@ -3,8 +3,6 @@ import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
 import ReportsCardTemplate from './ReportsCardTemplate';
 import articleLine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/extras/article-line.svg';
-import CardTitle from './CardTitle';
-import CardMeta from './CardMeta';
 import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('@plone/volto/components', () => ({
