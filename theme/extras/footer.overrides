@@ -8,6 +8,16 @@ footer {
     padding-top: 0.7rem;
   }
 
+  .subfooter-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2vw;
+    img {
+      height: 70px;
+    }
+  }
+
   .theme-sites {
     padding-top: 0;
 
@@ -139,6 +149,13 @@ footer {
 
 @media only screen and (max-width: @mobileLandscapeBreakpoint) {
   footer {
+    .subfooter-logo-container {
+      display: flex;
+      justify-content: space-between;
+      img {
+        height: 55px;
+      }
+    }
     .footer-wrapper {
       padding: 36px 0 !important;
       background-image: none;
@@ -178,6 +195,22 @@ footer {
 
     a {
       padding: 25px 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .subfooter-logo-container {
+    img {
+      height: 47px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .subfooter-logo-container {
+    img {
+      height: 40px !important;
     }
   }
 }

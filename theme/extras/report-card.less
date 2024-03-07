@@ -1,0 +1,54 @@
+.block {
+  .reports-card-items {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(275px, auto));
+
+    .left-image-card {
+      grid-template-areas:
+        'image body '
+        '.     extra';
+      grid-template-columns:
+        minmax(var(--image-min-width, 40px), var(--image-max-width, 40px))
+        auto;
+    }
+
+    .ui {
+      &.image {
+        width: 40px;
+      }
+
+      &.card {
+        &.u-card.item-card {
+          display: grid;
+          padding: 1rem 0 0 0;
+
+          &:not(:last-child) {
+            border-bottom: none;
+          }
+        }
+
+        .content {
+          padding-top: 0;
+
+          .header {
+            color: #323232;
+          }
+
+          .meta {
+            color: #747678;
+            font-size: 12px;
+
+            .date {
+              margin-left: 0;
+            }
+          }
+        }
+
+        & > .image {
+          height: 40px !important;
+        }
+      }
+    }
+  }
+}

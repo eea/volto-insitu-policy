@@ -10,6 +10,12 @@ import emergency from '@eeacms/volto-insitu-policy/../theme/themes/assets/images
 import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Header/copernicus_eu_logo_white.svg';
 // import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
 import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
+import ReportsCardTemplate from '@eeacms/volto-insitu-policy/components/Blocks/Listing/item-templates/ReportsCardTemplate';
+import {
+  setCardModelSchema,
+  setCardStylingSchema,
+} from '@eeacms/volto-insitu-policy/components/Blocks/Listing/item-templates/schema';
+import { composeSchema } from '@eeacms/volto-listing-block/schema-utils';
 
 const applyConfig = (config) => {
   //Routes
@@ -95,6 +101,20 @@ const applyConfig = (config) => {
         src: emergency,
         alt: 'EEA',
         title: 'Emergency',
+      },
+    ],
+  };
+
+  config.blocks.blocksConfig.listing.extensions = {
+    ...config.blocks.blocksConfig.listing.extensions,
+    cardTemplates: [
+      ...config.blocks.blocksConfig.listing.extensions.cardTemplates,
+      {
+        id: 'reports-card',
+        isDefault: false,
+        title: 'Reports Card',
+        template: ReportsCardTemplate,
+        schemaEnhancer: composeSchema(setCardModelSchema, setCardStylingSchema),
       },
     ],
   };
