@@ -84,37 +84,37 @@ const applyConfig = (config) => {
     ...config.settings.eea.footerOpts,
     sites: [
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://atmosphere.copernicus.eu/',
         src: athmosphere,
         alt: 'EEA',
         title: 'Atmosphere',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://marine.copernicus.eu/',
         src: marine,
         alt: 'EEA',
         title: 'Marine',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://land.copernicus.eu/en',
         src: land,
         alt: 'EEA',
         title: 'Land',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://www.copernicus.eu/en/copernicus-services/security',
         src: security,
         alt: 'EEA',
         title: 'Security',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://climate.copernicus.eu/',
         src: climateChange,
         alt: 'EEA',
         title: 'Climate Change',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://emergency.copernicus.eu/',
         src: emergency,
         alt: 'EEA',
         title: 'Emergency',
