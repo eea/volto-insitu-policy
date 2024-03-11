@@ -62,8 +62,6 @@ const Footer = () => {
     ['youtube', 'twitter', 'facebook', 'linkedin'].includes(item.name),
   );
 
-  console.log(customSocialActions, 'customSocialActions');
-
   // const siteUrl = eea?.logoTargetUrl;
 
   const options = {
