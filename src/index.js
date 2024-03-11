@@ -8,7 +8,6 @@ import security from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/
 import climateChange from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/climate-change.svg';
 import emergency from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/emergency.svg';
 import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Header/copernicus_eu_logo_white.svg';
-// import eeaLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white.svg';
 import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
 import ReportsCardTemplate from '@eeacms/volto-insitu-policy/components/Blocks/Listing/item-templates/ReportsCardTemplate';
 import {
@@ -26,9 +25,27 @@ const applyConfig = (config) => {
     },
   ];
 
-  config.settings.eea.headerOpts.partnerLinks.title = 'Copernicus Services';
+  //In situ customizations
 
-  //EEA customizations
+  config.settings.eea.headerOpts.partnerLinks.title = 'Copernicus Services';
+  config.settings.eea.headerOpts.partnerLinks.links = [
+    {
+      title: 'Copernicus Atmosphere',
+      href: 'https://atmosphere.copernicus.eu/',
+    },
+    { title: 'Copernicus Marine', href: 'https://marine.copernicus.eu/' },
+    { title: 'Copernicus Land', href: 'https://land.copernicus.eu/' },
+    {
+      title: 'Copernicus Security',
+      href: 'https://www.copernicus.eu/en/copernicus-services/security',
+    },
+    {
+      title: 'Copernicus Climate Change',
+      href: 'https://climate.copernicus.eu/',
+    },
+    { title: 'Copernicus Emergency', href: 'https://emergency.copernicus.eu/' },
+  ];
+
   config.settings.eea = {
     ...(config.settings.eea || {}),
     headerOpts: {
@@ -67,37 +84,37 @@ const applyConfig = (config) => {
     ...config.settings.eea.footerOpts,
     sites: [
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://atmosphere.copernicus.eu/',
         src: athmosphere,
         alt: 'EEA',
         title: 'Atmosphere',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://marine.copernicus.eu/',
         src: marine,
         alt: 'EEA',
         title: 'Marine',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://land.copernicus.eu/en',
         src: land,
         alt: 'EEA',
         title: 'Land',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://www.copernicus.eu/en/copernicus-services/security',
         src: security,
         alt: 'EEA',
         title: 'Security',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://climate.copernicus.eu/',
         src: climateChange,
         alt: 'EEA',
         title: 'Climate Change',
       },
       {
-        link: 'https://www.eea.europa.eu/',
+        link: 'https://emergency.copernicus.eu/',
         src: emergency,
         alt: 'EEA',
         title: 'Emergency',

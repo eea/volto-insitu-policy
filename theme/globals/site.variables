@@ -10,12 +10,11 @@
 
 @primaryColor: @insitu-brand;
 @secondaryColor: @insitu-brand;
-// @ccaGreenColor: #8a9c39;
+// @darkPrimaryColor: @insitu-brand;
+// @tertiaryColor: @deepBlue;
 
 @linkColor: @insitu-brand;
 @socialLinkColor: #fff;
-// @linkHoverColor: @primaryColor;
-// @linkActiveColor: @linkHoverColor;
 
 /*-------------------
      Breakpoints

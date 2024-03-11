@@ -10,7 +10,7 @@ const Sites = (props) => {
       const item = logos[i];
       column.push(
         <Grid.Column className="logo" key={i}>
-          <a className="logo" href={item.url} aria-label={item.alt}>
+          <a className="logo" href={item.link} aria-label={item.alt}>
             <Image
               className={item.className}
               src={item.src}
