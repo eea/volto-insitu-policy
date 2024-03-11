@@ -58,6 +58,10 @@ const Footer = () => {
       }))
     : eea.footerOpts.social;
 
+  const customSocialActions = social.filter((item) =>
+    ['youtube', 'twitter', 'facebook', 'linkedin'].includes(item.name),
+  );
+
   // const siteUrl = eea?.logoTargetUrl;
 
   const options = {
@@ -99,9 +103,9 @@ const Footer = () => {
                   />
                   <Checkbox
                     label={
+                      // eslint-disable-next-line jsx-a11y/label-has-associated-control
                       <label>
-                        I agree to the{' '}
-                        <a href="/privacy-policy">privacy policy</a>
+                        I agree to the <a href="/privacy">privacy policy</a>
                       </label>
                     }
                     required
@@ -110,7 +114,7 @@ const Footer = () => {
               </Form>
               <h4 className="footer-section-title">Follow us</h4>
               <Divider />
-              <EEAFooter.Social social={social} />
+              <EEAFooter.Social social={customSocialActions} />
             </Grid.Column>
             <Grid.Column
               mobile={12}
