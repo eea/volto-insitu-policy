@@ -24,8 +24,8 @@
   }
   @media only screen and (min-width: 1200px) {
     .hero-block-inner-wrapper {
-      padding-block-start: 2vw;
-      padding-block-end: calc(2vw - 24px);
+      padding-block-start: 90px;
+      padding-block-end: 66px;
     }
   }
 
