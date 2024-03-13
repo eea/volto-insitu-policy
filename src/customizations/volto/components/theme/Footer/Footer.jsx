@@ -62,6 +62,8 @@ const Footer = () => {
     ['youtube', 'twitter', 'facebook', 'linkedin'].includes(item.name),
   );
 
+  customSocialActions[0].icon = 'ri-twitter-x-line';
+
   // const siteUrl = eea?.logoTargetUrl;
 
   const options = {
