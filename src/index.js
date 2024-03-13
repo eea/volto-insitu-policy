@@ -25,6 +25,8 @@ const applyConfig = (config) => {
     },
   ];
 
+  config.settings.eea.footerOpts.social[0].icon = 'ri-twitter-x-line';
+
   //In situ customizations
 
   config.settings.eea.headerOpts.partnerLinks.title = 'Copernicus Services';

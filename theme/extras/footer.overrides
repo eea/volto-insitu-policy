@@ -170,7 +170,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: @largeMonitorBreakpoint) {
   footer {
     .footer-wrapper {
       .footer-services {
@@ -180,6 +180,12 @@ footer {
         padding-right: 0px !important;
       }
     }
+  }
+}
+
+@media only screen and (max-width: @largeMonitorBreakpoint) {
+  .ui.input {
+    max-width: 155px;
   }
 }
 
