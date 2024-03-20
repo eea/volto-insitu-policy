@@ -1,7 +1,37 @@
 footer {
   h4 {
-    font-size: 24px;
+    font-family: @footerFontFamily;
+    font-size: 22px;
     font-weight: 400;
+  }
+
+  p {
+    font-family: @footerFontFamily;
+  }
+
+  .ui.form {
+    font-family: @footerFontFamily;
+    button {
+      font-family: @footerFontFamily;
+    }
+  }
+
+  .ui.action.input > input::-webkit-input-placeholder {
+    font-family: @footerFontFamily;
+    font-weight: 300;
+    font-size: 0.9rem;
+  }
+
+  .ui.checkbox {
+    font-family: @footerFontFamily;
+    font-size: 0.82rem;
+    label {
+      display: unset;
+    }
+    label:before {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .ui.grid > .row {
@@ -12,7 +42,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.2vw;
+    gap: 2rem;
+    margin-bottom: 1.4rem;
     img {
       height: 70px;
     }
@@ -21,13 +52,18 @@ footer {
   .theme-sites {
     padding-top: 0;
 
-    .logos .ui.grid .row .logo.column {
-      &:nth-child(-n + 3) {
-        padding-bottom: 2rem !important;
-      }
+    .logos .ui.grid .row {
+      padding-left: 10px;
+      padding-right: 10px;
+      .logo.column {
+        &:nth-child(-n + 3) {
+          padding-bottom: 2rem !important;
+        }
 
-      img {
-        margin-bottom: 0;
+        img {
+          margin-bottom: 0;
+          height: 65px;
+        }
       }
     }
   }
@@ -40,7 +76,7 @@ footer {
   }
 
   .footer-section-title {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
   }
 
   .ui.stackable.relaxed.grid .ui.input {
@@ -129,12 +165,12 @@ footer {
     color: @socialLinkColor;
 
     i.icon {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: @largeMonitorBreakpoint) {
   footer {
     .footer-wrapper {
       .footer-services {
@@ -144,6 +180,12 @@ footer {
         padding-right: 0px !important;
       }
     }
+  }
+}
+
+@media only screen and (max-width: @largeMonitorBreakpoint) {
+  .ui.input {
+    max-width: 155px;
   }
 }
 
@@ -200,6 +242,21 @@ footer {
 }
 
 @media only screen and (max-width: 410px) {
+  .footer-menu-actions {
+    .ui.grid > .row {
+      padding-bottom: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      a {
+        padding: 10px;
+      }
+    }
+  }
   .subfooter-logo-container {
     img {
       height: 47px !important;
