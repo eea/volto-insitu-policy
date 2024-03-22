@@ -1,17 +1,9 @@
-// import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
 import React from 'react';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
 import { Label } from 'semantic-ui-react';
 import { BannerTitle } from '@eeacms/volto-insitu-policy/components';
-
-// const Date = (props) => {
-//   const date = props.content?.effective;
-//   return date ? (
-//     <>
-//       <When start={date} end={date} whole_day={true} open_end={false} />
-//     </>
-//   ) : null;
-// };
+import { HTMLField, isOldFormat } from '@eeacms/volto-insitu-policy/helpers';
+import './styles.less';
 
 const SubjectTags = (props) => {
   const tags = props.content?.subjects;
@@ -32,8 +24,23 @@ function NewsItemView(props) {
     <div className="insitu-newsitem-view">
       <BannerTitle content={content} />
       <div className="ui container">
+        {isOldFormat(content) && (
+          <>
+            <p className="documentDescription eea callout">
+              {content.description}
+            </p>
+            <div className="lead-img">
+              <img
+                className="main-img"
+                src={content.image.download}
+                alt={content.title}
+              />
+              <p className="main-img-caption">{content.image_caption}</p>
+            </div>
+            <HTMLField value={content.text} />
+          </>
+        )}
         <RenderBlocks {...props} />
-        {/* <Date {...props} /> */}
         <SubjectTags {...props} />
       </div>
     </div>
