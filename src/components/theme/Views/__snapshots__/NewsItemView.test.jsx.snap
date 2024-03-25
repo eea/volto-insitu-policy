@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdaptationOptionView should render the component 1`] = `
+exports[`NewsItemView should render the component 1`] = `
 <div
   className="insitu-newsitem-view"
 >
