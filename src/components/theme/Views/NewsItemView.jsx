@@ -22,27 +22,26 @@ function NewsItemView(props) {
 
   return (
     <div className="insitu-newsitem-view">
-      <BannerTitle content={content} />
+      {isOldFormat(content) && <BannerTitle content={content} />}
       <div className="ui container">
-        {isOldFormat(content) && (
+        <p className="documentDescription eea callout">{content.description}</p>
+        {!!content.image && (
+          <div className="lead-img">
+            <img
+              className="main-img"
+              src={content.image?.download}
+              alt={content.title}
+            />
+            <p className="main-img-caption">{content.image_caption}</p>
+          </div>
+        )}
+        {isOldFormat(content) ? (
           <>
-            <p className="documentDescription eea callout">
-              {content.description}
-            </p>
-            {!!content.image && (
-              <div className="lead-img">
-                <img
-                  className="main-img"
-                  src={content.image?.download}
-                  alt={content.title}
-                />
-                <p className="main-img-caption">{content.image_caption}</p>
-              </div>
-            )}
             <HTMLField value={content.text} />
           </>
+        ) : (
+          <RenderBlocks {...props} />
         )}
-        <RenderBlocks {...props} />
         <SubjectTags {...props} />
       </div>
     </div>
