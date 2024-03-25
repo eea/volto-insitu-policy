@@ -8,12 +8,14 @@ import './styles.less';
 const SubjectTags = (props) => {
   const tags = props.content?.subjects;
   return tags?.length > 0 ? (
-    <>
+    <div className="subject-tags">
       Filed under:{' '}
       {tags.map((tag) => (
-        <Label key={tag}>{tag}</Label>
+        <Label size="small" key={tag}>
+          {tag}
+        </Label>
       ))}
-    </>
+    </div>
   ) : null;
 };
 

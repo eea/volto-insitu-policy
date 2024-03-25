@@ -25,6 +25,7 @@ describe('NewsItemView', () => {
   it('should render the component', () => {
     const content = {
       title: 'NewsItemView',
+      blocks: {},
     };
 
     const store = mockStore({
