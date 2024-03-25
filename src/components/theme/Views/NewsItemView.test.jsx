@@ -37,12 +37,9 @@ describe('NewsItemView', () => {
 
     const { getByText } = render(
       <Provider store={store}>
-        <Provider store={store}>
-          <MemoryRouter>
-            <NewsItemView content={content} />
-          </MemoryRouter>
-        </Provider>
-        ,
+        <MemoryRouter>
+          <NewsItemView content={content} />
+        </MemoryRouter>
       </Provider>,
     );
     expect(getByText('Title Block Component')).toBeInTheDocument();
