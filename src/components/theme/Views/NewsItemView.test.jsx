@@ -1,0 +1,48 @@
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import '@testing-library/jest-dom/extend-expect';
+import { Provider } from 'react-intl-redux';
+import NewsItemView from './NewsItemView';
+import renderer from 'react-test-renderer';
+import config from '@plone/volto/registry';
+
+config.blocks = {
+  blocksConfig: {
+    title: {
+      view: () => <div>Title Block Component</div>,
+    },
+  },
+};
+
+const mockStore = configureStore();
+
+jest.mock('semantic-ui-react', () => ({
+  ...jest.requireActual('semantic-ui-react'),
+}));
+
+describe('NewsItemView', () => {
+  it('should render the component', () => {
+    const content = {
+      title: 'NewsItemView',
+    };
+
+    const store = mockStore({
+      userSession: { token: '1234' },
+      intl: {
+        locale: 'en',
+        messages: {},
+      },
+    });
+
+    const component = renderer.create(
+      <Provider store={store}>
+        <MemoryRouter>
+          <NewsItemView content={content} />
+        </MemoryRouter>
+      </Provider>,
+    );
+    const json = component.toJSON();
+    expect(json).toMatchSnapshot();
+  });
+});
