@@ -1,26 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewsItemView should render the component 1`] = `
-<div
-  className="insitu-newsitem-view"
->
-  <div>
-    Title Block Component
-  </div>
-  <div
-    className="ui container"
-  >
-    <p
-      className="documentDescription eea callout"
-    />
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": undefined,
-        }
-      }
-    />
-
-  </div>
+<div>
 </div>
 `;
