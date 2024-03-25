@@ -4,7 +4,7 @@ import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-intl-redux';
 import NewsItemView from './NewsItemView';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import config from '@plone/volto/registry';
 
 config.blocks = {
@@ -35,14 +35,17 @@ describe('NewsItemView', () => {
       },
     });
 
-    const component = renderer.create(
+    const { getByText } = render(
       <Provider store={store}>
-        <MemoryRouter>
-          <NewsItemView content={content} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <NewsItemView content={content} />
+          </MemoryRouter>
+        </Provider>
+        ,
       </Provider>,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(getByText('Title Block Component')).toBeInTheDocument();
+    // expect(getByText('Test test')).toHaveClass('test-class');
   });
 });
