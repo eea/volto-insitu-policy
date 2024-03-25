@@ -29,14 +29,16 @@ function NewsItemView(props) {
             <p className="documentDescription eea callout">
               {content.description}
             </p>
-            <div className="lead-img">
-              <img
-                className="main-img"
-                src={content.image.download}
-                alt={content.title}
-              />
-              <p className="main-img-caption">{content.image_caption}</p>
-            </div>
+            {!!content.image && (
+              <div className="lead-img">
+                <img
+                  className="main-img"
+                  src={content.image?.download}
+                  alt={content.title}
+                />
+                <p className="main-img-caption">{content.image_caption}</p>
+              </div>
+            )}
             <HTMLField value={content.text} />
           </>
         )}
