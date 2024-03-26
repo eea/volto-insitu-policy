@@ -104,25 +104,26 @@
   }
 }
 
-//
-// }
+/************************
+        MEGA MENU
+************************/
 
-/* Small screens */
-// @media (max-width: 480px) {
-//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-//     max-width: 220px !important;
-//   }
+#mega-menu {
+  position: absolute;
+  z-index: @z-index-8;
+  right: 0;
+  overflow: auto;
+  width: @mobileMegaMenuWidth;
+  min-height: @size-11;
+  max-height: @mobilePopUpHeight;
+  padding: @mobileMegaMenuPadding;
+  background: @megaMenuBackgroundColor;
+  color: @megaMenuTextColor;
 
-//   .eea.header .eea-logo {
-//     height: 30px !important;
-//   }
-// }
-
-// .main.bar .ui.container .ui.text.menu {
-//   display: flex;
-//   justify-content: space-between;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   gap: 0.5rem;
-//   font-size: 15px !important;
-// }
+  .ui.container {
+    display: inherit;
+    height: 100%;
+    align-items: baseline;
+    padding-bottom: @megaMenuContainerPaddingBottom;
+  }
+}
