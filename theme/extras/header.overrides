@@ -104,25 +104,10 @@
   }
 }
 
-//
-// }
+/************************
+        MEGA MENU
+************************/
 
-/* Small screens */
-// @media (max-width: 480px) {
-//   .main.bar > .ui.container > .ui.grid div:first-child div:first-child {
-//     max-width: 220px !important;
-//   }
-
-//   .eea.header .eea-logo {
-//     height: 30px !important;
-//   }
-// }
-
-// .main.bar .ui.container .ui.text.menu {
-//   display: flex;
-//   justify-content: space-between;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   gap: 0.5rem;
-//   font-size: 15px !important;
-// }
+#mega-menu {
+  background: @megaMenuBackgroundColor;
+}

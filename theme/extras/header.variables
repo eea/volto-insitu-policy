@@ -1,0 +1,9 @@
+/* Search box */
+@searchBoxBackgroundGradient: linear-gradient(
+  13.69deg,
+  @insitu-brand-dark 1.17%,
+  @secondaryColor 80%
+);
+
+/* Megamenu */
+@megaMenuBackgroundColor: @insitu-brand;
