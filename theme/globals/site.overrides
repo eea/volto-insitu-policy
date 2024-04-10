@@ -3,6 +3,7 @@
 *******************************/
 
 @import '../extras/report-card.less';
+@import '../extras/listing-reports.less';
 
 @subsiteBackgroundGradient: linear-gradient(
   248.86deg,

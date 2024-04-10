@@ -10,6 +10,8 @@ import emergency from '@eeacms/volto-insitu-policy/../theme/themes/assets/images
 import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Header/copernicus_eu_logo_white.svg';
 import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
 import ReportsCardTemplate from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/ReportsCardTemplate';
+import ListingReportsTemplate from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/ListingReportsTemplate';
+
 import {
   setCardModelSchema,
   setCardStylingSchema,
@@ -139,6 +141,13 @@ const applyConfig = (config) => {
         isDefault: false,
         title: 'Reports Card',
         template: ReportsCardTemplate,
+        schemaEnhancer: composeSchema(setCardModelSchema, setCardStylingSchema),
+      },
+      {
+        id: 'listing-reports',
+        isDefault: false,
+        title: 'Listing Reports',
+        template: ListingReportsTemplate,
         schemaEnhancer: composeSchema(setCardModelSchema, setCardStylingSchema),
       },
     ],

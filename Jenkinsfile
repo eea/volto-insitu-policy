@@ -6,7 +6,7 @@ pipeline {
   environment {
     GIT_NAME = "volto-insitu-policy"
     NAMESPACE = "@eeacms"
-    SONARQUBE_TAGS = "volto.eea.europa.eu,insitu.copernicus.eu,insitu-frontend.eionet.europa.eu"
+    SONARQUBE_TAGS = "volto.eea.europa.eu,insitu.copernicus.eu"
     DEPENDENCIES = ""
     BACKEND_PROFILES = "eea.kitkat:testing"
     BACKEND_ADDONS = ""
