@@ -1,6 +1,5 @@
 import React from 'react';
 import { BannerTitle } from '@eeacms/volto-insitu-policy/components';
-import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
 import { Label } from 'semantic-ui-react';
 import './styles.less';
 
@@ -48,8 +47,6 @@ function InsituReportView(props) {
           </div>
         )}
         <Publisher {...props} />
-
-        <RenderBlocks {...props} />
         <SubjectTags {...props} />
       </div>
     </div>
