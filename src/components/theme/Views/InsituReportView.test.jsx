@@ -25,6 +25,35 @@ describe('InsituReportView', () => {
   it('should render the component', () => {
     const content = {
       title: 'InsituReportView',
+      copernicus_services: [
+        {
+          title: 'Copernicus Atmosphere Monitoring Service',
+          token: 'CAMS',
+        },
+      ],
+      data_provenance: {},
+      description: '',
+      geo_coverage: {},
+      is_folderish: true,
+      items: [],
+      items_total: 0,
+      other_organisations: [],
+      publisher: [
+        {
+          title: 'European Environment Agency',
+          token: 'EEA',
+        },
+      ],
+      report_category: [
+        {
+          title: 'General Reports on In Situ Data',
+          token: 'GENERAL',
+        },
+      ],
+      rights: '',
+      subjects: [],
+      temporal_coverage: {},
+      topics: [],
       blocks: {},
     };
 
