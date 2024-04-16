@@ -18,6 +18,20 @@ const SubjectTags = (props) => {
   ) : null;
 };
 
+const Publisher = (props) => {
+  const publisher = props.content?.publisher;
+  return publisher?.length > 0 ? (
+    <div className="publisher">
+      <h4>Publisher</h4>
+      {publisher.map((item) => (
+        <Label size="small" key={item.token}>
+          {item.title}
+        </Label>
+      ))}
+    </div>
+  ) : null;
+};
+
 function InsituReportView(props) {
   const { content } = props;
 
@@ -36,6 +50,15 @@ function InsituReportView(props) {
             <p className="main-img-caption">{content.image_caption}</p>
           </div>
         )}
+        {!!content.file?.download && (
+          <div className="file-download">
+            <a href={content.file.download}>{content.file.filename}</a>
+            <br />
+            {(content.file.size / 1024).toFixed(2)} KB
+          </div>
+        )}
+        <Publisher {...props} />
+
         <RenderBlocks {...props} />
         <SubjectTags {...props} />
       </div>
