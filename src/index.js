@@ -18,6 +18,7 @@ import {
 } from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/schema';
 import { composeSchema } from '@eeacms/volto-listing-block/schema-utils';
 import NewsItemView from './components/theme/Views/NewsItemView';
+import InsituReportView from './components/theme/Views/InsituReportView';
 
 const applyConfig = (config) => {
   //Routes
@@ -54,6 +55,7 @@ const applyConfig = (config) => {
   config.views.contentTypesViews = {
     ...config.views.contentTypesViews,
     'News Item': NewsItemView,
+    'insitu.report': InsituReportView,
   };
 
   config.settings.eea = {
