@@ -1,4 +1,17 @@
 .table-of-contents.accordionMenu {
+  border: 0.5px solid #b2b2b2 !important;
+  padding-right: 2px !important;
+
+  .ui.accordion > .title.active .icon {
+    color: #783f34;
+  }
+
+  .active.title {
+    a {
+      color: #783f34 !important;
+    }
+  }
+
   .title {
     border: none !important;
     background-color: #faf8f7 !important;
@@ -31,16 +44,14 @@
       }
     }
   }
-
-  .active.title {
-    padding-bottom: 0 !important;
-  }
 }
 
 .accordionMenu.sticky-toc {
   position: fixed !important;
   z-index: 1 !important;
   top: 0 !important;
+  border: 0.5px solid #b2b2b2 !important;
+  padding-right: 2px !important;
 }
 
 .not-column {
