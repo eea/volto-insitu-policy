@@ -22,8 +22,8 @@ const BannerTitle = (props) => {
           hideCreationDate: false,
           hideModificationDate: false,
           hidePublishingDate: false,
-          hideDownloadButton: true,
-          hideShareButton: true,
+          hideDownloadButton: false,
+          hideShareButton: false,
         }}
         metadata={content}
       />
