@@ -1,44 +1,19 @@
 import React from 'react';
+import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
 import { BannerTitle } from '@eeacms/volto-insitu-policy/components';
-import { Label, Grid, Image, Button } from 'semantic-ui-react';
+import { Grid, Image, Button } from 'semantic-ui-react';
 import articleLine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/extras/article-line.svg';
+import { HTMLField, isOldFormat } from '@eeacms/volto-insitu-policy/helpers';
 
 import './styles.less';
 
-const SubjectTags = (props) => {
-  const tags = props.content?.subjects;
-  return tags?.length > 0 ? (
-    <div className="subject-tags">
-      Filed under:{' '}
-      {tags.map((tag) => (
-        <Label size="small" key={tag}>
-          {tag}
-        </Label>
-      ))}
-    </div>
-  ) : null;
-};
-
-const Publisher = (props) => {
-  const publisher = props.content?.publisher;
-  return publisher?.length > 0 ? (
-    <div className="publisher">
-      <h4>Publisher</h4>
-      {publisher.map((item) => (
-        <Label size="small" key={item.token}>
-          {item.title}
-        </Label>
-      ))}
-    </div>
-  ) : null;
-};
-
 function InsituReportView(props) {
   const { content } = props;
+  const { description, file, ...filteredContent } = content;
 
   return (
     <div className="insitu-report-view">
-      <BannerTitle content={content} />
+      {isOldFormat(content) && <BannerTitle content={content} />}
       <div className="ui container">
         <Grid>
           <Grid.Row>
@@ -79,9 +54,13 @@ function InsituReportView(props) {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
-        <Publisher {...props} />
-        <SubjectTags {...props} />
+        {isOldFormat(content) ? (
+          <>
+            <HTMLField value={content.text} />
+          </>
+        ) : (
+          <RenderBlocks {...props} content={filteredContent} />
+        )}
       </div>
     </div>
   );
