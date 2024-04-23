@@ -10,7 +10,6 @@ import './styles.less';
 function InsituReportView(props) {
   const { content } = props;
   const { description, file, ...filteredContent } = content;
-  console.log('here', filteredContent);
 
   return (
     <div className="insitu-report-view">
