@@ -11,6 +11,7 @@ import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/ass
 import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
 import ReportsCardTemplate from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/ReportsCardTemplate';
 import ListingReportsTemplate from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/ListingReportsTemplate';
+import TokenWidget from '@plone/volto/components/manage/Widgets/TokenWidget';
 
 import {
   setCardModelSchema,
@@ -154,6 +155,9 @@ const applyConfig = (config) => {
       },
     ],
   };
+
+  config.widgets.id.copernicus_components = TokenWidget;
+  config.widgets.id.copernicus_themes = TokenWidget;
 
   return config;
 };

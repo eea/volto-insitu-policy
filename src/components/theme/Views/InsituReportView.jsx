@@ -9,7 +9,7 @@ import './styles.less';
 
 function InsituReportView(props) {
   const { content } = props;
-  const { description, file, ...filteredContent } = content;
+  const { description, file, report_category, ...filteredContent } = content;
 
   return (
     <div className="insitu-report-view">
@@ -18,22 +18,14 @@ function InsituReportView(props) {
         <Grid>
           <Grid.Row>
             <Grid.Column width={8}>
-              <h3>Summary</h3>
-              <p className="documentDescription eea callout">
-                {content.description}
-              </p>
-            </Grid.Column>
-            <Grid.Column width={4}>
-              {content.preview_image && (
-                <Image
-                  src={content?.preview_image.download}
-                  alt="Descriptive Image"
-                />
+              {content?.description && (
+                <>
+                  <h3>Summary</h3>
+                  <p className="documentDescription eea callout">
+                    {content.description}
+                  </p>
+                </>
               )}
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={8}>
               {!!content.file?.download && (
                 <div className="file-download">
                   <div className="file-title">
@@ -50,6 +42,14 @@ function InsituReportView(props) {
                     Download
                   </Button>
                 </div>
+              )}
+            </Grid.Column>
+            <Grid.Column width={4}>
+              {content.preview_image && (
+                <Image
+                  src={content?.preview_image.download}
+                  alt="Descriptive Image"
+                />
               )}
             </Grid.Column>
           </Grid.Row>
