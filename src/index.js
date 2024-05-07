@@ -9,12 +9,17 @@ import climateChange from '@eeacms/volto-insitu-policy/../theme/themes/assets/im
 import emergency from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/emergency.svg';
 import copernicusLogoWhite from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Header/copernicus_eu_logo_white.svg';
 import eeaLogoWhiteBy from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/eea-logo-white-by.svg';
-import ReportsCardTemplate from '@eeacms/volto-insitu-policy/components/Blocks/Listing/item-templates/ReportsCardTemplate';
+import ReportsCardTemplate from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/ReportsCardTemplate';
+import ListingReportsTemplate from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/ListingReportsTemplate';
+import TokenWidget from '@plone/volto/components/manage/Widgets/TokenWidget';
+
 import {
   setCardModelSchema,
   setCardStylingSchema,
-} from '@eeacms/volto-insitu-policy/components/Blocks/Listing/item-templates/schema';
+} from '@eeacms/volto-insitu-policy/components/manage/Blocks/Listing/item-templates/schema';
 import { composeSchema } from '@eeacms/volto-listing-block/schema-utils';
+import NewsItemView from './components/theme/Views/NewsItemView';
+import InsituReportView from './components/theme/Views/InsituReportView';
 
 const applyConfig = (config) => {
   //Routes
@@ -47,6 +52,12 @@ const applyConfig = (config) => {
     },
     { title: 'Copernicus Emergency', href: 'https://emergency.copernicus.eu/' },
   ];
+
+  config.views.contentTypesViews = {
+    ...config.views.contentTypesViews,
+    'News Item': NewsItemView,
+    'insitu.report': InsituReportView,
+  };
 
   config.settings.eea = {
     ...(config.settings.eea || {}),
@@ -135,8 +146,18 @@ const applyConfig = (config) => {
         template: ReportsCardTemplate,
         schemaEnhancer: composeSchema(setCardModelSchema, setCardStylingSchema),
       },
+      {
+        id: 'listing-reports',
+        isDefault: false,
+        title: 'Listing Reports',
+        template: ListingReportsTemplate,
+        schemaEnhancer: composeSchema(setCardModelSchema, setCardStylingSchema),
+      },
     ],
   };
+
+  config.widgets.id.copernicus_components = TokenWidget;
+  config.widgets.id.copernicus_themes = TokenWidget;
 
   return config;
 };

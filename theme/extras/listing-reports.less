@@ -1,28 +1,28 @@
 .block {
-  .listing-reports-items {
+  .reports-card-items {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(275px, auto));
 
     .left-image-card {
       grid-template-areas:
         'image body '
         '.     extra';
       grid-template-columns:
-        minmax(var(--image-min-width, 12px), var(--image-max-width, 10px))
+        minmax(var(--image-min-width, 40px), var(--image-max-width, 40px))
         auto;
     }
 
     .ui {
       &.image {
-        width: 16px;
+        width: 40px;
       }
 
       &.card {
         background-color: inherit;
         &.u-card.item-card {
           display: grid;
-          padding: 0.5rem 0 0 0;
+          padding: 1rem 0 0 0;
 
           &:not(:last-child) {
             border-bottom: none;
@@ -31,15 +31,10 @@
 
         .content {
           padding-top: 0;
-          padding-left: 7px !important;
-          // padding: 0.2em 0.2em;
 
           .header {
-            font-weight: 500;
-            font-size: 0.9rem;
             color: #323232;
-            margin: 0;
-            padding: 0;
+            margin-bottom: 0;
           }
 
           .meta {
@@ -53,19 +48,9 @@
         }
 
         & > .image {
-          height: 16px !important;
+          height: 40px !important;
         }
       }
     }
-  }
-}
-
-//Custom style only for homepage
-.siteroot {
-  [class~='container'] > [class*='styled-'] {
-    margin-bottom: 0 !important;
-  }
-  .content-box {
-    margin-bottom: 0 !important;
   }
 }

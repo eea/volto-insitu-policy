@@ -1,49 +1,50 @@
-.hero-block {
-  .hero-block-inner-wrapper {
-    width: 41% !important;
+//Custom style only for homepage hero block
+.siteroot {
+  .ui.basic.segment.content-area {
+    margin: 0 !important;
+    padding: 0 !important;
   }
-
-  .hero-block-image-wrapper.full-width {
-    min-height: 0 !important;
-  }
-
-  .hero-block-image {
-    border-bottom: 24px solid @primaryColor;
-  }
-
-  .hero-block-text.color-fg-white.text-left {
-    h2 {
-      margin-bottom: 0.3rem !important;
-      font-family: 'Arial' !important;
-      font-weight: 700 !important;
-    }
-
-    p {
-      font-family: 'Arial' !important;
-      font-weight: 500 !important;
-    }
-  }
-  @media only screen and (min-width: 1200px) {
+  .hero-block {
     .hero-block-inner-wrapper {
-      padding-block-end: 66px;
-      padding-block-start: 90px;
+      width: 41% !important;
+    }
+
+    .hero-block-image-wrapper.full-width {
+      min-height: 0 !important;
+    }
+
+    .hero-block-image {
+      border-bottom: 24px solid @primaryColor;
+    }
+
+    .hero-block-text.color-fg-white.text-left {
+      h2 {
+        font-family: 'Arial' !important;
+        font-weight: 700 !important;
+        margin-bottom: 0.3rem !important;
+      }
+      p {
+        font-weight: 500 !important;
+        font-family: 'Arial' !important;
+      }
+    }
+    @media only screen and (min-width: 1200px) {
+      .hero-block-inner-wrapper {
+        padding-block-start: 90px;
+        padding-block-end: 66px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .hero-block-inner-wrapper {
+        width: 60% !important;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero-block-inner-wrapper {
+        width: 80% !important;
+      }
     }
   }
-
-  @media (max-width: 1200px) {
-    .hero-block-inner-wrapper {
-      width: 60% !important;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .hero-block-inner-wrapper {
-      width: 80% !important;
-    }
-  }
-}
-
-.ui.basic.segment.content-area {
-  padding: 0 !important;
-  margin: 0 !important;
 }
