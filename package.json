@@ -23,14 +23,14 @@
   ],
   "dependencies": {
     "@eeacms/volto-eea-design-system": "*",
-    "@eeacms/volto-eea-website-theme": "*",
+    "@eeacms/volto-eea-website-theme": "github:eea/volto-eea-website-theme#develop",
     "@eeacms/volto-listing-block": "*"
   },
   "devDependencies": {
-    "cypress": "13.1.0",
     "@cypress/code-coverage": "^3.10.0",
     "@plone/scripts": "*",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "cypress": "13.1.0",
     "cypress-fail-fast": "^5.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
