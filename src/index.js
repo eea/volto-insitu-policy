@@ -20,6 +20,7 @@ import {
 import { composeSchema } from '@eeacms/volto-listing-block/schema-utils';
 import NewsItemView from './components/theme/Views/NewsItemView';
 import InsituReportView from './components/theme/Views/InsituReportView';
+import DataProviderListWidget from './components/theme/Widgets/DataProviderListWidget';
 
 const applyConfig = (config) => {
   //Routes
@@ -157,6 +158,7 @@ const applyConfig = (config) => {
   };
 
   config.widgets.id.copernicus_components = TokenWidget;
+  config.widgets.views.id.data_providers_list = DataProviderListWidget;
   config.widgets.id.copernicus_themes = TokenWidget;
 
   return config;
