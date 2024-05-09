@@ -30,6 +30,9 @@ const applyConfig = (config) => {
     },
   ];
 
+  //Change siteroot after deployment to production
+  config.settings.eea.siteroot = 'www.eea.europa.eu';
+
   config.settings.eea.footerOpts.social[0].icon = 'ri-twitter-x-line';
 
   //In situ customizations
