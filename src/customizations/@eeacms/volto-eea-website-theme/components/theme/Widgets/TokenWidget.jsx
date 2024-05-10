@@ -8,7 +8,7 @@ export const TokenWidget = ({ value, children, className }) =>
     <div className={cx(className, 'token', 'widget', 'tags-content')}>
       {value.map((tag) => (
         <Tag
-          href={`https://${config.settings.eea.siteroot}${config.settings.eea.headerSearchBox[0].path}?q=${tag}`}
+          href={`${config.settings.eea.search_site}${config.settings.eea.headerSearchBox[0].path}?q=${tag}`}
           key={tag}
         >
           {children ? children(tag) : tag}

@@ -30,8 +30,8 @@ const applyConfig = (config) => {
     },
   ];
 
-  //Change siteroot after deployment to production
-  config.settings.eea.siteroot = 'www.eea.europa.eu';
+  //Change the site here, in order to have a local search from tags.
+  config.settings.eea.search_site = 'https://insitu.copernicus.eu';
 
   config.settings.eea.footerOpts.social[0].icon = 'ri-twitter-x-line';
 
