@@ -1,5 +1,9 @@
+import { useSelector } from 'react-redux';
+
 function DataProviderListWidget(props) {
-  const { value } = props;
+  // const { value } = props;
+  const content = useSelector((state) => state.content);
+  const data_providers = content.data?.['@components']?.data_providers_details;
 
   /*
   Example of data providers list:
@@ -23,7 +27,7 @@ function DataProviderListWidget(props) {
     <div className="data-providers">
       <h4>Data providers</h4>
       <ul>
-        {value.map((item, index) => (
+        {data_providers.map((item, index) => (
           <li key={index}>
             <a href={item.link}>{item.name}</a>
           </li>
