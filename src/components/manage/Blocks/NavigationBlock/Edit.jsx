@@ -17,7 +17,7 @@ import { useIntl } from 'react-intl';
 import './less/edit.less';
 import './less/tabs.less';
 
-const TABS_BLOCK = 'tabs_block';
+const NAV_BLOCK = 'navBlock';
 
 const Edit = (props) => {
   const view = React.useRef(null);
@@ -36,11 +36,10 @@ const Edit = (props) => {
   const activeTabIndex = tabsList.indexOf(activeTab);
   const tabData = tabs[activeTab] || {};
   const theme = data.theme || 'light';
-  const verticalAlign = data.verticalAlign || 'flex-start';
-  const tabsBlockConfig = config.blocks.blocksConfig[TABS_BLOCK];
+  const tabsBlockConfig = config.blocks.blocksConfig['tabs_block'];
 
   const activeTemplate = config.blocks.blocksConfig[
-    TABS_BLOCK
+    NAV_BLOCK
   ].variations.filter((v, _i) => v.id === template);
 
   const TabsEdit = activeTemplate?.[0]?.edit || DefaultEdit;
@@ -49,7 +48,7 @@ const Edit = (props) => {
 
   React.useEffect(() => {
     if (!Object.keys(data?.data?.blocks || {}).length) {
-      // Initialize TABS_BLOCK
+      // Initialize NAV_BLOCK with empty tabs
       const tabsData = empty({
         schema: schemaObject.properties.data.schema,
         intl,
@@ -166,10 +165,10 @@ const Edit = (props) => {
           }}
           aria-hidden="true"
         >
-          Tabs
+          Items
         </legend>
         <div
-          className={cx('tabs-block edit', theme, verticalAlign, template)}
+          className={cx('tabs-block edit', theme, template)}
           ref={view}
           role="presentation"
           onKeyDown={(e) => {

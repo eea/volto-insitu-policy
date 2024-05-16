@@ -10,7 +10,7 @@ const messages = defineMessages({
     id: 'assetSize',
   },
   AssetType: {
-    defaultMessage: 'Asset type',
+    defaultMessage: 'Asset t',
     id: 'assetType',
   },
   Bottom: {

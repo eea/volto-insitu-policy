@@ -13,7 +13,7 @@ export const MenuItem = (props) => {
   const { tabs = {} } = props;
   const { tab, index } = props;
   const tabIndex = index + 1;
-  const defaultTitle = `Tab ${tabIndex}`;
+  const defaultTitle = `Item ${tabIndex}`;
   const tabSettings = tabs[tab];
   const { title, assetType } = tabSettings;
   const tabTitle = title || defaultTitle;
@@ -99,7 +99,6 @@ const Edit = (props) => {
           stackable: menuStackable,
           tabular: menuTabular,
           text: menuText,
-          vertical: menuPosition.vertical,
           className: cx(
             'tabs-secondary-variant',
             data.menuAlign,

@@ -21,9 +21,10 @@ import { composeSchema } from '@eeacms/volto-listing-block/schema-utils';
 import NewsItemView from './components/theme/Views/NewsItemView';
 import InsituReportView from './components/theme/Views/InsituReportView';
 import DataProviderListWidget from './components/theme/Widgets/DataProviderListWidget';
-import installNavigationBlock from './components/manage/Blocks/NavigationBlock';
+import installNavigationBlock from './components/manage/Blocks/NavigationBlock/index';
 
 const applyConfig = (config) => {
+  console.log('here', config);
   //Routes
   config.addonRoutes = [
     {

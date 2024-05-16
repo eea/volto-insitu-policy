@@ -429,7 +429,6 @@ const Edit = (props) => {
           stackable: menuStackable,
           tabular: menuTabular,
           text: menuText,
-          vertical: menuPosition.vertical,
           className: cx(menuAlign, { container: isContainer }),
           children: (
             <MenuWrapper

@@ -182,7 +182,6 @@ const View = (props) => {
           stackable: menuStackable,
           tabular: menuTabular,
           text: menuText,
-          vertical: menuPosition.vertical,
           className: cx(
             'tabs-secondary-variant',
             menuAlign,

@@ -12,7 +12,7 @@ import config from '@plone/volto/registry';
 import './less/edit.less';
 import './less/tabs.less';
 
-const TABS_BLOCK = 'tabs_block';
+const NAV_BLOCK = 'navBlock';
 
 const View = (props) => {
   const view = React.useRef(null);
@@ -26,10 +26,9 @@ const View = (props) => {
   const activeTabIndex = tabsList.indexOf(activeTab);
   const tabData = tabs[activeTab] || {};
   const theme = data.theme || 'light';
-  const verticalAlign = data.verticalAlign || 'flex-start';
 
   const activeTemplate = config.blocks.blocksConfig[
-    TABS_BLOCK
+    NAV_BLOCK
   ].variations.filter((v, _i) => v.id === template);
 
   const TabsView = activeTemplate?.[0]?.view || DefaultView;
@@ -91,7 +90,7 @@ const View = (props) => {
       styled={true}
     >
       <div
-        className={cx('tabs-block', template, theme, verticalAlign)}
+        className={cx('tabs-block', template, theme)}
         id={props.id}
         ref={view}
       >
