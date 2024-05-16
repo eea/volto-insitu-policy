@@ -9,19 +9,18 @@ import cx from 'classnames';
 import { Menu, Tab, Container, Dropdown, Input } from 'semantic-ui-react';
 import { emptyBlocksForm } from '@plone/volto/helpers';
 import { BlocksForm } from '@plone/volto/components';
-import EditBlockWrapper from '../../EditBlockWrapper';
-import { defaultSchemaEnhancer } from '../default/schema';
+import EditBlockWrapper from '@eeacms/volto-tabs-block/components/EditBlockWrapper';
+import { defaultSchemaEnhancer } from '@eeacms/volto-tabs-block/components/templates/default/schema';
 import {
   SimpleMarkdown,
   getMenuPosition,
   positionedOffset,
   toggleItem,
-} from '../../utils';
+} from '@eeacms/volto-tabs-block/utils';
 
-import '../../less/menu.less';
+import '@eeacms/volto-tabs-block/less/menu.less';
 
 import noop from 'lodash/noop';
-
 const MenuItem = (props) => {
   const inputRef = React.useRef(null);
   const intl = useIntl();

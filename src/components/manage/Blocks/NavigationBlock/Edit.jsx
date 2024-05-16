@@ -8,16 +8,15 @@ import {
   BlockDataForm,
 } from '@plone/volto/components';
 import { getBlocksLayoutFieldname } from '@plone/volto/helpers';
-import { empty, emptyTab } from './helpers';
+import { TABS_BLOCK } from '@eeacms/volto-tabs-block/constants';
+import { empty, emptyTab } from '@eeacms/volto-tabs-block/helpers';
 import { StyleWrapperView } from '@eeacms/volto-block-style/StyleWrapper';
 import { BlockStyleWrapperEdit } from '@eeacms/volto-block-style/BlockStyleWrapper';
 import { DefaultEdit } from './templates/default';
 import { useIntl } from 'react-intl';
 
-import './less/edit.less';
-import './less/tabs.less';
-
-const TABS_BLOCK = 'tabs_block';
+import '@eeacms/volto-tabs-block/less/edit.less';
+import '@eeacms/volto-tabs-block/less/tabs.less';
 
 const Edit = (props) => {
   const view = React.useRef(null);

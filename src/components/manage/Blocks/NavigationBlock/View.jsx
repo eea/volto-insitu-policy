@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
 import { StyleWrapperView } from '@eeacms/volto-block-style/StyleWrapper';
+import { TABS_BLOCK } from '@eeacms/volto-tabs-block/constants';
 import { getParentTabFromHash } from '@eeacms/volto-tabs-block/helpers';
 import { DefaultView } from './templates/default';
 import { withScrollToTarget } from '@eeacms/volto-tabs-block/hocs';
@@ -11,8 +12,6 @@ import config from '@plone/volto/registry';
 
 import '@eeacms/volto-tabs-block/less/edit.less';
 import '@eeacms/volto-tabs-block/less/tabs.less';
-
-const TABS_BLOCK = 'tabs_block';
 
 const View = (props) => {
   const view = React.useRef(null);

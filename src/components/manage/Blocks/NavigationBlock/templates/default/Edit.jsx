@@ -1,11 +1,11 @@
 import React from 'react';
 import cx from 'classnames';
 import { Menu, Tab } from 'semantic-ui-react';
-import { defaultSchemaEnhancer } from './schema';
-import { AssetTab } from '../../View';
-import { getMenuPosition } from '../../utils';
+import { defaultSchemaEnhancer } from '@eeacms/volto-tabs-block/components/templates/default/schema';
+import { AssetTab } from '@eeacms/volto-tabs-block/components';
+import { getMenuPosition } from '@eeacms/volto-tabs-block/utils';
 
-import '../../less/menu.less';
+import '@eeacms/volto-tabs-block/less/menu.less';
 
 import noop from 'lodash/noop';
 
