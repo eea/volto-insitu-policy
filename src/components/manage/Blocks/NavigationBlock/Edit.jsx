@@ -36,7 +36,9 @@ const Edit = (props) => {
   const activeTabIndex = tabsList.indexOf(activeTab);
   const tabData = tabs[activeTab] || {};
   const theme = data.theme || 'light';
+  const verticalAlign = data.verticalAlign || 'flex-start';
   const tabsBlockConfig = config.blocks.blocksConfig['tabs_block'];
+  console.log('tabsBlockConfig', tabsBlockConfig);
 
   const activeTemplate = config.blocks.blocksConfig[
     NAV_BLOCK
@@ -168,7 +170,7 @@ const Edit = (props) => {
           Items
         </legend>
         <div
-          className={cx('tabs-block edit', theme, template)}
+          className={cx('tabs-block edit', theme, verticalAlign, template)}
           ref={view}
           role="presentation"
           onKeyDown={(e) => {
