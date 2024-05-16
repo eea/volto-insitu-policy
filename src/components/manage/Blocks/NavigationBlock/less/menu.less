@@ -1,0 +1,276 @@
+@import './globals.less';
+
+@addon: 'volto-addons';
+@addontype: 'tabsblock';
+@addonelement: 'menu';
+
+.loadAddonVariables();
+
+.tabs-block {
+  [hidden] {
+    display: none !important;
+  }
+
+  .remove-menu {
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    overflow-y: hidden;
+  }
+
+  .ui.secondary.inverted.pointing.menu {
+    border-width: 0 0 4px 0;
+  }
+
+  .ui.secondary.inverted.menu .active.item {
+    background-color: @menuItemInvertedActiveBackgroundColor !important;
+  }
+
+  .ui.menu .addition-button .menu-item-text {
+    line-height: 1;
+  }
+
+  .remove-menu :not(.RRT__tab--collapsed) {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    border-bottom: none !important;
+  }
+
+  .ui.menu {
+    margin-bottom: @menuMarginButton;
+  }
+
+  .ui.item {
+    cursor: pointer;
+  }
+
+  .ui.menu:not(.inverted, .pointing) .active.item {
+    background-color: @menuItemActiveBackgroundColor;
+  }
+
+  .RRT__tabs.tabs-accessibility.ui.inverted.menu {
+    background-color: @menuItemInvertedBackgroundColor;
+
+    .item {
+      color: @menuItemInvertedTextColor !important;
+    }
+
+    .item.active {
+      border-color: @secondaryPointingInvertedActiveBorderColor;
+      color: @menuItemInvertedActiveTextColor !important;
+    }
+
+    .item:hover {
+      color: @menuItemInvertedHoverTextColor !important;
+    }
+  }
+
+  .tab-icon {
+    display: block !important;
+  }
+
+  .asset-position {
+    .image {
+      &.icon {
+        width: @tabImageSmallSize;
+      }
+
+      &.tile {
+        width: @tabImageMediumSize;
+      }
+
+      &.thumb {
+        width: @tabImageLargeSize;
+      }
+    }
+
+    .icon {
+      &.small {
+        font-size: @tabIconSmallSize;
+      }
+
+      &.medium {
+        font-size: @tabIconMediumSize;
+      }
+
+      &.large {
+        font-size: @tabIconLargeSize;
+      }
+    }
+  }
+
+  .RRT__accordion .tab-with-icon {
+    flex-direction: row-reverse;
+    gap: 0.25rem;
+
+    .icon {
+      font-size: 1.25rem;
+      --accordion-title-icon-order: 0;
+    }
+  }
+
+  .accordion-title {
+    display: flex;
+  }
+
+  .asset-top,
+  .asset-left,
+  .asset-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+
+    .menu-item-text {
+      margin: 0;
+    }
+  }
+
+  .asset-top {
+    flex-direction: column;
+    text-align: center;
+
+    .icon {
+      display: block !important;
+    }
+  }
+
+  .asset-left {
+    flex-direction: row;
+  }
+
+  .asset-right {
+    flex-direction: row-reverse;
+  }
+
+  .menu-item-count {
+    display: @menuItemCountDisplay;
+  }
+
+  > .styled > .tabs > .ui.menu,
+  > .styled > .tabs > .ui.grid > .column > .ui.menu,
+  > .tabs > .ui.menu,
+  > .tabs > .ui.grid > .column > .ui.menu {
+    &.menu-hidden {
+      display: none;
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.space-between {
+      .item.menu-title {
+        margin-right: auto;
+      }
+    }
+
+    &.text:not(.vertical) {
+      .item {
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+
+    .item {
+      &.menu-title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: @menuTitleFontSize;
+        font-weight: @menuTitleFontWeight;
+
+        &:hover {
+          color: @menuTitleHoverColor;
+        }
+
+        .title {
+          color: @menuTitleColor;
+        }
+
+        .description {
+          color: @menuDescriptionColor;
+        }
+
+        > * {
+          margin: 0;
+          color: inherit;
+        }
+      }
+
+      &.active {
+        border-width: 0.2rem;
+      }
+    }
+
+    .ui.fluid.input {
+      min-width: 80px;
+    }
+  }
+
+  &.horizontal-responsive {
+    .horizontal-responsive.tabs > .ui.menu {
+      overflow: visible;
+      justify-content: space-between;
+
+      .menu-wrapper {
+        display: inherit;
+        overflow: hidden;
+        background: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+      }
+    }
+  }
+
+  > .styled > .side.tabs {
+    > .ui.menu {
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    &.left {
+      > .ui.menu {
+        order: 0;
+      }
+    }
+
+    &.right {
+      > .ui.menu {
+        order: 1;
+      }
+    }
+  }
+
+  .ui.menu:not(.RRT__accordion) {
+    .ui.item .icon {
+      display: none;
+    }
+  }
+
+  .RRT__accordion.tabs-accordion-icon-left {
+    --accordion-title-justify: flex-start;
+    --accordion-title-icon-order: 0;
+  }
+
+  .RRT__container {
+    > .ui.tab .rah-animating {
+      transition: height 0ms ease 0ms !important;
+
+      > div {
+        transition: opacity 0ms ease 0ms !important;
+      }
+    }
+  }
+}
+
+.loadAddonOverrides();
