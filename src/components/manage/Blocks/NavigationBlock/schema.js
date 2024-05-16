@@ -1,4 +1,3 @@
-import { cloneDeepSchema } from '@plone/volto/helpers/Utils/Utils';
 import { defineMessages } from 'react-intl';
 
 const messages = defineMessages({
@@ -167,22 +166,6 @@ const tabSchema = (props) => {
   };
 };
 
-const toggleIconField = (schema, child) => {
-  const cloned = cloneDeepSchema(schema);
-
-  cloned.fieldsets[0].fields = [
-    ...cloned.fieldsets[0].fields,
-    ...(child.assetType === 'icon'
-      ? ['icon', 'iconSize', 'assetPosition', 'hideTitle']
-      : []),
-    ...(child.assetType === 'image'
-      ? ['image', 'imageSize', 'assetPosition', 'hideTitle']
-      : []),
-  ];
-
-  return cloned;
-};
-
 export const blockSchema = (props) => {
   const intl = props.intl;
   return {
@@ -199,7 +182,6 @@ export const blockSchema = (props) => {
         title: intl.formatMessage(messages.NavItems),
         type: 'tabs',
         schema: tabSchema(props),
-        schemaExtender: toggleIconField,
       },
       verticalAlign: {
         title: intl.formatMessage(messages.VerticalAlign),

@@ -4,14 +4,11 @@ import { withRouter } from 'react-router';
 import cx from 'classnames';
 import { Menu, Tab, Icon, Image } from 'semantic-ui-react';
 import { ConditionalLink } from '@plone/volto/components';
-import {
-  SimpleMarkdown,
-  getMenuPosition,
-} from '@eeacms/volto-tabs-block/utils';
+import { SimpleMarkdown, getMenuPosition } from '../../utils';
 
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
 
-import '@eeacms/volto-tabs-block/less/menu.less';
+import '../../less/menu.less';
 
 export const AssetTab = ({ props, tabIndex, tabTitle }) => {
   const {

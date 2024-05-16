@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { omit, without } from 'lodash';
 import move from 'lodash-move';
 import { Icon, FormFieldWrapper, DragDropList } from '@plone/volto/components';
-import { emptyTab } from '@eeacms/volto-tabs-block/helpers';
+import { emptyTab } from '../helpers';
 import { StyleWrapperEdit } from '@eeacms/volto-block-style/StyleWrapper';
 import ObjectWidget from '@plone/volto/components/manage/Widgets/ObjectWidget';
 import { Accordion, Button, Segment } from 'semantic-ui-react';
