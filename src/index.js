@@ -24,6 +24,7 @@ import DataProviderListWidget from './components/theme/Widgets/DataProviderListW
 import installNavigationBlock from './components/manage/Blocks/NavigationBlock/index';
 
 const applyConfig = (config) => {
+  console.log('config', config);
   //Routes
   config.addonRoutes = [
     {

@@ -37,8 +37,7 @@ const Edit = (props) => {
   const tabData = tabs[activeTab] || {};
   const theme = data.theme || 'light';
   const verticalAlign = data.verticalAlign || 'flex-start';
-  const tabsBlockConfig = config.blocks.blocksConfig['tabs_block'];
-  console.log('tabsBlockConfig', tabsBlockConfig);
+  const tabsBlockConfig = config.blocks.blocksConfig[NAV_BLOCK];
 
   const activeTemplate = config.blocks.blocksConfig[
     NAV_BLOCK
