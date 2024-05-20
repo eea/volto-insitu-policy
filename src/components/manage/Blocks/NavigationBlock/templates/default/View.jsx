@@ -1,9 +1,11 @@
 import React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import { UniversalLink } from '@plone/volto/components';
 import cx from 'classnames';
 import { Menu, Tab, Icon, Image } from 'semantic-ui-react';
-import { ConditionalLink } from '@plone/volto/components';
+// import { ConditionalLink } from '@plone/volto/components';
 import { SimpleMarkdown, getMenuPosition } from '../../utils';
 
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
@@ -78,17 +80,10 @@ const MenuItem = (props) => {
 
   return (
     <React.Fragment>
-      {index === 0 && (tabsTitle || tabsDescription) && (
-        <Menu.Item className="menu-title">
-          <SimpleMarkdown md={tabsTitle} defaultTag="##" className="title" />
-          <SimpleMarkdown md={tabsDescription} className="description" />
-        </Menu.Item>
-      )}
       <Menu.Item
         name={defaultTitle}
         aria-selected={tab === activeTab}
         tabIndex={0}
-        role={'tab'}
       >
         <>
           {assetType ? (
@@ -138,25 +133,34 @@ const View = (props) => {
   const isContainer = align === 'full';
 
   const panes = tabsList.map((tab, index) => {
-    const hasLink = !!tabs[tab].linkToPage;
+    const { linkToPage } = tabs[tab];
+    const hasLink = !!linkToPage;
+    const url =
+      hasLink && isInternalURL(linkToPage)
+        ? flattenToAppURL(linkToPage)
+        : linkToPage;
     return {
       id: tab,
-      menuItem: (
-        <ConditionalLink
-          condition={hasLink}
-          to={hasLink ? tabs[tab]?.linkToPage : null}
-          openLinkInNewTab={false}
-        >
+      menuItem: hasLink ? (
+        <UniversalLink href={url} key={tab}>
           <MenuItem
             {...props}
-            key={tab}
             tab={tab}
             index={index}
             tabsTitle={title}
             tabsDescription={description}
             blockId={props?.id || ''}
           />
-        </ConditionalLink>
+        </UniversalLink>
+      ) : (
+        <MenuItem
+          {...props}
+          key={tab}
+          tab={tab}
+          index={index}
+          tabsTitle={title}
+          blockId={props?.id || ''}
+        />
       ),
       pane: '',
     };
