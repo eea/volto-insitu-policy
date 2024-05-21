@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@eeacms/volto-eea-design-system": "*",
-    "@eeacms/volto-eea-website-theme": "2.0.1",
+    "@eeacms/volto-eea-website-theme": "2.0.2",
     "@eeacms/volto-listing-block": "7.1.0"
   },
   "devDependencies": {
