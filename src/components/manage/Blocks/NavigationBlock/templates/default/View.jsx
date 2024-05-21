@@ -1,12 +1,9 @@
 import React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
-import { UniversalLink } from '@plone/volto/components';
 import cx from 'classnames';
 import { Menu, Tab, Icon, Image } from 'semantic-ui-react';
-// import { ConditionalLink } from '@plone/volto/components';
-import { SimpleMarkdown, getMenuPosition } from '../../utils';
+import { getMenuPosition } from '../../utils';
 
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
 
@@ -70,7 +67,7 @@ export const AssetTab = ({ props, tabIndex, tabTitle }) => {
 };
 
 const MenuItem = (props) => {
-  const { activeTab = null, tabs = {}, tabsTitle, tabsDescription } = props;
+  const { activeTab = null, tabs = {} } = props;
   const { tab, index } = props;
   const tabIndex = index + 1;
   const defaultTitle = `Tab ${tabIndex}`;
