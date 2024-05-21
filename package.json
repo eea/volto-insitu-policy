@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@eeacms/volto-eea-design-system": "*",
-    "@eeacms/volto-eea-website-theme": "2.0.1",
+    "@eeacms/volto-eea-website-theme": "1.33.2",
     "@eeacms/volto-listing-block": "7.1.0",
     "@eeacmsvolto-block-style": "6.1.0",
     "@eeacms/volto-anchors": "1.0.0"
