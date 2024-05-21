@@ -1,5 +1,5 @@
 import React from 'react';
-import { scrollToTarget } from '@eeacms/volto-tabs-block/helpers';
+import { scrollToTarget } from '../hocs';
 
 export default function withScrollToTarget(WrappedComponent) {
   return (props) => {

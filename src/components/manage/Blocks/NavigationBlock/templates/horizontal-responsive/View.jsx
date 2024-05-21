@@ -10,9 +10,9 @@ import {
   getMenuPosition,
   positionedOffset,
   toggleItem,
-} from '@eeacms/volto-tabs-block/utils';
+} from '../../utils';
 
-import '@eeacms/volto-tabs-block/less/menu.less';
+import '../../less/menu.less';
 
 import noop from 'lodash/noop';
 
