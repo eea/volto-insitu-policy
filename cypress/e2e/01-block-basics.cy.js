@@ -5,6 +5,7 @@ describe('Blocks Tests', () => {
   afterEach(slateAfterEach);
 
   it('Add Block: Empty', () => {
+    cy.get('iframe').invoke('css', 'display', 'none'); //hide element covering other elements
     // Change page title
     cy.clearSlateTitle();
     cy.getSlateTitle().type('My Add-on Page');
