@@ -142,7 +142,7 @@ const View = (props) => {
     return {
       id: tab,
       menuItem: hasLink ? (
-        <UniversalLink href={url} key={tab}>
+        <a href={url} key={tab}>
           <MenuItem
             {...props}
             tab={tab}
@@ -151,7 +151,7 @@ const View = (props) => {
             tabsDescription={description}
             blockId={props?.id || ''}
           />
-        </UniversalLink>
+        </a>
       ) : (
         <MenuItem
           {...props}

@@ -62,9 +62,9 @@ const messages = defineMessages({
     defaultMessage: 'Navigation block',
     id: 'navigation-block',
   },
-  TabTitle: {
-    defaultMessage: 'Tab title',
-    id: 'tabTitle',
+  ItemTitle: {
+    defaultMessage: 'Item title',
+    id: 'itemTitle',
   },
   Top: {
     defaultMessage: 'Top',
@@ -74,13 +74,13 @@ const messages = defineMessages({
     defaultMessage: 'Vertical align',
     id: 'vertical-align',
   },
-  Tab: {
-    id: 'tab',
-    defaultMessage: 'Tab',
+  Item: {
+    id: 'item',
+    defaultMessage: 'item',
   },
   HideTitle: {
     id: 'hideTitle',
-    defaultMessage: 'Hide tab title?',
+    defaultMessage: 'Hide item title?',
   },
   Large: {
     id: 'large',
@@ -92,10 +92,10 @@ const messages = defineMessages({
   },
 });
 
-const tabSchema = (props) => {
+const navItemSchema = (props) => {
   const intl = props.intl;
   return {
-    title: intl.formatMessage(messages.Tab),
+    title: intl.formatMessage(messages.Item),
 
     fieldsets: [
       {
@@ -107,7 +107,7 @@ const tabSchema = (props) => {
 
     properties: {
       title: {
-        title: intl.formatMessage(messages.TabTitle),
+        title: intl.formatMessage(messages.ItemTitle),
       },
       linkToPage: {
         title: 'Link page',
@@ -197,7 +197,7 @@ export const blockSchema = (props) => {
       data: {
         title: intl.formatMessage(messages.NavItems),
         type: 'tabs',
-        schema: tabSchema(props),
+        schema: navItemSchema(props),
         schemaExtender: toggleIconField,
       },
       verticalAlign: {
