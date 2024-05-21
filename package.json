@@ -27,7 +27,7 @@
     "@eeacms/volto-eea-design-system": "*",
     "@eeacms/volto-eea-website-theme": "1.33.2",
     "@eeacms/volto-listing-block": "7.1.0",
-    "@eeacmsvolto-block-style": "6.0.0",
+    "@eeacmsvolto-block-style": "7.0.0",
     "@eeacms/volto-anchors": "1.0.0"
   },
   "devDependencies": {
