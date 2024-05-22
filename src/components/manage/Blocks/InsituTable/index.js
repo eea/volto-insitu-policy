@@ -7,7 +7,7 @@ export default function installInsituTable(config) {
 
   blocksConfig.insituTable = {
     id: 'insituTable',
-    title: 'InSitu Table',
+    title: 'InSitu Data Providers Table',
     icon: tableSVG,
     group: 'data_visualizations',
     view: View,

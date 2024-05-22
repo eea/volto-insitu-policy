@@ -3,15 +3,7 @@ import { defineMessages } from 'react-intl';
 const messages = defineMessages({
   Type: {
     id: 'insituTable',
-    defaultMessage: 'Insitu Data Table',
-  },
-  Endpoint: {
-    id: 'endpoint',
-    defaultMessage: 'Endpoint',
-  },
-  DefaultEndpoint: {
-    id: 'defaultEndpoint',
-    defaultMessage: ' Default endpoint',
+    defaultMessage: 'Insitu Data Providers Table',
   },
   Network: {
     id: 'network',
@@ -26,15 +18,11 @@ const EditSchema = ({ intl }) => ({
     {
       id: 'default',
       title: 'Default',
-      fields: ['text', 'network'],
+      fields: ['network'],
     },
   ],
 
   properties: {
-    text: {
-      title: intl.formatMessage(messages.Endpoint),
-      default: intl.formatMessage(messages.DefaultEndpoint),
-    },
     network: {
       title: intl.formatMessage(messages.Network),
       type: 'boolean',
