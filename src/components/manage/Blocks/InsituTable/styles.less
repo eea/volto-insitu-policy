@@ -1,7 +1,31 @@
-import React from 'react';
+.search-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
 
-export default function View(props) {
-  return (
-   <h1>View here</h1>
-  );
+.search-input {
+  width: 200px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  padding-right: 30px; /* Space for the search icon */
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-icon-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: grey;
 }
