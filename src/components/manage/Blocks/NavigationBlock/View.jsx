@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { StyleWrapperView } from '@eeacms/volto-block-style/StyleWrapper';
 import { getParentTabFromHash } from './helpers';
 import { DefaultView } from './templates/default';
-import { withScrollToTarget } from './hocs';
+// import { withScrollToTarget } from './hocs';
 
 import config from '@plone/volto/registry';
 
@@ -122,4 +122,4 @@ const View = (props) => {
   );
 };
 
-export default compose(withScrollToTarget)(withRouter(View));
+export default compose(withRouter(View));
