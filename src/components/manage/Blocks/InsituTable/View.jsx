@@ -6,30 +6,7 @@ import {
   getFilteredRowModel,
 } from '@tanstack/react-table';
 import './styles.less';
-
-const defaultData = [
-  {
-    Name: 'Test data provider 1',
-    Country: 'Romania',
-    Website: 'https://google.com',
-    Type: 'Institutional',
-    'Requirement groups': ['Atmosphere', 'Cryosphere', 'Hydrology'],
-  },
-  {
-    Name: 'Test data provider 2',
-    Country: 'Romania',
-    Website: 'https://yahoo.com',
-    Type: 'Institutional',
-    'Requirement groups': ['Atmosphere', 'Cryosphere'],
-  },
-  {
-    Name: 'Test data provider 3',
-    Country: 'France',
-    Website: 'https://yahoo.com',
-    Type: 'Bla bla',
-    'Requirement groups': ['Atmosphere'],
-  },
-];
+import { useSelector } from 'react-redux';
 
 const LinkCell = ({ cell }) => {
   return <a href={cell.getValue()}>{cell.getValue()}</a>;
@@ -51,34 +28,101 @@ const ListCell = ({ cell }) => {
   );
 };
 
-const columns = [
+const fnMembersList = (row) => {
+  return JSON.stringify(row['members']);
+};
+
+const LinksList = ({ cell }) => {
+  return (
+    <>
+      {JSON.parse(cell.getValue()).map((item, index) => (
+        <React.Fragment key={index}>
+          <a href={item.link}>{item.name}</a>
+          <br />
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+const simple_columns = [
   {
-    accessorKey: 'Name',
+    accessorKey: 'name',
     header: 'Name',
   },
   {
-    accessorKey: 'Country',
-    header: 'Country',
+    accessorFn: (row) => row['countries'].join('|||'),
+    accessorKey: 'countries',
+    header: 'Countries',
+    cell: ListCell,
   },
   {
-    accessorKey: 'Website',
+    accessorKey: 'link',
     header: 'Website',
     cell: LinkCell,
   },
   {
-    accessorKey: 'Type',
+    accessorKey: 'provider_type',
     header: 'Type',
   },
   {
-    accessorFn: (row) => row['Requirement groups'].join('|||'),
-    accessorKey: 'Requirement groups',
+    accessorFn: (row) => row['requirement_groups'].join('|||'),
+    accessorKey: 'requirement_groups',
     header: 'Requirement groups',
     cell: ListCell,
   },
 ];
 
-const BasicTable = () => {
+const network_columns = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorFn: (row) => row['countries'].join('|||'),
+    accessorKey: 'countries',
+    header: 'Countries',
+    cell: ListCell,
+  },
+  {
+    accessorFn: (row) => fnMembersList(row),
+    accessorKey: 'members',
+    header: 'Members',
+    cell: LinksList,
+  },
+  {
+    accessorKey: 'link',
+    header: 'Website',
+    cell: LinkCell,
+  },
+  {
+    accessorKey: 'provider_type',
+    header: 'Type',
+  },
+  {
+    accessorFn: (row) => row['requirement_groups'].join('|||'),
+    accessorKey: 'requirement_groups',
+    header: 'Requirement groups',
+    cell: ListCell,
+  },
+];
+
+const DataProvidersTable = (props) => {
+  const { is_network } = props;
   const [filtering, setFiltering] = React.useState('');
+
+  const content = useSelector((state) => state.content);
+  const data_providers_table =
+    content.data?.['@components']?.data_providers_table;
+
+  let defaultData = '';
+  let columns = '';
+  if (is_network) {
+    defaultData = data_providers_table.network;
+    columns = network_columns;
+  } else {
+    defaultData = data_providers_table.simple;
+    columns = simple_columns;
+  }
 
   const tableInstance = useReactTable({
     columns,
@@ -151,8 +195,10 @@ const BasicTable = () => {
   );
 };
 
-const View = () => {
-  return <BasicTable />;
+const View = (props) => {
+  const { data } = props;
+  const is_network = data.network;
+  return <DataProvidersTable is_network={is_network} />;
 };
 
 export default View;
