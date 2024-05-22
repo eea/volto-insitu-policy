@@ -6,7 +6,6 @@ import View from './View';
 import EditSchema from './schema';
 
 export default function Edit(props) {
-  console.log('here', props);
   const { block, data = {}, onChangeBlock, selected, id, intl } = props;
   const schema = EditSchema({ intl });
 
