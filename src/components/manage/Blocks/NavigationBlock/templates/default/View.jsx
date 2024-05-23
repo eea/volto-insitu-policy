@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
 import cx from 'classnames';
-import { Menu, Tab, Icon, Image } from 'semantic-ui-react';
+import { Menu, Tab, Image } from 'semantic-ui-react';
 import { getMenuPosition } from '../../utils';
 
 import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
@@ -10,15 +10,7 @@ import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
 import '../../less/menu.less';
 
 export const AssetTab = ({ props, tabIndex, tabTitle }) => {
-  const {
-    icon,
-    image,
-    assetType,
-    assetPosition,
-    iconSize,
-    imageSize,
-    hideTitle,
-  } = props;
+  const { image, assetType, assetPosition, imageSize, hideTitle } = props;
   const imageObject = image?.[0];
   return (
     <div
@@ -28,19 +20,6 @@ export const AssetTab = ({ props, tabIndex, tabTitle }) => {
         'asset-right': assetPosition === 'right',
       })}
     >
-      {assetType === 'icon' && icon && (
-        <Icon
-          className={cx('tab-icon', icon, iconSize, 'aligned')}
-          {...{
-            ...(hideTitle && {
-              role: 'img',
-              'aria-hidden': 'false',
-              'aria-label': tabTitle,
-            }),
-          }}
-        />
-      )}
-
       {assetType === 'image' && imageObject && (
         <Image
           src={
@@ -110,23 +89,7 @@ const View = (props) => {
     }
   }, [data, menuPosition]);
 
-  const {
-    title,
-    description,
-    align,
-    menuBorderless,
-    menuColor,
-    menuCompact,
-    menuFluid,
-    menuInverted,
-    menuPointing,
-    menuSecondary,
-    menuSize,
-    menuStackable,
-    menuTabular,
-    menuText,
-    menuAlign,
-  } = data;
+  const { title, description, align, menuText, menuAlign } = data;
   const isContainer = align === 'full';
 
   const panes = tabsList.map((tab, index) => {
@@ -172,16 +135,6 @@ const View = (props) => {
         menu={{
           role: 'tablist',
           attached: menuPosition.attached,
-          borderless: menuBorderless,
-          color: menuColor,
-          compact: menuCompact,
-          fluid: menuFluid,
-          inverted: menuInverted,
-          pointing: menuPointing,
-          secondary: menuSecondary,
-          size: menuSize,
-          stackable: menuStackable,
-          tabular: menuTabular,
           text: menuText,
           className: cx(
             'tabs-secondary-variant',

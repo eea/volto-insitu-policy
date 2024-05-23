@@ -65,35 +65,6 @@ const Edit = (props) => {
     /* eslint-disable-next-line */
   }, []);
 
-  const handleKeyDown = (
-    e,
-    index,
-    block,
-    node,
-    {
-      disableEnter = false,
-      disableArrowUp = false,
-      disableArrowDown = false,
-    } = {},
-  ) => {
-    if (e.key === 'ArrowUp' && !disableArrowUp && !activeBlock) {
-      props.onFocusPreviousBlock(block, node);
-      e.preventDefault();
-    }
-    if (e.key === 'ArrowDown' && !disableArrowDown && !activeBlock) {
-      props.onFocusNextBlock(block, node);
-      e.preventDefault();
-    }
-    if (e.key === 'Enter' && !disableEnter && !activeBlock && !editingTab) {
-      props.onAddBlock(config.settings.defaultBlockType, index + 1);
-      e.preventDefault();
-    }
-    if (e.key === 'Enter' && editingTab) {
-      setEditingTab(null);
-      e.preventDefault();
-    }
-  };
-
   const onChangeTabData = (id, value) => {
     // special handling of blocks and blocks_layout
     if (['blocks', 'blocks_layout'].indexOf(id) > -1) {
@@ -172,11 +143,6 @@ const Edit = (props) => {
           className={cx('tabs-block edit', theme, verticalAlign, template)}
           ref={view}
           role="presentation"
-          onKeyDown={(e) => {
-            handleKeyDown(e, props.index, props.block, props.blockNode.current);
-          }}
-          // The tabIndex is required for the keyboard navigation
-          /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
           tabIndex={-1}
         >
           <StyleWrapperView

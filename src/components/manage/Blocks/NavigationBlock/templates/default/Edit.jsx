@@ -43,7 +43,6 @@ const Edit = (props) => {
     tabsList = [],
     setEditingTab = noop,
     schema,
-    skipColorOption = false,
     customTabsClass = '',
   } = props;
   const menuPosition = getMenuPosition(data);
@@ -51,16 +50,8 @@ const Edit = (props) => {
     title,
     description,
     align,
-    menuBorderless,
-    menuColor,
-    menuCompact,
-    menuFluid,
-    menuInverted,
-    menuPointing,
     menuSecondary,
     menuSize,
-    menuStackable,
-    menuTabular,
     menuText,
     menuAlign,
   } = data;
@@ -88,16 +79,8 @@ const Edit = (props) => {
         className={cx('default tabs', customTabsClass)}
         menu={{
           attached: menuPosition.attached,
-          borderless: menuBorderless,
-          color: !skipColorOption && menuColor,
-          compact: menuCompact,
-          fluid: menuFluid,
-          inverted: menuInverted,
-          pointing: menuPointing,
           secondary: menuSecondary,
           size: menuSize,
-          stackable: menuStackable,
-          tabular: menuTabular,
           text: menuText,
           className: cx(
             'tabs-secondary-variant',

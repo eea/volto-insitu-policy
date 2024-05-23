@@ -11,7 +11,7 @@ const messages = defineMessages({
     id: 'assetSize',
   },
   AssetType: {
-    defaultMessage: 'Asset t',
+    defaultMessage: 'Asset',
     id: 'assetType',
   },
   Bottom: {
@@ -25,14 +25,6 @@ const messages = defineMessages({
   Image: {
     defaultMessage: 'Image',
     id: 'image',
-  },
-  Icon: {
-    defaultMessage: 'Icon',
-    id: 'icon',
-  },
-  IconName: {
-    defaultMessage: 'Icon name',
-    id: 'iconName',
   },
   LeftSide: {
     id: 'left-side',
@@ -115,10 +107,7 @@ const navItemSchema = (props) => {
       },
       assetType: {
         title: intl.formatMessage(messages.AssetType),
-        choices: [
-          ['image', intl.formatMessage(messages.Image)],
-          ['icon', intl.formatMessage(messages.Icon)],
-        ],
+        choices: [['image', intl.formatMessage(messages.Image)]],
       },
       assetPosition: {
         title: intl.formatMessage(messages.AssetPosition),
@@ -145,18 +134,6 @@ const navItemSchema = (props) => {
         ],
         default: 'icon',
       },
-      iconSize: {
-        title: intl.formatMessage(messages.AssetSize),
-        choices: [
-          ['small', intl.formatMessage(messages.Small)],
-          ['medium', intl.formatMessage(messages.Medium)],
-          ['large', intl.formatMessage(messages.Large)],
-        ],
-        default: 'small',
-      },
-      icon: {
-        title: intl.formatMessage(messages.IconName),
-      },
       hideTitle: {
         title: intl.formatMessage(messages.HideTitle),
         type: 'boolean',
@@ -171,9 +148,6 @@ const toggleIconField = (schema, child) => {
 
   cloned.fieldsets[0].fields = [
     ...cloned.fieldsets[0].fields,
-    ...(child.assetType === 'icon'
-      ? ['icon', 'iconSize', 'assetPosition', 'hideTitle']
-      : []),
     ...(child.assetType === 'image'
       ? ['image', 'imageSize', 'assetPosition', 'hideTitle']
       : []),

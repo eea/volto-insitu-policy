@@ -3,10 +3,6 @@ import NavView from './View';
 import layoutSchema from './layoutSchema';
 import { blockSchema } from './schema';
 import { DefaultEdit, DefaultView } from './templates/default';
-import {
-  HorizontalResponsiveEdit,
-  HorizontalResponsiveView,
-} from './templates/horizontal-responsive';
 import { defineMessages } from 'react-intl';
 import worldSVG from '@plone/volto/icons/world.svg';
 
@@ -16,10 +12,6 @@ defineMessages({
   default: {
     id: 'Default',
     defaultMessage: 'Default',
-  },
-  horizontalResponsive: {
-    defaultMessage: 'Horizontal responsive',
-    id: 'Horizontal responsive',
   },
 });
 
@@ -49,13 +41,6 @@ export default function installNavigationBlock(config) {
         edit: DefaultEdit,
         view: DefaultView,
         schemaEnhancer: DefaultEdit.schemaEnhancer,
-      },
-      {
-        id: 'horizontal-responsive',
-        title: 'Horizontal responsive',
-        edit: HorizontalResponsiveEdit,
-        view: HorizontalResponsiveView,
-        schemaEnhancer: HorizontalResponsiveEdit.schemaEnhancer,
       },
     ],
   };
