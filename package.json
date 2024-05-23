@@ -26,7 +26,8 @@
   "dependencies": {
     "@eeacms/volto-eea-design-system": "*",
     "@eeacms/volto-eea-website-theme": "<2.0.0",
-    "@eeacms/volto-listing-block": "7.1.0"
+    "@eeacms/volto-listing-block": "7.1.0",
+    "@eeacms/volto-anchors": "*"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
