@@ -155,7 +155,6 @@ const Edit = (props) => {
               {...props}
               schema={schemaObject}
               activeBlock={activeBlock}
-              activeTab={activeTab}
               activeTabIndex={activeTabIndex}
               editingTab={editingTab}
               empty={empty}
