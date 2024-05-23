@@ -1,5 +1,4 @@
 import React from 'react';
-import { without } from 'lodash';
 import cx from 'classnames';
 import config from '@plone/volto/registry';
 import {
@@ -7,7 +6,6 @@ import {
   BlocksToolbar,
   BlockDataForm,
 } from '@plone/volto/components';
-import { getBlocksLayoutFieldname } from '@plone/volto/helpers';
 import { empty, emptyTab } from './helpers';
 import { StyleWrapperView } from '@eeacms/volto-block-style/StyleWrapper';
 import { BlockStyleWrapperEdit } from '@eeacms/volto-block-style/BlockStyleWrapper';
@@ -22,7 +20,7 @@ const NAV_BLOCK = 'navBlock';
 const Edit = (props) => {
   const view = React.useRef(null);
   const intl = useIntl();
-  const { onChangeBlock, onChangeField } = props;
+  const { onChangeBlock } = props;
   const { data = {}, block = null } = props;
   const template = data.variation || 'default';
   const tabsData = data.data || {};
@@ -32,18 +30,11 @@ const Edit = (props) => {
   const [activeBlock, setActiveBlock] = React.useState(null);
   const [editingTab, setEditingTab] = React.useState(null);
   const [multiSelected, setMultiSelected] = React.useState([]);
-  const blocksState = React.useRef({});
   const activeTabIndex = tabsList.indexOf(activeTab);
   const tabData = tabs[activeTab] || {};
   const theme = data.theme || 'light';
   const verticalAlign = data.verticalAlign || 'flex-start';
   const tabsBlockConfig = config.blocks.blocksConfig[NAV_BLOCK];
-
-  const activeTemplate = config.blocks.blocksConfig[
-    NAV_BLOCK
-  ].variations.filter((v, _i) => v.id === template);
-
-  const TabsEdit = activeTemplate?.[0]?.edit || DefaultEdit;
 
   const schemaObject = tabsBlockConfig.blockSchema(props);
 
@@ -64,68 +55,6 @@ const Edit = (props) => {
     }
     /* eslint-disable-next-line */
   }, []);
-
-  const onChangeTabData = (id, value) => {
-    // special handling of blocks and blocks_layout
-    if (['blocks', 'blocks_layout'].indexOf(id) > -1) {
-      blocksState.current[id] = value;
-      onChangeBlock(block, {
-        ...data,
-        data: {
-          ...tabsData,
-          blocks: {
-            ...tabsData.blocks,
-            [activeTab]: {
-              ...tabData,
-              ...blocksState.current,
-            },
-          },
-        },
-      });
-    } else {
-      onChangeField(id, value);
-    }
-  };
-
-  const onSelectBlock = (id, isMultipleSelection, event) => {
-    let newMultiSelected = [];
-    let selected = id;
-
-    if (isMultipleSelection) {
-      selected = null;
-      const blocksLayoutFieldName = getBlocksLayoutFieldname(tabData);
-
-      const blocks_layout = tabData[blocksLayoutFieldName].items;
-
-      if (event.shiftKey) {
-        const anchor =
-          multiSelected.length > 0
-            ? blocks_layout.indexOf(multiSelected[0])
-            : blocks_layout.indexOf(activeBlock);
-        const focus = blocks_layout.indexOf(id);
-
-        if (anchor === focus) {
-          newMultiSelected = [id];
-        } else if (focus > anchor) {
-          newMultiSelected = [...blocks_layout.slice(anchor, focus + 1)];
-        } else {
-          newMultiSelected = [...blocks_layout.slice(focus, anchor + 1)];
-        }
-      }
-
-      if ((event.ctrlKey || event.metaKey) && !event.shiftKey) {
-        if (multiSelected.includes(id)) {
-          selected = null;
-          newMultiSelected = without(multiSelected, id);
-        } else {
-          newMultiSelected = [...(multiSelected || []), id];
-        }
-      }
-    }
-
-    setActiveBlock(selected);
-    setMultiSelected(newMultiSelected);
-  };
 
   return (
     <fieldset>
@@ -151,7 +80,7 @@ const Edit = (props) => {
             styleData={tabData.styles || {}}
             styled={true}
           >
-            <TabsEdit
+            <DefaultEdit
               {...props}
               schema={schemaObject}
               activeBlock={activeBlock}
@@ -167,8 +96,6 @@ const Edit = (props) => {
               tabsList={tabsList}
               node={view}
               template={template}
-              onChangeTabData={onChangeTabData}
-              onSelectBlock={onSelectBlock}
               setActiveBlock={setActiveBlock}
               setActiveTab={setActiveTab}
               setEditingTab={setEditingTab}
@@ -198,7 +125,7 @@ const Edit = (props) => {
               onSetSelectedBlocks={(blockIds) => {
                 setMultiSelected(blockIds);
               }}
-              onSelectBlock={onSelectBlock}
+              // onSelectBlock={onSelectBlock}
             />
           ) : (
             ''

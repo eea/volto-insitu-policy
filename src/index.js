@@ -168,7 +168,10 @@ const applyConfig = (config) => {
   config.widgets.views.id.data_providers_list = DataProviderListWidget;
   config.widgets.id.copernicus_themes = TokenWidget;
 
-  return [installNavigationBlock, installInsituTable].reduce((acc, apply) => apply(acc), config);
+  return [installNavigationBlock, installInsituTable].reduce(
+    (acc, apply) => apply(acc),
+    config,
+  );
 };
 
 export default applyConfig;
