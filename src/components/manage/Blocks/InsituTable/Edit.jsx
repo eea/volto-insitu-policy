@@ -1,6 +1,5 @@
 import React from 'react';
-import { SidebarPortal } from '@plone/volto/components';
-import BlockDataForm from '@plone/volto/components/manage/Form/BlockDataForm';
+import { BlockDataForm, SidebarPortal } from '@plone/volto/components';
 
 import View from './View';
 import EditSchema from './schema';
