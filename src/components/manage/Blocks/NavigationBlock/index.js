@@ -6,7 +6,7 @@ import { DefaultEdit, DefaultView } from './templates/default';
 import { defineMessages } from 'react-intl';
 import worldSVG from '@plone/volto/icons/world.svg';
 
-import { TabsWidget } from './widgets';
+import TabsWidget from '@eeacms/volto-tabs-block/widgets/TabsWidget';
 
 defineMessages({
   default: {
