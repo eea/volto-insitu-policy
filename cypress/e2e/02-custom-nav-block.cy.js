@@ -21,7 +21,7 @@ describe('Blocks Tests', () => {
 
     cy.contains('Item 1').click().type('{rightArrow}');
 
-    cy.contains('Item #1').click();
+    cy.contains('Tab #1').click();
     cy.get('#field-title-0-data-0').click().type('Test tab 1');
     cy.get('#field-assetType-1-data-0').click();
     cy.contains('No value').click();
@@ -34,7 +34,7 @@ describe('Blocks Tests', () => {
     cy.contains('Right side').click();
 
     cy.get('#field-linkToPage-2-data-0').click().type('/test-page');
-    cy.contains('Item #1').click();
+    cy.contains('Tab #1').click();
 
     cy.get('.tabs-area .drag.handle')
       .eq(0)
