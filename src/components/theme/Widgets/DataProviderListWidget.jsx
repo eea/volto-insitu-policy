@@ -23,6 +23,10 @@ function DataProviderListWidget(props) {
   }, ...]
   */
 
+  if (data_providers === undefined) {
+    return null;
+  }
+
   return (
     <div className="data-providers">
       <h4>Data providers</h4>
