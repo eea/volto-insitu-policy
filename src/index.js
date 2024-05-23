@@ -21,6 +21,7 @@ import { composeSchema } from '@eeacms/volto-listing-block/schema-utils';
 import NewsItemView from './components/theme/Views/NewsItemView';
 import InsituReportView from './components/theme/Views/InsituReportView';
 import DataProviderListWidget from './components/theme/Widgets/DataProviderListWidget';
+import installInsituTable from './components/manage/Blocks/InsituTable';
 
 const applyConfig = (config) => {
   //Routes
@@ -52,6 +53,11 @@ const applyConfig = (config) => {
       href: 'https://climate.copernicus.eu/',
     },
     { title: 'Copernicus Emergency', href: 'https://emergency.copernicus.eu/' },
+    {
+      title: 'Copernicus Space Component',
+      href:
+        'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
+    },
   ];
 
   config.views.contentTypesViews = {
@@ -161,7 +167,7 @@ const applyConfig = (config) => {
   config.widgets.views.id.data_providers_list = DataProviderListWidget;
   config.widgets.id.copernicus_themes = TokenWidget;
 
-  return config;
+  return [installInsituTable].reduce((acc, apply) => apply(acc), config);
 };
 
 export default applyConfig;
