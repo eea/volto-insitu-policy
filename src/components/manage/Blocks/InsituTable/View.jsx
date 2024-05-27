@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-table';
 import './styles.less';
 import { useSelector } from 'react-redux';
+// import { data_providers } from '@eeacms/volto-datablocks/src/reducers';
 
 const LinkCell = ({ cell }) => {
   return <a href={cell.getValue()}>{cell.getValue()}</a>;
@@ -107,20 +108,16 @@ const network_columns = [
 ];
 
 const DataProvidersTable = (props) => {
-  const { is_network } = props;
+  const { is_network, dataProvider } = props;
   const [filtering, setFiltering] = React.useState('');
-
-  const content = useSelector((state) => state.content);
-  const data_providers_table =
-    content.data?.['@components']?.data_providers_table;
 
   let defaultData = '';
   let columns = '';
   if (is_network) {
-    defaultData = data_providers_table.network;
+    defaultData = dataProvider.network;
     columns = network_columns;
   } else {
-    defaultData = data_providers_table.simple;
+    defaultData = dataProvider.simple;
     columns = simple_columns;
   }
 
@@ -196,9 +193,19 @@ const DataProvidersTable = (props) => {
 };
 
 const View = (props) => {
+  const content = useSelector((state) => state.content);
+  const data_providers_table =
+    content.data?.['@components']?.data_providers_table;
   const { data } = props;
   const is_network = data.network;
-  return <DataProvidersTable is_network={is_network} />;
+  return data_providers_table ? (
+    <DataProvidersTable
+      is_network={is_network}
+      dataProvider={data_providers_table}
+    />
+  ) : (
+    'Please enable interface data_providers'
+  );
 };
 
 export default View;
