@@ -26,6 +26,9 @@ describe('NewsItemView', () => {
     const content = {
       title: 'NewsItemView',
       blocks: {},
+      blocks_layout: {
+        items: [],
+      },
     };
 
     const store = mockStore({
