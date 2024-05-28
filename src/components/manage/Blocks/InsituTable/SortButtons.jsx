@@ -5,7 +5,7 @@ const SortButtons = ({ columnId, handleSort, currentSorting }) => {
   const direction = isSorted ? (isSorted.desc ? 'desc' : 'asc') : null;
 
   const handleButtonClick = () => {
-    const newDirection = direction === 'asc' ? 'desc' : 'asc';
+    const newDirection = !direction || direction === 'desc' ? 'asc' : 'desc';
     handleSort(columnId, newDirection);
   };
 
@@ -15,14 +15,14 @@ const SortButtons = ({ columnId, handleSort, currentSorting }) => {
         <>
           <button
             className="sort-button"
-            onClick={() => handleSort(columnId, 'asc')}
+            onClick={handleButtonClick}
             title={`Sort ${columnId} ascending`}
           >
             ▲
           </button>
           <button
             className="sort-button"
-            onClick={() => handleSort(columnId, 'desc')}
+            onClick={handleButtonClick}
             title={`Sort ${columnId} descending`}
           >
             ▼
