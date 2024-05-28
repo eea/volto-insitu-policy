@@ -25,9 +25,15 @@ describe('NewsItemView', () => {
   it('should render the component', () => {
     const content = {
       title: 'NewsItemView',
-      blocks: {},
+      blocks: {
+        '6cc87646-cbd3-40ea-8b18-8a737b4ec803': {
+          '@type': 'title',
+          copyrightIcon: 'ri-copyright-line',
+          styles: {},
+        },
+      },
       blocks_layout: {
-        items: [],
+        items: ['6cc87646-cbd3-40ea-8b18-8a737b4ec803'],
       },
     };
 
