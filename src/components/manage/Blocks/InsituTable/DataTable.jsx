@@ -56,6 +56,7 @@ const DataProvidersTable = ({ is_network, dataProvider }) => {
                         <SortButtons
                           columnId={header.column.id}
                           handleSort={handleSort}
+                          currentSorting={sorting}
                         />
                       )}
                     </div>
