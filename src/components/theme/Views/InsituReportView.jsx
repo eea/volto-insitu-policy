@@ -51,7 +51,9 @@ function InsituReportView(props) {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <RenderBlocks {...props} content={filteredContent} />
+        {Object.keys(content.blocks).length > 0 && (
+          <RenderBlocks {...props} content={filteredContent} />
+        )}
       </div>
     </div>
   );
