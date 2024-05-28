@@ -21,7 +21,7 @@ function NewsItemView(props) {
           </div>
         )}
         <HTMLField value={content.text} />
-        {content.blocks_layout.items && <RenderBlocks {...props} />}
+        <RenderBlocks {...props} />
       </div>
     </div>
   );
