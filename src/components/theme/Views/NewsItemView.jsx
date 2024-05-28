@@ -1,7 +1,6 @@
 import React from 'react';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
-import { BannerTitle } from '@eeacms/volto-insitu-policy/components';
-import { HTMLField, isOldFormat } from '@eeacms/volto-insitu-policy/helpers';
+import { HTMLField } from '@eeacms/volto-insitu-policy/helpers';
 import './styles.less';
 
 function NewsItemView(props) {
@@ -9,7 +8,6 @@ function NewsItemView(props) {
 
   return (
     <div className="insitu-newsitem-view">
-      {isOldFormat(content) && <BannerTitle content={content} />}
       <div className="ui container">
         <p className="documentDescription eea callout">{content.description}</p>
         {!!content.image && (
@@ -22,13 +20,8 @@ function NewsItemView(props) {
             <p className="main-img-caption">{content.image_caption}</p>
           </div>
         )}
-        {isOldFormat(content) ? (
-          <>
-            <HTMLField value={content.text} />
-          </>
-        ) : (
-          <RenderBlocks {...props} />
-        )}
+        <HTMLField value={content.text} />
+        <RenderBlocks {...props} />
       </div>
     </div>
   );
