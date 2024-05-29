@@ -42,7 +42,7 @@ const simple_columns = [
 
 const network_columns = [
   {
-    // accessorFn: (row) => row.name.title,
+    accessorFn: fnName,
     id: 'name',
     header: 'Name',
     cell: ProviderNameCell,
