@@ -51,7 +51,6 @@ describe('Blocks Tests', () => {
     cy.get('#field-menuPosition')
       .click()
       .type('{downArrow}{downArrow}{downArrow}{downArrow}{enter}');
-    cy.contains('Left').click();
 
     cy.contains('Items').click();
     // Save
