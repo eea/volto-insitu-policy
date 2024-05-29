@@ -4,12 +4,17 @@ import {
   LinkCell,
   ListCell,
   LinksList,
+  ProviderNameCell,
+  fnName,
 } from './utils';
 
 const simple_columns = [
   {
+    accessorFn: fnName,
+    id: 'name',
     accessorKey: 'name',
     header: 'Name',
+    cell: ProviderNameCell,
     sortingFn: removeSpecialCharsSortingFn, // Apply custom sorting function
   },
   {
@@ -37,8 +42,10 @@ const simple_columns = [
 
 const network_columns = [
   {
-    accessorKey: 'name',
+    // accessorFn: (row) => row.name.title,
+    id: 'name',
     header: 'Name',
+    cell: ProviderNameCell,
     sortingFn: removeSpecialCharsSortingFn, // Apply custom sorting function
   },
   {

@@ -13,6 +13,15 @@ export const fnMembersList = (row) => {
   return JSON.stringify(row['members']);
 };
 
+export const fnName = (row) => {
+  return JSON.stringify(row['name']);
+};
+
+export const ProviderNameCell = ({ cell }) => {
+  const name = JSON.parse(cell.getValue());
+  return <a href={name.link}>{name.title}</a>;
+};
+
 export const LinkCell = ({ cell }) => {
   return <a href={cell.getValue()}>{cell.getValue()}</a>;
 };
