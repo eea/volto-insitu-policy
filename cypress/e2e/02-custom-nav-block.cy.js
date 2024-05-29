@@ -45,6 +45,12 @@ describe('Blocks Tests', () => {
     cy.contains('Center').click();
     cy.get('#field-menuPosition').click();
     cy.contains('Bottom').click();
+    cy.get('#field-menuPosition').click();
+    cy.contains('Top').click();
+    cy.get('#field-menuPosition').click();
+    cy.contains('Right').click();
+    cy.get('#field-menuPosition').click();
+    cy.contains('Left').click();
     // Save
     cy.get('#toolbar-save').click({ force: true });
     cy.url().should('eq', Cypress.config().baseUrl + '/cypress/my-page');
