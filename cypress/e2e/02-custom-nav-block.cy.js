@@ -43,13 +43,14 @@ describe('Blocks Tests', () => {
       .trigger('mouseup', 0, -100, { force: true });
     cy.get('#field-menuAlign').click();
     cy.contains('Center').click();
-    cy.get('#field-menuPosition').click();
-    cy.contains('Bottom').click();
-    cy.get('#field-menuPosition').click();
-    cy.contains('Top').click();
-    cy.get('#field-menuPosition').click();
-    cy.contains('Right').click();
-    cy.get('#field-menuPosition').click();
+    cy.get('#field-menuPosition').click().type('{downArrow}{enter}');
+    cy.get('#field-menuPosition').click().type('{downArrow}{downArrow}{enter}');
+    cy.get('#field-menuPosition')
+      .click()
+      .type('{downArrow}{downArrow}{downArrow}{enter}');
+    cy.get('#field-menuPosition')
+      .click()
+      .type('{downArrow}{downArrow}{downArrow}{downArrow}{enter}');
     cy.contains('Left').click();
 
     cy.contains('Items').click();
