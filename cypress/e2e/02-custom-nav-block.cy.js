@@ -51,6 +51,8 @@ describe('Blocks Tests', () => {
     cy.contains('Right').click();
     cy.get('#field-menuPosition').click();
     cy.contains('Left').click();
+
+    cy.contains('Items').click();
     // Save
     cy.get('#toolbar-save').click({ force: true });
     cy.url().should('eq', Cypress.config().baseUrl + '/cypress/my-page');
