@@ -33,7 +33,10 @@ const storeWithSimpleData = mockStore({
         data_providers_table: {
           simple: [
             {
-              name: 'Provider 1',
+              name: {
+                title: 'Provider 1',
+                link: 'http://example.com/Provider1',
+              },
               countries: ['Romania'],
               link: 'http://example.com',
               provider_type: 'Type A',
@@ -57,7 +60,10 @@ const storeWithNetworkData = mockStore({
         data_providers_table: {
           network: [
             {
-              name: 'Provider 1',
+              name: {
+                title: 'Provider 1',
+                link: 'http://example/Provider1.com',
+              },
               countries: ['Romania'],
               members: [
                 {
@@ -156,7 +162,7 @@ describe('DataProvidersTable', () => {
     const linkElement = getByText('Provider 1')
       .closest('tr')
       .querySelector('a');
-    expect(linkElement).toHaveAttribute('href', 'http://example.com');
+    expect(linkElement).toHaveAttribute('href', 'http://example.com/Provider1');
     expect(getByText('Type A')).toBeInTheDocument();
     expect(getByText('Group 1')).toBeInTheDocument();
     expect(getByText('Group 2')).toBeInTheDocument();
@@ -172,16 +178,20 @@ describe('DataProvidersTable', () => {
     expect(getByText('Provider 1')).toBeInTheDocument();
     expect(getByText('Romania')).toBeInTheDocument();
     const linkElements = container.querySelectorAll('a');
-    expect(linkElements).toHaveLength(3);
+    expect(linkElements).toHaveLength(4);
     expect(linkElements[0]).toHaveAttribute(
       'href',
-      'http://example-member1.com',
+      'http://example/Provider1.com',
     );
     expect(linkElements[1]).toHaveAttribute(
       'href',
+      'http://example-member1.com',
+    );
+    expect(linkElements[2]).toHaveAttribute(
+      'href',
       'http://example-member2.com',
     );
-    expect(linkElements[2]).toHaveAttribute('href', 'http://example.com');
+    expect(linkElements[3]).toHaveAttribute('href', 'http://example.com');
     expect(getByText('Type A')).toBeInTheDocument();
     expect(getByText('Group 1')).toBeInTheDocument();
     expect(getByText('Group 2')).toBeInTheDocument();
