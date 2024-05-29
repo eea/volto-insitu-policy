@@ -92,14 +92,14 @@ describe('DataProvidersTable', () => {
       </Provider>,
     );
     // Verify that the search input is rendered
-    const searchInput = getByPlaceholderText('Search...');
+    const searchInput = getByPlaceholderText(
+      'Start typing to filter by any column value',
+    );
     expect(searchInput).toBeInTheDocument();
     expect(searchInput.value).toBe('');
     expect(searchInput).toHaveClass('search-input');
     expect(container.querySelector('.search-container')).toBeInTheDocument();
-    expect(
-      container.querySelector('.search-icon-container'),
-    ).toBeInTheDocument();
+    expect(container.querySelector('.search-icon')).toBeInTheDocument();
 
     // verify that you can type in the search input and it changes the input value
     fireEvent.change(searchInput, { target: { value: 'test' } });
@@ -120,14 +120,14 @@ describe('DataProvidersTable', () => {
       </Provider>,
     );
     // Verify that the search input is rendered
-    const searchInput = getByPlaceholderText('Search...');
+    const searchInput = getByPlaceholderText(
+      'Start typing to filter by any column value',
+    );
     expect(searchInput).toBeInTheDocument();
     expect(searchInput.value).toBe('');
     expect(searchInput).toHaveClass('search-input');
     expect(container.querySelector('.search-container')).toBeInTheDocument();
-    expect(
-      container.querySelector('.search-icon-container'),
-    ).toBeInTheDocument();
+    expect(container.querySelector('.search-icon')).toBeInTheDocument();
 
     // verify that you can type in the search input and it changes the input value
     fireEvent.change(searchInput, {
