@@ -18,15 +18,15 @@ const simple_columns = [
     sortingFn: removeSpecialCharsSortingFn, // Apply custom sorting function
   },
   {
+    accessorKey: 'link',
+    header: 'Website',
+    cell: LinkCell,
+  },
+  {
     accessorFn: (row) => row['countries'].join('|||'),
     id: 'countries',
     header: 'Countries',
     cell: ListCell,
-  },
-  {
-    accessorKey: 'link',
-    header: 'Website',
-    cell: LinkCell,
   },
   {
     accessorKey: 'provider_type',

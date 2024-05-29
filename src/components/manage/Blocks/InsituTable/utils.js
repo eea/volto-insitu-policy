@@ -27,17 +27,17 @@ export const LinkCell = ({ cell }) => {
 };
 
 export const ListCell = ({ cell }) => {
+  const items = cell.getValue().split('|||');
   return (
     <>
-      {cell
-        .getValue()
-        .split('|||')
-        .map((item, index) => (
-          <React.Fragment key={index}>
-            <span>{item}</span>
-            <br />
-          </React.Fragment>
-        ))}
+      {items.map((item, index) => (
+        <React.Fragment key={index}>
+          <span>
+            {item}
+            {items.length > 1 && index < items.length - 1 ? ', ' : ''}
+          </span>
+        </React.Fragment>
+      ))}
     </>
   );
 };
