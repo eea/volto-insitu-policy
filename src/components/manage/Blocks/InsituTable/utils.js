@@ -19,7 +19,11 @@ export const fnName = (row) => {
 
 export const ProviderNameCell = ({ cell }) => {
   const name = JSON.parse(cell.getValue());
-  return <a href={name.link}>{name.title}</a>;
+  return (
+    <a className="provider-name-link" href={name.link}>
+      {name.title}
+    </a>
+  );
 };
 
 export const LinkCell = ({ cell }) => {

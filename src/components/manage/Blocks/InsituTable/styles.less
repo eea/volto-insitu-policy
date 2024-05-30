@@ -1,12 +1,14 @@
 table {
   width: 100%;
+  max-width: 1120px !important; /* Ensure the table fits within the specified width */
   border-collapse: collapse;
   border-spacing: 0 !important;
   text-indent: initial;
+  table-layout: fixed; /* Ensures fixed layout for columns */
+}
 
-  thead {
-    border-bottom: 0.5px solid #783f34;
-  }
+thead {
+  border-bottom: 0.5px solid #783f34;
 }
 
 tbody tr {
@@ -17,6 +19,8 @@ td,
 th {
   padding: 1rem;
   border: none;
+  word-wrap: break-word;
+  vertical-align: top;
 }
 
 tbody tr:nth-child(odd) {
@@ -91,4 +95,20 @@ tbody tr:nth-child(even) {
   cursor: pointer;
   font-size: 8px;
   line-height: 1;
+}
+
+.provider-name-link {
+  font-weight: bold;
+  color: #3d5265 !important;
+  text-decoration: none;
+}
+
+.provider-name-link:hover {
+  color: #783f34 !important;
+  text-decoration: underline;
+}
+
+.provider-name-link:focus {
+  color: #783f34;
+  text-decoration: underline;
 }
