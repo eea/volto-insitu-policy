@@ -52,7 +52,6 @@ describe('Blocks Tests', () => {
       .click()
       .type('{downArrow}{downArrow}{downArrow}{downArrow}{enter}');
 
-    cy.contains('Items').click();
     // Save
     cy.get('#toolbar-save').click({ force: true });
     cy.url().should('eq', Cypress.config().baseUrl + '/cypress/my-page');
