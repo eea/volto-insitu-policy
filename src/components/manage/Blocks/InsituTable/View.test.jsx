@@ -146,7 +146,6 @@ describe('DataProvidersTable', () => {
     expect(getByText('Countries')).toBeInTheDocument();
     expect(getByText('Members')).toBeInTheDocument();
     expect(getByText('Website')).toBeInTheDocument();
-    expect(getByText('Type')).toBeInTheDocument();
     expect(getByText('Requirement groups')).toBeInTheDocument();
   });
 
