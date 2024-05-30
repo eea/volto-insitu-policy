@@ -1,9 +1,8 @@
 import {
   removeSpecialCharsSortingFn,
-  fnMembersList,
   LinkCell,
   ListCell,
-  LinksList,
+  ListCellMembers,
   ProviderNameCell,
   fnName,
 } from './utils';
@@ -53,36 +52,43 @@ const network_columns = [
   {
     accessorFn: fnName,
     id: 'name',
+    accessorKey: 'name',
     header: 'Name',
     cell: ProviderNameCell,
-    sortingFn: removeSpecialCharsSortingFn, // Apply custom sorting function
+    sortingFn: removeSpecialCharsSortingFn,
+    width: 300,
+  },
+  {
+    accessorKey: 'link',
+    header: 'Website',
+    cell: LinkCell,
+    sortingFn: 'alphanumeric',
+    width: 200,
   },
   {
     accessorFn: (row) => row['countries'].join('|||'),
     id: 'countries',
     header: 'Countries',
     cell: ListCell,
+    width: 200,
+    sortingFn: 'alphanumeric',
   },
   {
-    accessorFn: (row) => fnMembersList(row),
+    accessorFn: (row) => JSON.stringify(row['members']),
     id: 'members',
+    accessorKey: 'members',
     header: 'Members',
-    cell: LinksList,
-  },
-  {
-    accessorKey: 'link',
-    header: 'Website',
-    cell: LinkCell,
-  },
-  {
-    accessorKey: 'provider_type',
-    header: 'Type',
+    cell: ListCellMembers,
+    sortingFn: 'alphanumeric',
+    width: 250,
   },
   {
     accessorFn: (row) => row['requirement_groups'].join('|||'),
     id: 'requirement_groups',
     header: 'Requirement groups',
     cell: ListCell,
+    sortingFn: 'alphanumeric',
+    width: 200,
   },
 ];
 

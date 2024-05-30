@@ -10,9 +10,9 @@ export const removeSpecialCharsSortingFn = (rowA, rowB, columnId) => {
   return a.localeCompare(b);
 };
 
-export const fnMembersList = (row) => {
-  return JSON.stringify(row['members']);
-};
+// export const fnMembersList = (row) => {
+//   return JSON.stringify(row['members']);
+// };
 
 export const fnName = (row) => {
   return JSON.stringify(row['name']);
@@ -29,6 +29,23 @@ export const ProviderNameCell = ({ cell }) => {
 
 export const LinkCell = ({ cell }) => {
   return <a href={cell.getValue()}>{cell.getValue()}</a>;
+};
+
+export const ListCellMembers = ({ cell }) => {
+  const items = JSON.parse(cell.getValue());
+  return (
+    <>
+      {items.map((item, index) => (
+        <React.Fragment key={index}>
+          <a href={item.link} className="member-link">
+            {item.name}
+            {items.length > 1 && index < items.length - 1 ? '; ' : ''}
+            <br />
+          </a>
+        </React.Fragment>
+      ))}
+    </>
+  );
 };
 
 export const ListCell = ({ cell }) => {
