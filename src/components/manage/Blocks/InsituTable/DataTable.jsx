@@ -8,8 +8,8 @@ import {
 } from '@tanstack/react-table';
 import './styles.less';
 import SearchInput from './SearchInput';
-import SortButtons from './SortButtons'; // Import the SortButtons component
-import { simple_columns, network_columns } from './columns'; // Import columns
+import SortButtons from './SortButtons';
+import { simple_columns, network_columns } from './columns';
 
 const DataProvidersTable = ({ is_network, dataProvider }) => {
   const [filtering, setFiltering] = React.useState('');

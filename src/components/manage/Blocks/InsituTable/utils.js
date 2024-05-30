@@ -1,9 +1,10 @@
 import React from 'react';
 
-// Custom sorting function to remove special characters before sorting
 export const removeSpecialCharsSortingFn = (rowA, rowB, columnId) => {
-  const getCleanedValue = (row) =>
-    row.original[columnId].replace(/[^\w\s]/gi, '');
+  const getCleanedValue = (row) => {
+    const value = JSON.parse(row.getValue(columnId)).title; // Parse the JSON and get the title
+    return value.replace(/[^\w\s]/gi, ''); // Remove special characters
+  };
   const a = getCleanedValue(rowA);
   const b = getCleanedValue(rowB);
   return a.localeCompare(b);

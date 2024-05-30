@@ -23,6 +23,7 @@ const simple_columns = [
     header: 'Website',
     cell: LinkCell,
     width: 250,
+    sortingFn: 'alphanumeric', // Example of a default sorting function
   },
   {
     accessorFn: (row) => row['countries'].join('|||'),
@@ -30,11 +31,13 @@ const simple_columns = [
     header: 'Countries',
     cell: ListCell,
     width: 200,
+    sortingFn: 'alphanumeric',
   },
   {
     accessorKey: 'provider_type',
     header: 'Type',
     width: 150,
+    sortingFn: 'alphanumeric',
   },
   {
     accessorFn: (row) => row['requirement_groups'].join('|||'),
@@ -42,6 +45,7 @@ const simple_columns = [
     header: 'Requirement groups',
     cell: ListCell,
     width: 200,
+    sortingFn: 'alphanumeric',
   },
 ];
 
