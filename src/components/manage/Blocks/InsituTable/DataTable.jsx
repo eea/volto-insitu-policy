@@ -8,8 +8,8 @@ import {
 } from '@tanstack/react-table';
 import './styles.less';
 import SearchInput from './SearchInput';
-import SortButtons from './SortButtons';
-import { simple_columns, network_columns } from './columns';
+import SortButtons from './SortButtons'; // Import the SortButtons component
+import { simple_columns, network_columns } from './columns'; // Import columns
 
 const DataProvidersTable = ({ is_network, dataProvider }) => {
   const [filtering, setFiltering] = React.useState('');
@@ -37,6 +37,25 @@ const DataProvidersTable = ({ is_network, dataProvider }) => {
     setSorting([{ id: columnId, desc: direction === 'desc' }]);
   };
 
+  const toggleSorting = (columnId) => {
+    setSorting((prevSorting) => {
+      const currentSort = prevSorting.find((sort) => sort.id === columnId);
+      if (!currentSort) {
+        return [{ id: columnId, desc: false }];
+      }
+      if (!currentSort.desc) {
+        return [{ id: columnId, desc: true }];
+      }
+      return [];
+    });
+  };
+
+  const handleKeyDown = (event, columnId) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleSorting(columnId);
+    }
+  };
+
   return (
     <>
       <SearchInput value={filtering} onChange={setFiltering} />
@@ -53,10 +72,19 @@ const DataProvidersTable = ({ is_network, dataProvider }) => {
                   >
                     {header.isPlaceholder ? null : (
                       <div className="header-cell">
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => toggleSorting(header.column.id)}
+                          onKeyDown={(event) =>
+                            handleKeyDown(event, header.column.id)
+                          }
+                        >
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                        </span>
                         {header.column.getCanSort() && (
                           <SortButtons
                             columnId={header.column.id}
