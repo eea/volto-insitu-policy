@@ -76,6 +76,14 @@ tbody tr:nth-child(even) {
   fill: currentColor;
 }
 
+.search-input:focus + .search-icon .search-svg path {
+  stroke: #783f34;
+}
+
+.search-container:focus-within {
+  border-bottom-width: 3px; /* Thicker border when input is focused */
+}
+
 .header-cell {
   display: flex;
   align-items: center;
