@@ -172,7 +172,6 @@ describe('DataProvidersTable', () => {
         <DataProvidersTable data={{ network: true }} />
       </Provider>,
     );
-
     expect(getByText('Provider 1')).toBeInTheDocument();
     expect(getByText('Romania')).toBeInTheDocument();
     const linkElements = container.querySelectorAll('a');
@@ -181,15 +180,15 @@ describe('DataProvidersTable', () => {
       'href',
       'http://example/Provider1.com',
     );
-    expect(linkElements[1]).toHaveAttribute(
+    expect(linkElements[1]).toHaveAttribute('href', 'http://example.com');
+    expect(linkElements[2]).toHaveAttribute(
       'href',
       'http://example-member1.com',
     );
-    expect(linkElements[2]).toHaveAttribute(
+    expect(linkElements[3]).toHaveAttribute(
       'href',
       'http://example-member2.com',
     );
-    expect(linkElements[3]).toHaveAttribute('href', 'http://example.com');
     expect(getByText(/Group 1,/)).toBeInTheDocument();
     expect(getByText('Group 2')).toBeInTheDocument();
   });
