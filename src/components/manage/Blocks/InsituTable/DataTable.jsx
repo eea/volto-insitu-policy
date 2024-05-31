@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import React from 'react';
 import {
   useReactTable,
   flexRender,
@@ -13,12 +12,7 @@ import SortButtons from './SortButtons';
 import { simple_columns, network_columns } from './columns';
 
 const DataProvidersTable = ({ is_network, dataProvider }) => {
-  const location = useLocation();
-  const history = useHistory();
-  const query = new URLSearchParams(location.search);
-  const initialFilter = query.get('search') || '';
-
-  const [filtering, setFiltering] = React.useState(initialFilter);
+  const [filtering, setFiltering] = React.useState('');
   const [sorting, setSorting] = React.useState([]);
 
   const { defaultData, columns } = is_network
@@ -38,16 +32,6 @@ const DataProvidersTable = ({ is_network, dataProvider }) => {
     onGlobalFilterChange: setFiltering,
     onSortingChange: setSorting,
   });
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    if (filtering) {
-      params.set('search', filtering);
-    } else {
-      params.delete('search');
-    }
-    history.replace({ search: params.toString() });
-  }, [filtering, location.search, history]);
 
   const handleSort = (columnId, direction) => {
     setSorting([{ id: columnId, desc: direction === 'desc' }]);
