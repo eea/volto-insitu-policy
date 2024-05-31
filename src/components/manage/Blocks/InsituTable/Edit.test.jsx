@@ -8,6 +8,21 @@ import Edit from './Edit';
 
 const mockOnChangeBlock = jest.fn();
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn().mockReturnValue({
+    pathname: '/test-jest',
+    search: '',
+    hash: '',
+    state: null,
+    key: 'test-jest',
+  }),
+  useHistory: () => ({
+    push: jest.fn,
+    replace: jest.fn,
+  }),
+}));
+
 jest.mock('@plone/volto/components', () => ({
   BlockDataForm: ({ title, children, onChangeField }) => (
     <div>
