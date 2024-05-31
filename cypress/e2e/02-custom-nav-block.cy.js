@@ -43,8 +43,15 @@ describe('Blocks Tests', () => {
       .trigger('mouseup', 0, -100, { force: true });
     cy.get('#field-menuAlign').click();
     cy.contains('Center').click();
-    cy.get('#field-menuPosition').click();
-    cy.contains('Bottom').click();
+    cy.get('#field-menuPosition').click().type('{downArrow}{enter}');
+    cy.get('#field-menuPosition').click().type('{downArrow}{downArrow}{enter}');
+    cy.get('#field-menuPosition')
+      .click()
+      .type('{downArrow}{downArrow}{downArrow}{enter}');
+    cy.get('#field-menuPosition')
+      .click()
+      .type('{downArrow}{downArrow}{downArrow}{downArrow}{enter}');
+
     // Save
     cy.get('#toolbar-save').click({ force: true });
     cy.url().should('eq', Cypress.config().baseUrl + '/cypress/my-page');

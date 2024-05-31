@@ -6,6 +6,21 @@ import '@testing-library/jest-dom/extend-expect';
 
 import DataProvidersTable from './View';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn().mockReturnValue({
+    pathname: '/test-jest',
+    search: '',
+    hash: '',
+    state: null,
+    key: 'test-jest',
+  }),
+  useHistory: () => ({
+    push: jest.fn,
+    replace: jest.fn,
+  }),
+}));
+
 const mockStore = configureStore();
 const store = mockStore({
   content: {
@@ -33,7 +48,10 @@ const storeWithSimpleData = mockStore({
         data_providers_table: {
           simple: [
             {
-              name: 'Provider 1',
+              name: {
+                title: 'Provider 1',
+                link: 'http://example.com/Provider1',
+              },
               countries: ['Romania'],
               link: 'http://example.com',
               provider_type: 'Type A',
@@ -57,7 +75,10 @@ const storeWithNetworkData = mockStore({
         data_providers_table: {
           network: [
             {
-              name: 'Provider 1',
+              name: {
+                title: 'Provider 1',
+                link: 'http://example/Provider1.com',
+              },
               countries: ['Romania'],
               members: [
                 {
@@ -70,7 +91,6 @@ const storeWithNetworkData = mockStore({
                 },
               ],
               link: 'http://example.com',
-              provider_type: 'Type A',
               requirement_groups: ['Group 1', 'Group 2'],
             },
           ],
@@ -92,14 +112,14 @@ describe('DataProvidersTable', () => {
       </Provider>,
     );
     // Verify that the search input is rendered
-    const searchInput = getByPlaceholderText('Search...');
+    const searchInput = getByPlaceholderText(
+      'Start typing to filter by any column value',
+    );
     expect(searchInput).toBeInTheDocument();
     expect(searchInput.value).toBe('');
     expect(searchInput).toHaveClass('search-input');
     expect(container.querySelector('.search-container')).toBeInTheDocument();
-    expect(
-      container.querySelector('.search-icon-container'),
-    ).toBeInTheDocument();
+    expect(container.querySelector('.search-icon')).toBeInTheDocument();
 
     // verify that you can type in the search input and it changes the input value
     fireEvent.change(searchInput, { target: { value: 'test' } });
@@ -120,14 +140,14 @@ describe('DataProvidersTable', () => {
       </Provider>,
     );
     // Verify that the search input is rendered
-    const searchInput = getByPlaceholderText('Search...');
+    const searchInput = getByPlaceholderText(
+      'Start typing to filter by any column value',
+    );
     expect(searchInput).toBeInTheDocument();
     expect(searchInput.value).toBe('');
     expect(searchInput).toHaveClass('search-input');
     expect(container.querySelector('.search-container')).toBeInTheDocument();
-    expect(
-      container.querySelector('.search-icon-container'),
-    ).toBeInTheDocument();
+    expect(container.querySelector('.search-icon')).toBeInTheDocument();
 
     // verify that you can type in the search input and it changes the input value
     fireEvent.change(searchInput, {
@@ -140,7 +160,6 @@ describe('DataProvidersTable', () => {
     expect(getByText('Countries')).toBeInTheDocument();
     expect(getByText('Members')).toBeInTheDocument();
     expect(getByText('Website')).toBeInTheDocument();
-    expect(getByText('Type')).toBeInTheDocument();
     expect(getByText('Requirement groups')).toBeInTheDocument();
   });
 
@@ -156,9 +175,9 @@ describe('DataProvidersTable', () => {
     const linkElement = getByText('Provider 1')
       .closest('tr')
       .querySelector('a');
-    expect(linkElement).toHaveAttribute('href', 'http://example.com');
+    expect(linkElement).toHaveAttribute('href', 'http://example.com/Provider1');
     expect(getByText('Type A')).toBeInTheDocument();
-    expect(getByText('Group 1')).toBeInTheDocument();
+    expect(getByText(/Group 1,/)).toBeInTheDocument();
     expect(getByText('Group 2')).toBeInTheDocument();
   });
 
@@ -168,22 +187,24 @@ describe('DataProvidersTable', () => {
         <DataProvidersTable data={{ network: true }} />
       </Provider>,
     );
-
     expect(getByText('Provider 1')).toBeInTheDocument();
     expect(getByText('Romania')).toBeInTheDocument();
     const linkElements = container.querySelectorAll('a');
-    expect(linkElements).toHaveLength(3);
+    expect(linkElements).toHaveLength(4);
     expect(linkElements[0]).toHaveAttribute(
+      'href',
+      'http://example/Provider1.com',
+    );
+    expect(linkElements[1]).toHaveAttribute('href', 'http://example.com');
+    expect(linkElements[2]).toHaveAttribute(
       'href',
       'http://example-member1.com',
     );
-    expect(linkElements[1]).toHaveAttribute(
+    expect(linkElements[3]).toHaveAttribute(
       'href',
       'http://example-member2.com',
     );
-    expect(linkElements[2]).toHaveAttribute('href', 'http://example.com');
-    expect(getByText('Type A')).toBeInTheDocument();
-    expect(getByText('Group 1')).toBeInTheDocument();
+    expect(getByText(/Group 1,/)).toBeInTheDocument();
     expect(getByText('Group 2')).toBeInTheDocument();
   });
 });
