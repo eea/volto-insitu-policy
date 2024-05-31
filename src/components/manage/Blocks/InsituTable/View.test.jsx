@@ -76,7 +76,6 @@ const storeWithNetworkData = mockStore({
                 },
               ],
               link: 'http://example.com',
-              provider_type: 'Type A',
               requirement_groups: ['Group 1', 'Group 2'],
             },
           ],
@@ -191,7 +190,6 @@ describe('DataProvidersTable', () => {
       'http://example-member2.com',
     );
     expect(linkElements[3]).toHaveAttribute('href', 'http://example.com');
-    expect(getByText('Type A')).toBeInTheDocument();
     expect(getByText(/Group 1,/)).toBeInTheDocument();
     expect(getByText('Group 2')).toBeInTheDocument();
   });
