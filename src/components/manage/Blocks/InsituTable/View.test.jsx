@@ -6,6 +6,21 @@ import '@testing-library/jest-dom/extend-expect';
 
 import DataProvidersTable from './View';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn().mockReturnValue({
+    pathname: '/test-jest',
+    search: '',
+    hash: '',
+    state: null,
+    key: 'test-jest',
+  }),
+  useHistory: () => ({
+    push: jest.fn,
+    replace: jest.fn,
+  }),
+}));
+
 const mockStore = configureStore();
 const store = mockStore({
   content: {
