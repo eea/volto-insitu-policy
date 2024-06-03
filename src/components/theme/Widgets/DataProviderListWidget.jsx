@@ -29,7 +29,6 @@ function DataProviderListWidget(props) {
 
   return (
     <div className="data-providers">
-      <h4>Data providers</h4>
       <ul>
         {data_providers.map((item, index) => (
           <li key={index}>
