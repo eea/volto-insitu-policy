@@ -82,6 +82,10 @@ const messages = defineMessages({
     id: 'linkToPage',
     defaultMessage: 'Link to page',
   },
+  isActive: {
+    id: 'isActive',
+    defaultMessage: 'Set as active page',
+  },
 });
 
 const navItemSchema = (props) => {
@@ -93,7 +97,7 @@ const navItemSchema = (props) => {
       {
         id: 'default',
         title: intl.formatMessage(messages.Default),
-        fields: ['title', 'assetType', 'linkToPage'],
+        fields: ['title', 'assetType', 'linkToPage', 'isActive'],
       },
     ],
 
@@ -133,6 +137,11 @@ const navItemSchema = (props) => {
           ['thumb', intl.formatMessage(messages.Large)],
         ],
         default: 'icon',
+      },
+      isActive: {
+        title: intl.formatMessage(messages.isActive),
+        type: 'boolean',
+        default: false,
       },
       hideTitle: {
         title: intl.formatMessage(messages.HideTitle),
