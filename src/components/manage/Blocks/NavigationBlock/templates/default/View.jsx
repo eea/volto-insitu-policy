@@ -9,9 +9,10 @@ import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
 
 import '../../less/menu.less';
 
-export const AssetTab = ({ props, tabIndex, tabTitle }) => {
+export const AssetTab = ({ props, tabIndex, tabTitle, isActivePage }) => {
   const { image, assetType, assetPosition, imageSize, hideTitle } = props;
   const imageObject = image?.[0];
+
   return (
     <div
       className={cx('asset-position', {
@@ -41,13 +42,14 @@ export const AssetTab = ({ props, tabIndex, tabTitle }) => {
           <span className="menu-item-text">{tabTitle}</span>
         </div>
       )}
+
+      {isActivePage && <div className="active-page-border"></div>}
     </div>
   );
 };
 
 const MenuItem = (props) => {
-  const { activeTab = null, tabs = {} } = props;
-  const { tab, index } = props;
+  const { activeTab = null, tabs = {}, tab, index } = props;
   const tabIndex = index + 1;
   const defaultTitle = `Tab ${tabIndex}`;
   const tabSettings = tabs[tab];
@@ -64,15 +66,19 @@ const MenuItem = (props) => {
         <>
           {assetType ? (
             <AssetTab
+              isActivePage={tabs[tab]?.isActive || false}
               props={tabSettings}
               tabTitle={tabTitle}
               tabIndex={tabIndex}
             />
           ) : (
-            <>
+            <div>
               <span className="menu-item-count">{tabIndex}</span>
               <span className="menu-item-text">{tabTitle}</span>
-            </>
+              {tabs[tab]?.isActive && (
+                <div className="active-page-border-text"></div>
+              )}
+            </div>
           )}
         </>
       </Menu.Item>

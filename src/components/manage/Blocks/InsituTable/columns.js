@@ -21,7 +21,7 @@ const simple_columns = [
     accessorKey: 'link',
     header: 'Website',
     cell: LinkCell,
-    width: 250,
+    width: 200,
     sortingFn: 'alphanumeric', // Example of a default sorting function
   },
   {
@@ -56,7 +56,7 @@ const network_columns = [
     header: 'Name',
     cell: ProviderNameCell,
     sortingFn: removeSpecialCharsSortingFn,
-    width: 300,
+    width: 250,
   },
   {
     accessorKey: 'link',
@@ -88,7 +88,7 @@ const network_columns = [
     header: 'Requirement groups',
     cell: ListCell,
     sortingFn: 'alphanumeric',
-    width: 200,
+    width: 240,
   },
 ];
 
