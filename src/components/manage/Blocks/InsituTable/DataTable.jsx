@@ -59,7 +59,10 @@ const DataProvidersTable = ({ is_network, dataProvider }) => {
   return (
     <>
       <SearchInput value={filtering} onChange={setFiltering} />
-      <div style={{ overflowX: 'auto', maxWidth: '1120px' }}>
+      <div
+        style={{ overflowX: 'auto', maxWidth: '1120px' }}
+        className="insitu-table"
+      >
         <table>
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
