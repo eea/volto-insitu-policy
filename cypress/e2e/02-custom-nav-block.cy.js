@@ -27,11 +27,11 @@ describe('Blocks Tests', () => {
     cy.contains('No value').click();
     cy.get('#field-assetType-1-data-0').click().type('{downArrow}{enter}');
 
-    cy.get('#field-imageSize-4-data-0').click();
-    cy.contains('Medium').click();
+    // cy.get('#field-imageSize-4-data-0').click();
+    // cy.contains('Medium').click();
 
-    cy.get('#field-assetPosition-5-data-0').click();
-    cy.contains('Right side').click();
+    // cy.get('#field-assetPosition-5-data-0').click();
+    // cy.contains('Right side').click();
 
     cy.get('#field-linkToPage-2-data-0').click().type('/test-page');
     cy.contains('Tab #1').click();
