@@ -1,21 +1,21 @@
-table {
+.insitu-table table {
   width: 100%;
-  max-width: 1120px !important; /* Ensure the table fits within the specified width */
+  max-width: 1120px !important;
   border-collapse: collapse;
   border-spacing: 0 !important;
-  table-layout: fixed; /* Ensures fixed layout for columns */
+  table-layout: fixed;
   text-indent: initial;
 }
 
-thead {
+.insitu-table thead {
   border-bottom: 0.5px solid #783f34;
 }
 
-tbody tr {
+.insitu-table tbody tr {
   border-bottom: 0.4px solid rgb(198, 198, 198);
 }
 
-td,
+.insitu-table td,
 th {
   padding: 1rem;
   border: none;
@@ -23,11 +23,11 @@ th {
   word-wrap: break-word;
 }
 
-tbody tr:nth-child(odd) {
+.insitu-table tbody tr:nth-child(odd) {
   background-color: white;
 }
 
-tbody tr:nth-child(even) {
+.insitu-table tbody tr:nth-child(even) {
   background-color: rgb(245, 245, 245);
 }
 
@@ -81,15 +81,15 @@ tbody tr:nth-child(even) {
 }
 
 .search-container:focus-within {
-  border-bottom-width: 3px; /* Thicker border when input is focused */
+  border-bottom-width: 3px;
 }
 
-.header-cell {
+.insitu-table .header-cell {
   display: flex;
   align-items: center;
 }
 
-.header-cell span {
+.insitu-table .header-cell span {
   cursor: pointer;
 }
 
