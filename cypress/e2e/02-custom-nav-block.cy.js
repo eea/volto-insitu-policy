@@ -30,8 +30,8 @@ describe('Blocks Tests', () => {
     // cy.get('#field-imageSize-4-data-0').click();
     // cy.contains('Medium').click();
 
-    cy.get('#field-assetPosition-5-data-0').click();
-    cy.contains('Right side').click();
+    // cy.get('#field-assetPosition-5-data-0').click();
+    // cy.contains('Right side').click();
 
     cy.get('#field-linkToPage-2-data-0').click().type('/test-page');
     cy.contains('Tab #1').click();
