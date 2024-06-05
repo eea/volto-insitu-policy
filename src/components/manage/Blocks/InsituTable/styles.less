@@ -1,0 +1,141 @@
+.insitu-table table {
+  width: 100%;
+  max-width: 1120px !important;
+  border-collapse: collapse;
+  border-spacing: 0 !important;
+  table-layout: fixed;
+  text-indent: initial;
+}
+
+.insitu-table thead {
+  border-bottom: 0.5px solid #783f34;
+}
+
+.insitu-table tbody tr {
+  border-bottom: 0.4px solid rgb(198, 198, 198);
+}
+
+.insitu-table td,
+th {
+  padding: 1rem;
+  border: none;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.insitu-table tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+.insitu-table tbody tr:nth-child(even) {
+  background-color: rgb(245, 245, 245);
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1.5px solid #783f34;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  flex-grow: 1;
+  padding-right: 10px;
+  border: none;
+  background: transparent;
+  color: #686868;
+  font-family: Roboto, sans-serif;
+  font-size: 2.3rem;
+  font-weight: lighter;
+}
+
+.search-input::placeholder {
+  color: #686868;
+  font-family: Roboto, sans-serif;
+  font-size: 2.3rem;
+  font-weight: lighter;
+  opacity: 1;
+}
+
+.search-input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.search-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: currentColor;
+}
+
+.search-input:focus + .search-icon .search-svg path {
+  stroke: #783f34;
+}
+
+.search-container:focus-within {
+  border-bottom-width: 3px;
+}
+
+.insitu-table .header-cell {
+  display: flex;
+  align-items: center;
+}
+
+.insitu-table .header-cell span {
+  cursor: pointer;
+}
+
+.sort-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-button {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  margin: 0 2px;
+  background: none;
+  cursor: pointer;
+  font-size: 8px;
+  line-height: 1;
+}
+
+.provider-name-link {
+  color: #3d5265 !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.provider-name-link:hover {
+  color: #783f34 !important;
+  text-decoration: underline;
+}
+
+.provider-name-link:focus {
+  color: #783f34;
+  text-decoration: underline;
+}
+
+.member-link {
+  color: #3d5265 !important;
+  text-decoration: none;
+}
+
+.member-link:hover {
+  color: #783f34 !important;
+  text-decoration: underline;
+}
+
+.member-link:focus {
+  color: #783f34;
+  text-decoration: underline;
+}

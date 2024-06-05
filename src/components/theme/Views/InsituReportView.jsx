@@ -1,9 +1,7 @@
 import React from 'react';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
-import { BannerTitle } from '@eeacms/volto-insitu-policy/components';
 import { Grid, Image, Button } from 'semantic-ui-react';
 import articleLine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/extras/article-line.svg';
-import { HTMLField, isOldFormat } from '@eeacms/volto-insitu-policy/helpers';
 
 import './styles.less';
 
@@ -13,7 +11,6 @@ function InsituReportView(props) {
 
   return (
     <div className="insitu-report-view">
-      {isOldFormat(content) && <BannerTitle content={content} />}
       <div className="ui container">
         <Grid>
           <Grid.Row>
@@ -54,11 +51,7 @@ function InsituReportView(props) {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        {isOldFormat(content) ? (
-          <>
-            <HTMLField value={content.text} />
-          </>
-        ) : (
+        {Object.keys(content.blocks).length > 0 && (
           <RenderBlocks {...props} content={filteredContent} />
         )}
       </div>

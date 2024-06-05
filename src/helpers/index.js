@@ -1,1 +1,1 @@
-export { HTMLField, isOldFormat, hasNonEmptyBlocks } from './Utils';
+export { HTMLField } from './Utils';
