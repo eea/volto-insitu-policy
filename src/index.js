@@ -176,9 +176,6 @@ const applyConfig = (config) => {
     installSearchEngine,
   ].reduce((acc, apply) => apply(acc), config);
 
-  console.log('AAAAAAAAAAAAAAa');
-  console.log(final);
-
   return final;
 };
 

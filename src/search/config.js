@@ -79,8 +79,5 @@ export default function installMainSearch(config) {
       process.env.RAZZLE_ES_PROXY_ADDR || getClientProxyAddress();
   }
 
-  console.log('BBBBBBBBBBBBBBBBBB');
-  console.log(config);
-
   return config;
 }
