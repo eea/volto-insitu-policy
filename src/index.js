@@ -24,6 +24,8 @@ import DataProviderListWidget from './components/theme/Widgets/DataProviderListW
 import installNavigationBlock from './components/manage/Blocks/NavigationBlock/index';
 import installInsituTable from './components/manage/Blocks/InsituTable';
 
+import installSearchEngine from './search';
+
 const applyConfig = (config) => {
   //Routes
   config.addonRoutes = [
@@ -56,8 +58,7 @@ const applyConfig = (config) => {
     { title: 'Copernicus Emergency', href: 'https://emergency.copernicus.eu/' },
     {
       title: 'Copernicus Space Component',
-      href:
-        'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
+      href: 'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
     },
   ];
 
@@ -168,10 +169,16 @@ const applyConfig = (config) => {
   config.widgets.views.id.data_providers_list = DataProviderListWidget;
   config.widgets.id.copernicus_themes = TokenWidget;
 
-  return [installNavigationBlock, installInsituTable].reduce(
-    (acc, apply) => apply(acc),
-    config,
-  );
+  const final = [
+    installNavigationBlock,
+    installInsituTable,
+    installSearchEngine,
+  ].reduce((acc, apply) => apply(acc), config);
+
+  console.log('AAAAAAAAAAAAAAa');
+  console.log(final);
+
+  return final;
 };
 
 export default applyConfig;
