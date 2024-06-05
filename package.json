@@ -19,12 +19,23 @@
   "addons": [
     "@eeacms/volto-eea-design-system",
     "@eeacms/volto-eea-website-theme",
-    "@eeacms/volto-listing-block"
+    "@eeacms/volto-globalsearch",
+    "@eeacms/volto-searchlib",
+    "@eeacms/volto-listing-block",
+    "@eeacms/volto-block-style",
+    "@eeacms/volto-tabs-block"
   ],
   "dependencies": {
+    "@eeacms/volto-block-style": "*",
     "@eeacms/volto-eea-design-system": "*",
-    "@eeacms/volto-eea-website-theme": "github:eea/volto-eea-website-theme#develop",
-    "@eeacms/volto-listing-block": "*"
+    "@eeacms/volto-eea-website-theme": "*",
+    "@eeacms/volto-globalsearch": "*",
+    "@eeacms/volto-listing-block": "*",
+    "@eeacms/volto-searchlib": "*",
+    "@eeacms/volto-tabs-block": "*",
+    "@elastic/search-ui": "*",
+    "@tanstack/react-table": "*",
+    "query-string": "*"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
