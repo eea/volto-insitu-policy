@@ -34,7 +34,7 @@ export default function installMainSearch(config) {
 
   config.searchui.insituSearch = {
     ...mergeConfig(envConfig, config.searchui.globalsearchbase),
-    elastic_index: '_es/globalsearch',
+    elastic_index: '_es/insituSearch',
     index_name: 'copernicus_searchui',
     host: process.env.RAZZLE_ES_PROXY_ADDR || 'http://localhost:3000',
     runtime_mappings: build_runtime_mappings(clusters),
@@ -45,7 +45,7 @@ export default function installMainSearch(config) {
 
   insituSearch.permanentFilters.push({
     term: {
-      cluster_name: 'insitu',
+      cluster_name: 'copernicus_insitu',
     },
   });
 
