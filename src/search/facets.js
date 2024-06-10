@@ -52,7 +52,7 @@ export const copernicus_components = {
 };
 
 export const copernicus_services = {
-  field: 'taxonomy_copernicus_services.keyword',
+  field: 'copernicus_services.keyword',
   factory: 'MultiTermFacet',
   label: 'Copernicus services',
   showInFacetsList: true,
