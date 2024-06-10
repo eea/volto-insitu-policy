@@ -51,10 +51,10 @@ export const copernicus_components = {
   isMulti: true,
 };
 
-export const copernicus_services = {
-  field: 'copernicus_services.keyword',
+export const copernicus_themes = {
+  field: 'taxonomy_copernicus_themes.keyword',
   factory: 'MultiTermFacet',
-  label: 'Copernicus services',
+  label: 'Copernicus themes',
   showInFacetsList: true,
   filterType: 'any',
   isFilterable: false,
@@ -133,7 +133,7 @@ const facets = [
   objectProvides,
   issued_date,
   copernicus_components,
-  copernicus_services,
+  copernicus_themes,
   data_providers,
 ];
 
