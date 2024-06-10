@@ -56,6 +56,8 @@ export default function installMainSearch(config) {
         'News Item',
         'Event',
         'insitu.report',
+        'insitu.use_case',
+        'Document',
       ],
     },
   });

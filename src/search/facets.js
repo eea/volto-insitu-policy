@@ -40,6 +40,39 @@ export const objectProvides = {
   optionsFilter: 'typesForClustersOptionsFilter',
 };
 
+export const copernicus_components = {
+  field: 'taxonomy_copernicus_components.keyword',
+  factory: 'MultiTermFacet',
+  label: 'Copernicus components',
+  showInFacetsList: true,
+  filterType: 'any',
+  isFilterable: false,
+  show: 10000,
+  isMulti: true,
+};
+
+export const copernicus_services = {
+  field: 'taxonomy_copernicus_services.keyword',
+  factory: 'MultiTermFacet',
+  label: 'Copernicus services',
+  showInFacetsList: true,
+  filterType: 'any',
+  isFilterable: false,
+  show: 10000,
+  isMulti: true,
+};
+
+export const data_providers = {
+  field: 'data_providers_list.keyword',
+  factory: 'MultiTermFacet',
+  label: 'Data providers',
+  showInFacetsList: true,
+  filterType: 'any',
+  isFilterable: false,
+  show: 10000,
+  isMulti: true,
+};
+
 export const issued_date = {
   field: 'issued.date',
   factory: 'DropdownRangeFilter',
@@ -99,6 +132,9 @@ const facets = [
   // clusters,
   objectProvides,
   issued_date,
+  copernicus_components,
+  copernicus_services,
+  data_providers,
 ];
 
 export default facets;

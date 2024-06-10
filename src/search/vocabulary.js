@@ -4,6 +4,7 @@ const vocab = {
   },
   objectProvides: {
     'insitu.report': 'Report',
+    'insitu.use_case': 'Use case',
   },
 };
 
