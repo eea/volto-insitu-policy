@@ -37,6 +37,11 @@ const applyConfig = (config) => {
 
   config.settings.eea.footerOpts.social[0].icon = 'ri-twitter-x-line';
 
+  config.settings.eea.headerSearchBox[0].path = '/advanced-search';
+  config.settings.eea.headerSearchBox[0].placeholder = 'Search InSitu...';
+  config.settings.eea.headerSearchBox[0].buttonUrl =
+    'https://www.eea.europa.eu/en/advanced-search';
+
   //In situ customizations
 
   config.settings.eea.headerOpts.partnerLinks.title = 'Copernicus Services';
@@ -58,8 +63,7 @@ const applyConfig = (config) => {
     { title: 'Copernicus Emergency', href: 'https://emergency.copernicus.eu/' },
     {
       title: 'Copernicus Space Component',
-      href:
-        'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
+      href: 'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
     },
   ];
 
