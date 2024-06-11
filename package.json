@@ -20,7 +20,7 @@
     "react-countup/countup.js": "2.5.0",
     "d3-array": "^2.12.1",
     "@elastic/react-search-ui": "^1.9.0",
-    "@elastic/search-ui": "1.19.0",
+    "@elastic/search-ui": "1.21.2",
     "@eeacms/volto-searchlib": "^0.9.3"
   },
   "addons": [
@@ -38,9 +38,8 @@
     "@eeacms/volto-eea-website-theme": "^1.33.2",
     "@eeacms/volto-globalsearch": "^1.0.20",
     "@eeacms/volto-listing-block": "7.1.0",
-    "@eeacms/volto-searchlib": "^0.9.3",
+    "@eeacms/volto-searchlib": "0.9.3",
     "@eeacms/volto-tabs-block": "7.5.1",
-    "@elastic/search-ui": "1.19.0",
     "@tanstack/react-table": "^8.17.3",
     "query-string": "7.1.0"
   },
