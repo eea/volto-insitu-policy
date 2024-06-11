@@ -1,5 +1,4 @@
 import { mergeConfig } from '@eeacms/search';
-import { build_runtime_mappings } from '@eeacms/volto-globalsearch/utils';
 import { getClientProxyAddress } from './utils';
 import vocabs from './vocabulary';
 
@@ -7,19 +6,6 @@ import facets from './facets';
 
 const insituConfig = {
   title: 'Insitu Main',
-};
-
-export const clusters = {
-  name: 'op_cluster',
-  field: 'objectProvides',
-  clusters: [
-    // {
-    //   name: 'Type1',
-    //   icon: { name: 'bullhorn' },
-    //   values: ['Video', 'Guidance'],
-    //   defaultResultView: 'horizontalCard',
-    // },
-  ],
 };
 
 export default function installMainSearch(config) {
@@ -37,7 +23,6 @@ export default function installMainSearch(config) {
     elastic_index: '_es/insituSearch',
     index_name: 'copernicus_searchui',
     host: process.env.RAZZLE_ES_PROXY_ADDR || 'http://localhost:3000',
-    runtime_mappings: build_runtime_mappings(clusters),
     ...vocabs,
   };
 
@@ -46,19 +31,6 @@ export default function installMainSearch(config) {
   insituSearch.permanentFilters.push({
     term: {
       cluster_name: 'copernicus_insitu',
-    },
-  });
-
-  insituSearch.permanentFilters.push({
-    terms: {
-      objectProvides: [
-        // TODO update
-        'News Item',
-        'Event',
-        'insitu.report',
-        'insitu.use_case',
-        'Document',
-      ],
     },
   });
 
