@@ -21,7 +21,7 @@
     "d3-array": "2.12.1",
     "@elastic/react-search-ui": "1.9.0",
     "@elastic/search-ui": "1.21.2",
-    "@eeacms/volto-searchlib": "2.0.1"
+    "@eeacms/volto-searchlib": "2.0.2"
   },
   "addons": [
     "@eeacms/volto-eea-design-system",
