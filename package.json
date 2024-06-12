@@ -40,7 +40,6 @@
     "@eeacms/volto-listing-block": "7.1.0",
     "@eeacms/volto-searchlib": "0.9.3",
     "@eeacms/volto-tabs-block": "7.5.1",
-    "@elastic/search-ui": "1.21.2",
     "@tanstack/react-table": "^8.17.3",
     "query-string": "7.1.0"
   },
