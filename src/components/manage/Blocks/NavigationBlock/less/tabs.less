@@ -1,0 +1,175 @@
+@import './globals.less';
+
+@addon: 'volto-addons';
+@addontype: 'tabsblock';
+@addonelement: 'tabs';
+
+.loadAddonVariables();
+
+@keyframes slide-down {
+  0% {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  95% {
+    overflow: hidden;
+    max-height: @animationContentMaxHeight;
+    visibility: visible;
+  }
+
+  100% {
+    max-height: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    overflow: hidden;
+    max-height: @animationContentMaxHeight;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.tabs-block {
+  .remove-menu.active {
+    overflow: revert; /* needed for edit double click to modify title to remove scrollbar */
+  }
+
+  color: @tabsBlockColor;
+
+  > .styled {
+    display: flex !important;
+    flex: 1;
+    flex-flow: column;
+  }
+
+  .ui.segment.tab {
+    padding: @tabPanePadding;
+  }
+
+  .ui.container.tab {
+    padding-top: @verticalPadding;
+    padding-bottom: @verticalPadding;
+  }
+
+  > .styled > .default.tabs.active,
+  > .default.tabs.active {
+    display: flex;
+    flex-direction: column;
+
+    > .ui.tab {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+  }
+
+  &.flex-start {
+    > .styled > .default.tabs,
+    > .default.tabs {
+      > .ui.tab {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &.flex-end {
+    > .styled > .default.tabs,
+    > .default.tabs {
+      > .ui.tab {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &.center {
+    > .styled > .default.tabs,
+    > .default.tabs {
+      > .ui.tab {
+        justify-content: center;
+      }
+    }
+  }
+
+  .ui.accordion .title ~ .content.RRT__panel .tab-name {
+    padding: @tabAccordionContentPadding;
+  }
+
+  @media not (prefers-reduced-motion) {
+    .ui.accordion .title ~ .content.RRT__panel {
+      display: block;
+      padding: 0;
+      animation: slide-up @animationDuration linear both;
+      will-change: max-height, overflow, opacity;
+    }
+
+    .ui.accordion .title ~ .content.RRT__panel.active {
+      animation: slide-down @animationDuration linear both;
+    }
+  }
+
+  @media print {
+    .ui.tab {
+      display: block !important;
+    }
+
+    .tab-name > div {
+      border-top: 0.1875rem solid #007b6c !important;
+    }
+
+    .tab-name::before {
+      color: var(--text-color, #007b6c);
+      content: attr(id);
+    }
+
+    .secondary.menu {
+      display: none !important;
+    }
+
+    .RRT__container .ui.RRT__tabs {
+      margin-bottom: 0;
+    }
+
+    .slick-track {
+      flex-direction: column !important;
+    }
+
+    .slick-list {
+      overflow: visible !important;
+    }
+
+    .slick-slider .slick-track,
+    .slick-slider .slick-list {
+      overflow: visible !important;
+      width: auto !important;
+      height: auto !important;
+      transform: none !important;
+    }
+
+    .slick-track .slick-slide {
+      display: block !important;
+      overflow: visible !important;
+    }
+
+    .slick-arrow,
+    .slick-dots,
+    .slick-track .slick-cloned {
+      display: none !important;
+    }
+  }
+}
+
+.loadAddonOverrides();
