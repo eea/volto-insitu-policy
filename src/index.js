@@ -24,6 +24,8 @@ import DataProviderListWidget from './components/theme/Widgets/DataProviderListW
 import installNavigationBlock from './components/manage/Blocks/NavigationBlock/index';
 import installInsituTable from './components/manage/Blocks/InsituTable';
 
+import installSearchEngine from './search';
+
 const applyConfig = (config) => {
   //Routes
   config.addonRoutes = [
@@ -34,6 +36,11 @@ const applyConfig = (config) => {
   ];
 
   config.settings.eea.footerOpts.social[0].icon = 'ri-twitter-x-line';
+
+  config.settings.eea.headerSearchBox[0].path = '/advanced-search';
+  config.settings.eea.headerSearchBox[0].placeholder = 'Search InSitu...';
+  config.settings.eea.headerSearchBox[0].buttonUrl =
+    'https://www.eea.europa.eu/en/advanced-search';
 
   //In situ customizations
 
@@ -168,10 +175,13 @@ const applyConfig = (config) => {
   config.widgets.views.id.data_providers_list = DataProviderListWidget;
   config.widgets.id.copernicus_themes = TokenWidget;
 
-  return [installNavigationBlock, installInsituTable].reduce(
-    (acc, apply) => apply(acc),
-    config,
-  );
+  const final = [
+    installNavigationBlock,
+    installInsituTable,
+    installSearchEngine,
+  ].reduce((acc, apply) => apply(acc), config);
+
+  return final;
 };
 
 export default applyConfig;
