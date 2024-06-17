@@ -9,6 +9,20 @@ footer {
     font-family: @footerFontFamily;
   }
 
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+
+  a:visited {
+    color: white;
+  }
+
+  a:hover {
+    color: rgb(208, 208, 208);
+  }
+
   .ui.form {
     font-family: @footerFontFamily;
     button {
@@ -73,10 +87,6 @@ footer {
     color: #fff;
     font-size: 12px;
     text-align: center;
-  }
-
-  .footer-section-title {
-    padding-top: 0.5rem;
   }
 
   .ui.stackable.relaxed.grid .ui.input {
@@ -212,11 +222,6 @@ footer {
       padding: 36px 0 !important;
       background-image: none;
     }
-
-    // .theme-sites .logos .logo img {
-    //   max-width: 70%;
-    //   margin-bottom: 0;
-    // }
 
     .subfooter .ui.grid .six.wide.computer.column .item {
       &:has(.site.logo.copernicus) {

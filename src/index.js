@@ -34,13 +34,15 @@ const applyConfig = (config) => {
       component: Sitemap,
     },
   ];
-
-  config.settings.eea.footerOpts.social[0].icon = 'ri-twitter-x-line';
-
-  config.settings.eea.headerSearchBox[0].path = '/advanced-search';
-  config.settings.eea.headerSearchBox[0].placeholder = 'Search InSitu...';
-  config.settings.eea.headerSearchBox[0].buttonUrl =
-    'https://www.eea.europa.eu/en/advanced-search';
+  config.settings.eea.headerSearchBox[0] = {
+    ...config.settings.eea.headerSearchBox[0],
+    searchSuggestions: '',
+    description:
+      'Looking for more information? Try searching the full EEA website content',
+    path: '/advanced-search',
+    placeholder: 'Search InSitu...',
+    buttonUrl: 'https://www.eea.europa.eu/en/advanced-search',
+  };
 
   //In situ customizations
 
