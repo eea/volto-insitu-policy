@@ -11,6 +11,17 @@ export const copernicus_components = {
   isMulti: true,
 };
 
+export const copernicus_services = {
+  field: 'copernicus_services.keyword',
+  factory: 'MultiTermFacet',
+  label: 'Copernicus services',
+  showInFacetsList: true,
+  filterType: 'any',
+  isFilterable: false,
+  show: 10000,
+  isMulti: true,
+};
+
 export const copernicus_themes = {
   field: 'taxonomy_copernicus_themes.keyword',
   factory: 'MultiTermFacet',
@@ -36,6 +47,7 @@ export const data_providers = {
 const facets = [
   copernicus_components,
   copernicus_themes,
+  copernicus_services,
   data_providers,
   ...globalSearchBaseConfig.facets,
 ];
