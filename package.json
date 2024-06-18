@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-insitu-policy",
-  "version": "0.1.25",
+  "version": "0.1.28",
   "description": "@eeacms/volto-insitu-policy: Volto add-on",
   "main": "src/index.js",
   "author": "European Environment Agency: IDM2 A-Team",
@@ -19,11 +19,10 @@
   "addons": [
     "@eeacms/volto-eea-design-system",
     "@eeacms/volto-eea-website-theme",
-    "@eeacms/volto-globalsearch",
-    "@eeacms/volto-searchlib",
     "@eeacms/volto-listing-block",
     "@eeacms/volto-block-style",
-    "@eeacms/volto-tabs-block"
+    "@eeacms/volto-tabs-block",
+    "@eeacms/volto-globalsearch"
   ],
   "dependencies": {
     "@eeacms/volto-block-style": "*",
@@ -33,8 +32,9 @@
     "@eeacms/volto-listing-block": "*",
     "@eeacms/volto-searchlib": "*",
     "@eeacms/volto-tabs-block": "*",
-    "@elastic/search-ui": "*",
-    "@tanstack/react-table": "*",
+    "@elastic/search-ui": "1.21.2",
+    "@tanstack/react-table": "^8.17.3",
+    "d3-array": "2.12.1",
     "query-string": "*"
   },
   "devDependencies": {

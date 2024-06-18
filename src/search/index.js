@@ -13,8 +13,6 @@ const applyConfig = (config) => {
 
   config.settings.searchlib.searchui.insituSearch.extraQueryParams = extra;
 
-  // console.log(config.settings.searchlib);
-
   return config;
 };
 export default applyConfig;

@@ -6,25 +6,14 @@
 import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import { flattenToAppURL } from '@plone/volto/helpers';
+import { UniversalLink } from '@plone/volto/components';
 import EEAFooter from '@eeacms/volto-eea-design-system/ui/Footer/Footer';
 import config from '@plone/volto/registry';
-import {
-  Grid,
-  Input,
-  Checkbox,
-  Divider,
-  Form,
-  FormField,
-} from 'semantic-ui-react';
+import { Grid, Divider } from 'semantic-ui-react';
 
 const Footer = () => {
   const { eea } = config.settings;
-  // const logo = eea.footerOpts.logoWhite;
-  const {
-    footerActions = [],
-    // copyrightActions = [],
-    socialActions = [],
-  } = useSelector(
+  const { footerActions = [], socialActions = [] } = useSelector(
     (state) => ({
       footerActions: state.actions?.actions?.footer_actions,
       copyrightActions: state.actions?.actions?.copyright_actions,
@@ -32,6 +21,7 @@ const Footer = () => {
     }),
     shallowEqual,
   );
+
   // ZMI > portal_actions > footer_actions
   const actions = footerActions.length
     ? footerActions.map((action) => ({
@@ -40,16 +30,6 @@ const Footer = () => {
       }))
     : eea.footerOpts.actions;
 
-  // ZMI > portal_actions > copyright_actions
-  // const copyright = copyrightActions.length
-  //   ? copyrightActions.map((action) => ({
-  //       title: action.title,
-  //       site: action.title,
-  //       link: flattenToAppURL(action.url),
-  //     }))
-  //   : eea.footerOpts.copyright;
-
-  // ZMI > portal_actions > social_actions
   const social = socialActions.length
     ? socialActions.map((action) => ({
         name: action.id,
@@ -57,14 +37,6 @@ const Footer = () => {
         url: action.url,
       }))
     : eea.footerOpts.social;
-
-  const customSocialActions = social.filter((item) =>
-    ['youtube', 'twitter', 'facebook', 'linkedin'].includes(item.name),
-  );
-
-  customSocialActions[0].icon = 'ri-twitter-x-line';
-
-  // const siteUrl = eea?.logoTargetUrl;
 
   const options = {
     ...eea.footerOpts,
@@ -97,26 +69,13 @@ const Footer = () => {
               <h4 className="footer-section-title">
                 Sign up to In Situ updates
               </h4>
-              <Form>
-                <FormField>
-                  <Input
-                    placeholder="Enter an email address"
-                    action={{ content: 'Subscribe' }}
-                  />
-                  <Checkbox
-                    label={
-                      // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                      <label>
-                        I agree to the <a href="/privacy">privacy policy</a>
-                      </label>
-                    }
-                    required
-                  />
-                </FormField>
-              </Form>
+              <Divider />
+              <UniversalLink href="/inSituUpdates" title="sample">
+                Subscribe
+              </UniversalLink>
               <h4 className="footer-section-title">Follow us</h4>
               <Divider />
-              <EEAFooter.Social social={customSocialActions} />
+              <EEAFooter.Social social={social} />
             </Grid.Column>
             <Grid.Column
               mobile={12}
