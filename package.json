@@ -24,13 +24,16 @@
     "@eeacms/volto-tabs-block",
     "@eeacms/volto-globalsearch"
   ],
+  "resolutions": {
+    "@elastic/search-ui": "1.21.2"
+  },
   "dependencies": {
     "@eeacms/volto-block-style": "*",
     "@eeacms/volto-eea-design-system": "*",
     "@eeacms/volto-eea-website-theme": "*",
     "@eeacms/volto-globalsearch": "*",
     "@eeacms/volto-listing-block": "*",
-    "@eeacms/volto-searchlib": "s*",
+    "@eeacms/volto-searchlib": "*",
     "@eeacms/volto-tabs-block": "*",
     "@elastic/search-ui": "1.21.2",
     "@tanstack/react-table": "^8.17.3"
