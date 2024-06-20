@@ -8,12 +8,15 @@
 
 .top.bar {
   background-color: @insitu-brand !important;
+
   .divider.text {
     color: @socialLinkColor;
   }
+
   .ui.dropdown {
     color: @socialLinkColor;
   }
+
   .ui.active.visible.dropdown {
     background-color: transparent;
   }
@@ -28,10 +31,10 @@
 
 .logo-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.65rem;
   max-width: 340px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.65rem;
 }
 
 @media only screen and (min-width: @computerBreakpoint) {
@@ -56,9 +59,11 @@
   .logo-container {
     max-width: 300px;
   }
+
   .eea.header .eea-logo {
     height: 40px;
   }
+
   .main-menu .item a {
     font-size: 15px !important;
   }
@@ -68,6 +73,7 @@
   .logo-container {
     max-width: 350px !important;
   }
+
   .eea.header .eea-logo {
     max-width: 250px !important;
     height: 50px !important;
@@ -78,6 +84,7 @@
   .logo-container {
     max-width: 300px !important;
   }
+
   .eea.header .eea-logo {
     max-width: 200px !important;
     height: 35px !important;
@@ -88,6 +95,7 @@
   .logo-container {
     max-width: 240px !important;
   }
+
   .eea.header .eea-logo {
     max-width: 180px !important;
     height: 30px !important;
@@ -98,6 +106,7 @@
   .logo-container {
     max-width: 200px !important;
   }
+
   .eea.header .eea-logo {
     max-width: 150px !important;
     height: 25px !important;

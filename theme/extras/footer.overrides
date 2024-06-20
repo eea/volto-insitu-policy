@@ -25,6 +25,7 @@ footer {
 
   .ui.form {
     font-family: @footerFontFamily;
+
     button {
       font-family: @footerFontFamily;
     }
@@ -32,16 +33,18 @@ footer {
 
   .ui.action.input > input::-webkit-input-placeholder {
     font-family: @footerFontFamily;
-    font-weight: 300;
     font-size: 0.9rem;
+    font-weight: 300;
   }
 
   .ui.checkbox {
     font-family: @footerFontFamily;
     font-size: 0.82rem;
+
     label {
       display: unset;
     }
+
     label:before {
       width: 16px;
       height: 16px;
@@ -54,10 +57,11 @@ footer {
 
   .subfooter-logo-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
     margin-bottom: 1.4rem;
+    gap: 2rem;
+
     img {
       height: 70px;
     }
@@ -67,16 +71,17 @@ footer {
     padding-top: 0;
 
     .logos .ui.grid .row {
-      padding-left: 10px;
       padding-right: 10px;
+      padding-left: 10px;
+
       .logo.column {
         &:nth-child(-n + 3) {
           padding-bottom: 2rem !important;
         }
 
         img {
-          margin-bottom: 0;
           height: 65px;
+          margin-bottom: 0;
         }
       }
     }
@@ -186,6 +191,7 @@ footer {
       .footer-services {
         padding-left: 0px !important;
       }
+
       .footer-about {
         padding-right: 0px !important;
       }
@@ -214,10 +220,12 @@ footer {
     .subfooter-logo-container {
       display: flex;
       justify-content: space-between;
+
       img {
         height: 50px;
       }
     }
+
     .footer-wrapper {
       padding: 36px 0 !important;
       background-image: none;
