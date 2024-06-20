@@ -65,8 +65,7 @@ const applyConfig = (config) => {
     { title: 'Copernicus Emergency', href: 'https://emergency.copernicus.eu/' },
     {
       title: 'Copernicus Space Component',
-      href:
-        'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
+      href: 'https://www.copernicus.eu/en/about-copernicus/infrastructure-overview',
     },
   ];
 

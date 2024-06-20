@@ -8,4 +8,6 @@ const vocab = {
   },
 };
 
-export default { vocab };
+const vocabModule = { vocab };
+
+export default vocabModule;
