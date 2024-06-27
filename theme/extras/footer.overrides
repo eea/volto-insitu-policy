@@ -31,6 +31,15 @@ footer {
     }
   }
 
+  .ui.divider {
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h4.footer-section-title {
+    margin-bottom: 0.8rem;
+  }
+
   .ui.action.input > input::-webkit-input-placeholder {
     font-family: @footerFontFamily;
     font-size: 0.9rem;
@@ -125,53 +134,6 @@ footer {
 
       img {
         max-height: 70px;
-      }
-    }
-  }
-
-  // Footer Form
-  .ui.form .field {
-    .ui.action {
-      &.input input {
-        height: 42px;
-        padding-left: 9.7142px;
-        background: transparent;
-        color: #fff;
-      }
-
-      .ui.button {
-        padding-right: 1.25rem;
-        padding-left: 1.25rem;
-        background-color: #d3c5c2;
-        color: @primaryColor;
-      }
-    }
-
-    .ui.checkbox {
-      display: block;
-      margin-top: 1rem;
-
-      label {
-        color: #fff;
-
-        &:hover {
-          color: #fff;
-        }
-
-        a {
-          color: #fff;
-          font-weight: normal;
-          text-decoration: underline;
-
-          &:visited {
-            color: #fff;
-          }
-
-          &:hover {
-            color: #fff;
-            font-weight: 500;
-          }
-        }
       }
     }
   }
