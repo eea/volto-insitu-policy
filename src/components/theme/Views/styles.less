@@ -100,4 +100,14 @@ div.insitu-report-view {
 
     margin-bottom: 2em;
   }
+
+  @media (max-width: 700px) {
+    .ui.grid > .row {
+      flex-direction: column;
+    }
+
+    .ui.grid > .row > [class*='eight wide'].column {
+      width: 100% !important;
+    }
+  }
 }
