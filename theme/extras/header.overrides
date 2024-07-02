@@ -31,7 +31,6 @@
 
 .logo-container {
   display: flex;
-  max-width: 340px;
   align-items: center;
   justify-content: space-between;
   margin-top: 0.65rem;
@@ -57,11 +56,11 @@
 
 @media (max-width: @largeMonitorBreakpoint) {
   .logo-container {
-    max-width: 300px;
+    width: 363px;
   }
 
   .eea.header .eea-logo {
-    height: 40px;
+    margin-bottom: 1rem;
   }
 
   .main-menu .item a {
@@ -71,44 +70,78 @@
 
 @media (max-width: @tabletBreakpoint) {
   .logo-container {
-    max-width: 350px !important;
+    width: 300px;
   }
 
   .eea.header .eea-logo {
     max-width: 250px !important;
-    height: 50px !important;
+    height: 45px !important;
   }
 }
 
 @media (max-width: @mobileLandscapeBreakpoint) {
   .logo-container {
-    max-width: 300px !important;
+    width: 260px;
   }
 
   .eea.header .eea-logo {
-    max-width: 200px !important;
     height: 35px !important;
   }
 }
 
 @media (max-width: 410px) {
   .logo-container {
-    max-width: 240px !important;
+    width: 200px;
   }
 
   .eea.header .eea-logo {
-    max-width: 180px !important;
     height: 30px !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .logo-container {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+  }
+
+  .eea.header {
+    .grid {
+      flex-wrap: nowrap !important;
+    }
+  }
+
+  .eea.header .eea-logo {
+    height: 25px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .logo-container {
+    width: 160px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .eea.header {
+    .grid {
+      flex-wrap: nowrap !important;
+    }
+  }
+
+  .eea.header .eea-logo {
+    height: 18px !important;
   }
 }
 
 @media (max-width: @mobileBreakpoint) {
   .logo-container {
-    max-width: 200px !important;
+    width: 200px;
   }
 
   .eea.header .eea-logo {
-    max-width: 150px !important;
     height: 25px !important;
   }
 }

@@ -68,6 +68,14 @@ div.insitu-report-view {
     border: none;
     background: transparent;
     font-size: 14px;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  .file-download {
+    max-width: 740px;
+    margin: 0 auto;
   }
 
   div.lead-img {
@@ -91,5 +99,15 @@ div.insitu-report-view {
     }
 
     margin-bottom: 2em;
+  }
+
+  @media (max-width: 700px) {
+    .ui.grid > .row {
+      flex-direction: column;
+    }
+
+    .ui.grid > .row > [class*='eight wide'].column {
+      width: 100% !important;
+    }
   }
 }

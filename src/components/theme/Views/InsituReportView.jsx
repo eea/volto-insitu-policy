@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
 import { Grid, Image, Button } from 'semantic-ui-react';
 import articleLine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/extras/article-line.svg';
@@ -8,6 +8,18 @@ import './styles.less';
 function InsituReportView(props) {
   const { content } = props;
   const { description, file, report_category, ...filteredContent } = content;
+
+  useEffect(() => {
+    const descriptionElement = document.querySelector(
+      '.documentDescription.eea.callout',
+    );
+    if (descriptionElement) {
+      descriptionElement.innerHTML = descriptionElement.innerHTML.replace(
+        /&nbsp;/g,
+        ' ',
+      );
+    }
+  }, []);
 
   return (
     <div className="insitu-report-view">
