@@ -70,7 +70,11 @@ const Footer = () => {
                 Sign up to In Situ updates
               </h4>
               <Divider />
-              <UniversalLink href="/inSituUpdates" title="sample">
+              <UniversalLink
+                className="ui button inverted"
+                href="/inSituUpdates"
+                title="Subscribe to In Situ updates"
+              >
                 Subscribe
               </UniversalLink>
               <h4 className="footer-section-title">Follow us</h4>
