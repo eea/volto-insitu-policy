@@ -5,9 +5,21 @@ const messages = defineMessages({
     id: 'insituTable',
     defaultMessage: 'Insitu Data Providers Table',
   },
-  Network: {
-    id: 'network',
-    defaultMessage: 'Network',
+  TableType: {
+    id: 'tableType',
+    defaultMessage: 'Table Type',
+  },
+  NationalInstitutions: {
+    id: 'national_institutions',
+    defaultMessage: 'National Institutions',
+  },
+  AllOrganisations: {
+    id: 'all_organisations',
+    defaultMessage: 'All Organisations',
+  },
+  Networks: {
+    id: 'networks',
+    defaultMessage: 'Networks',
   },
 });
 
@@ -18,14 +30,22 @@ const EditSchema = ({ intl }) => ({
     {
       id: 'default',
       title: 'Default',
-      fields: ['network'],
+      fields: ['tableType'],
     },
   ],
 
   properties: {
-    network: {
-      title: intl.formatMessage(messages.Network),
-      type: 'boolean',
+    tableType: {
+      title: intl.formatMessage(messages.TableType),
+      choices: [
+        [
+          'national_institutions',
+          intl.formatMessage(messages.NationalInstitutions),
+        ],
+        ['all_organisations', intl.formatMessage(messages.AllOrganisations)],
+        ['networks', intl.formatMessage(messages.Networks)],
+      ],
+      default: 'national_institutions',
     },
   },
   required: [],

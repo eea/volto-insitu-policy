@@ -7,12 +7,11 @@ const View = (props) => {
   const data_providers_table =
     content.data?.['@components']?.data_providers_table;
   const { data } = props;
-  const is_network = data.network;
 
   return data_providers_table ? (
     <DataProvidersTable
-      is_network={is_network}
       dataProvider={data_providers_table}
+      tableType={data.tableType}
     />
   ) : (
     'Please enable interface data_providers'
