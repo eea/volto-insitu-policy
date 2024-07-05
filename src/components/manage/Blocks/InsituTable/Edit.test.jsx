@@ -50,7 +50,7 @@ const store = mockStore({
 describe('Edit Component', () => {
   const baseProps = {
     block: 'testBlock',
-    data: { field1: 'value1' },
+    data: { field1: 'value1', tableType: 'all_organisations' },
     onChangeBlock: mockOnChangeBlock,
     selected: true,
     id: 'testId',
@@ -64,9 +64,9 @@ describe('Edit Component', () => {
   };
 
   it('renders View and SidebarPortal correctly', () => {
-    render(
+    const { getByTestId, getByText } = render(
       <Provider store={store}>
-        <Edit {...baseProps} data={undefined} />
+        <Edit {...baseProps} />
       </Provider>,
     );
   });
