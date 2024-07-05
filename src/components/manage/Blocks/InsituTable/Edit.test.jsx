@@ -69,6 +69,11 @@ describe('Edit Component', () => {
         <Edit {...baseProps} />
       </Provider>,
     );
+
+    // Verify that the SidebarPortal is rendered
+    expect(getByTestId('mock-sidebar-portal')).toBeInTheDocument();
+    // Verify that the title is rendered
+    expect(getByText('Insitu Data Providers Table')).toBeInTheDocument();
   });
 
   it('calls onChangeBlock with correct parameters on data change', () => {
