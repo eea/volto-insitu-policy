@@ -4,7 +4,7 @@ import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom/extend-expect';
 
-import DataProvidersTable from './View';
+import View from './View';
 
 const mockStore = configureStore();
 const store = mockStore({
@@ -62,7 +62,7 @@ const storeWithNetworkData = mockStore({
             {
               name: {
                 title: 'Provider 1',
-                link: 'http://example/Provider1.com',
+                link: 'http://example.com/Provider1',
               },
               countries: ['Romania'],
               members: [
@@ -93,9 +93,10 @@ describe('DataProvidersTable', () => {
   it('renders empty simple table correctly', () => {
     const { container, getByPlaceholderText, getByText } = render(
       <Provider store={store}>
-        <DataProvidersTable data={{ network: false }} />
+        <View data={{ tableType: 'all_organisations' }} />
       </Provider>,
     );
+
     // Verify that the search input is rendered
     const searchInput = getByPlaceholderText(
       'Start typing to filter by any column value',
@@ -106,7 +107,7 @@ describe('DataProvidersTable', () => {
     expect(container.querySelector('.search-container')).toBeInTheDocument();
     expect(container.querySelector('.search-icon')).toBeInTheDocument();
 
-    // verify that you can type in the search input and it changes the input value
+    // Verify that you can type in the search input and it changes the input value
     fireEvent.change(searchInput, { target: { value: 'test' } });
     expect(searchInput.value).toBe('test');
 
@@ -121,9 +122,10 @@ describe('DataProvidersTable', () => {
   it('renders empty network table correctly', () => {
     const { container, getByPlaceholderText, getByText } = render(
       <Provider store={store}>
-        <DataProvidersTable data={{ network: true }} />
+        <View data={{ tableType: 'networks' }} />
       </Provider>,
     );
+
     // Verify that the search input is rendered
     const searchInput = getByPlaceholderText(
       'Start typing to filter by any column value',
@@ -134,7 +136,7 @@ describe('DataProvidersTable', () => {
     expect(container.querySelector('.search-container')).toBeInTheDocument();
     expect(container.querySelector('.search-icon')).toBeInTheDocument();
 
-    // verify that you can type in the search input and it changes the input value
+    // Verify that you can type in the search input and it changes the input value
     fireEvent.change(searchInput, {
       target: { value: 'test' },
     });
@@ -151,7 +153,7 @@ describe('DataProvidersTable', () => {
   it('renders simple table with data correctly', () => {
     const { getByText } = render(
       <Provider store={storeWithSimpleData}>
-        <DataProvidersTable data={{ network: false }} />
+        <View data={{ tableType: 'all_organisations' }} />
       </Provider>,
     );
 
@@ -169,16 +171,17 @@ describe('DataProvidersTable', () => {
   it('renders network table with data correctly', () => {
     const { container, getByText } = render(
       <Provider store={storeWithNetworkData}>
-        <DataProvidersTable data={{ network: true }} />
+        <View data={{ tableType: 'networks' }} />
       </Provider>,
     );
+
     expect(getByText('Provider 1')).toBeInTheDocument();
     expect(getByText('Romania')).toBeInTheDocument();
     const linkElements = container.querySelectorAll('a');
     expect(linkElements).toHaveLength(4);
     expect(linkElements[0]).toHaveAttribute(
       'href',
-      'http://example/Provider1.com',
+      'http://example.com/Provider1',
     );
     expect(linkElements[1]).toHaveAttribute('href', 'http://example.com');
     expect(linkElements[2]).toHaveAttribute(

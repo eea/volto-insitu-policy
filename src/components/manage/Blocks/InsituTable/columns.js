@@ -22,13 +22,54 @@ const simple_columns = [
     header: 'Website',
     cell: LinkCell,
     width: 200,
-    sortingFn: 'alphanumeric', // Example of a default sorting function
+    sortingFn: 'alphanumeric',
   },
   {
     accessorFn: (row) => row['countries'].join('|||'),
     id: 'countries',
     header: 'Countries',
     cell: ListCell,
+    width: 200,
+    sortingFn: 'alphanumeric',
+  },
+  {
+    accessorKey: 'provider_type',
+    header: 'Type',
+    width: 150,
+    sortingFn: 'alphanumeric',
+  },
+  {
+    accessorFn: (row) => row['requirement_groups'].join('|||'),
+    id: 'requirement_groups',
+    header: 'Requirement groups',
+    cell: ListCell,
+    width: 200,
+    sortingFn: 'alphanumeric',
+  },
+];
+
+const institution_columns = [
+  {
+    accessorFn: (row) => row['countries'].join('|||'),
+    id: 'countries',
+    header: 'Countries',
+    cell: ListCell,
+    width: 200,
+    sortingFn: 'alphanumeric',
+  },
+  {
+    accessorFn: fnName,
+    id: 'name',
+    accessorKey: 'name',
+    header: 'Name',
+    cell: ProviderNameCell,
+    sortingFn: removeSpecialCharsSortingFn,
+    width: 300,
+  },
+  {
+    accessorKey: 'link',
+    header: 'Website',
+    cell: LinkCell,
     width: 200,
     sortingFn: 'alphanumeric',
   },
@@ -92,4 +133,4 @@ const network_columns = [
   },
 ];
 
-export { simple_columns, network_columns };
+export { simple_columns, network_columns, institution_columns };

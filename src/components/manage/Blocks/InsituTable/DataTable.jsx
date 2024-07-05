@@ -9,15 +9,35 @@ import {
 import './styles.less';
 import SearchInput from './SearchInput';
 import SortButtons from './SortButtons';
-import { simple_columns, network_columns } from './columns';
+import {
+  simple_columns,
+  network_columns,
+  institution_columns,
+} from './columns';
 
-const DataProvidersTable = ({ is_network, dataProvider }) => {
+const DataProvidersTable = ({ dataProvider, tableType }) => {
   const [filtering, setFiltering] = React.useState('');
-  const [sorting, setSorting] = React.useState([]);
+  const [sorting, setSorting] = React.useState(
+    tableType === 'national_institutions'
+      ? [{ id: 'countries', desc: false }]
+      : [],
+  );
 
-  const { defaultData, columns } = is_network
-    ? { defaultData: dataProvider.network, columns: network_columns }
-    : { defaultData: dataProvider.simple, columns: simple_columns };
+  let defaultData;
+  let columns;
+
+  if (tableType === 'networks') {
+    defaultData = dataProvider.network;
+    columns = network_columns;
+  } else if (tableType === 'national_institutions') {
+    defaultData = dataProvider.simple.filter(
+      (row) => row.countries.length === 1,
+    );
+    columns = institution_columns;
+  } else if (tableType === 'all_organisations') {
+    defaultData = dataProvider.simple;
+    columns = simple_columns;
+  }
 
   const table = useReactTable({
     columns,
