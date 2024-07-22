@@ -1,14 +1,31 @@
 import { mergeConfig } from '@eeacms/search';
-import { getClientProxyAddress } from './utils';
-import vocabs from './vocabulary';
-
+import { build_runtime_mappings } from '@eeacms/volto-globalsearch/utils';
 import facets from './facets';
 
 const insituConfig = {
   title: 'Insitu Main',
 };
 
-export default function installMainSearch(config) {
+const getClientProxyAddress = () => {
+  const url = new URL(window.location);
+  url.pathname = '';
+  url.search = '';
+  return url.toString();
+};
+
+export const clusters = {
+  name: 'op_cluster',
+  field: 'objectProvides',
+  clusters: [
+    {
+      name: 'Reports',
+      values: ['insitu.report'],
+      defaultResultView: 'horizontalCard',
+    },
+  ],
+};
+
+export default function install(config) {
   const envConfig = process.env.RAZZLE_ENV_CONFIG
     ? JSON.parse(process.env.RAZZLE_ENV_CONFIG)
     : insituConfig;
@@ -23,30 +40,24 @@ export default function installMainSearch(config) {
     elastic_index: '_es/insituSearch',
     index_name: 'copernicus_searchui',
     host: process.env.RAZZLE_ES_PROXY_ADDR || 'http://localhost:3000',
-    ...vocabs,
+    runtime_mappings: build_runtime_mappings(clusters),
   };
 
   const { insituSearch } = config.searchui;
 
-  insituSearch.permanentFilters.push({
-    term: {
-      cluster_name: 'copernicus_insitu',
-    },
-  });
-
   insituSearch.facets = facets;
 
-  insituSearch.initialView.tilesLandingPageParams.sections = [
-    {
-      id: 'types',
-      title: 'Types',
-      facetField: 'objectProvides',
-      sortOn: 'alpha',
-      icon: {
-        family: 'Content types',
-      },
-    },
-  ];
+  insituSearch.contentSectionsParams = {
+    enable: true,
+    sectionFacetsField: 'op_cluster',
+    sections: clusters.clusters,
+    clusterMapping: Object.assign(
+      {},
+      ...clusters.clusters.map(({ name, values }) =>
+        Object.assign({}, ...values.map((v) => ({ [v]: name }))),
+      ),
+    ),
+  };
 
   if (typeof window !== 'undefined') {
     config.searchui.insituSearch.host =
