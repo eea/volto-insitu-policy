@@ -6,10 +6,7 @@ const extra = {
 };
 
 const applyConfig = (config) => {
-  config.settings.searchlib = [installMainSearch].reduce(
-    (acc, cur) => cur(acc),
-    config.settings.searchlib,
-  );
+  config.settings.searchlib = installMainSearch(config.settings.searchlib);
 
   config.settings.searchlib.searchui.insituSearch.extraQueryParams = extra;
 

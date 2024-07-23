@@ -1,14 +1,47 @@
 import { mergeConfig } from '@eeacms/search';
-import { getClientProxyAddress } from './utils';
+import { build_runtime_mappings } from '@eeacms/volto-globalsearch/utils';
 import vocabs from './vocabulary';
-
 import facets from './facets';
 
 const insituConfig = {
   title: 'Insitu Main',
 };
 
-export default function installMainSearch(config) {
+const getClientProxyAddress = () => {
+  const url = new URL(window.location);
+  url.pathname = '';
+  url.search = '';
+  return url.toString();
+};
+
+export const clusters = {
+  name: 'op_cluster',
+  field: 'objectProvides',
+  clusters: [
+    {
+      name: 'News',
+      values: ['News'],
+      defaultResultView: 'horizontalCard',
+    },
+    {
+      name: 'Use Cases',
+      values: ['insitu.use_case'],
+      defaultResultView: 'horizontalCard',
+    },
+    {
+      name: 'Reports',
+      values: ['insitu.report'],
+      defaultResultView: 'horizontalCard',
+    },
+    {
+      name: 'Others',
+      values: ['Webpage', 'Dashboard', 'Event', 'Link'],
+      defaultResultView: 'horizontalCard',
+    },
+  ],
+};
+
+export default function install(config) {
   const envConfig = process.env.RAZZLE_ENV_CONFIG
     ? JSON.parse(process.env.RAZZLE_ENV_CONFIG)
     : insituConfig;
@@ -23,6 +56,7 @@ export default function installMainSearch(config) {
     elastic_index: '_es/insituSearch',
     index_name: 'copernicus_searchui',
     host: process.env.RAZZLE_ES_PROXY_ADDR || 'http://localhost:3000',
+    runtime_mappings: build_runtime_mappings(clusters),
     ...vocabs,
   };
 
@@ -33,8 +67,6 @@ export default function installMainSearch(config) {
       cluster_name: 'copernicus_insitu',
     },
   });
-
-  insituSearch.facets = facets;
 
   insituSearch.initialView.tilesLandingPageParams.sections = [
     {
@@ -47,6 +79,20 @@ export default function installMainSearch(config) {
       },
     },
   ];
+
+  insituSearch.facets = facets;
+
+  insituSearch.contentSectionsParams = {
+    enable: true,
+    sectionFacetsField: 'op_cluster',
+    sections: clusters.clusters,
+    clusterMapping: Object.assign(
+      {},
+      ...clusters.clusters.map(({ name, values }) =>
+        Object.assign({}, ...values.map((v) => ({ [v]: name }))),
+      ),
+    ),
+  };
 
   if (typeof window !== 'undefined') {
     config.searchui.insituSearch.host =
