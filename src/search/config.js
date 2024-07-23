@@ -1,5 +1,6 @@
 import { mergeConfig } from '@eeacms/search';
 import { build_runtime_mappings } from '@eeacms/volto-globalsearch/utils';
+import vocabs from './vocabulary';
 import facets from './facets';
 
 const insituConfig = {
@@ -18,8 +19,23 @@ export const clusters = {
   field: 'objectProvides',
   clusters: [
     {
+      name: 'News',
+      values: ['News'],
+      defaultResultView: 'horizontalCard',
+    },
+    {
+      name: 'Use Cases',
+      values: ['insitu.use_case'],
+      defaultResultView: 'horizontalCard',
+    },
+    {
       name: 'Reports',
       values: ['insitu.report'],
+      defaultResultView: 'horizontalCard',
+    },
+    {
+      name: 'Others',
+      values: ['Webpage', 'Dashboard', 'Event', 'Link'],
       defaultResultView: 'horizontalCard',
     },
   ],
@@ -41,9 +57,28 @@ export default function install(config) {
     index_name: 'copernicus_searchui',
     host: process.env.RAZZLE_ES_PROXY_ADDR || 'http://localhost:3000',
     runtime_mappings: build_runtime_mappings(clusters),
+    ...vocabs,
   };
 
   const { insituSearch } = config.searchui;
+
+  insituSearch.permanentFilters.push({
+    term: {
+      cluster_name: 'copernicus_insitu',
+    },
+  });
+
+  insituSearch.initialView.tilesLandingPageParams.sections = [
+    {
+      id: 'types',
+      title: 'Types',
+      facetField: 'objectProvides',
+      sortOn: 'alpha',
+      icon: {
+        family: 'Content types',
+      },
+    },
+  ];
 
   insituSearch.facets = facets;
 
