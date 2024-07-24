@@ -16,7 +16,6 @@ import {
 } from './columns';
 
 const DataProvidersTable = ({ dataProvider, tableType }) => {
-  // console.log(dataProvider);
   const [filtering, setFiltering] = React.useState('');
   const [sorting, setSorting] = React.useState(
     tableType === 'national_institutions'

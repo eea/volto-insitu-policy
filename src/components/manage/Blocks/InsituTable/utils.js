@@ -20,7 +20,6 @@ export const fnName = (row) => {
 
 export const ProviderNameCell = (props) => {
   const nativeName = props.row?.original?.native_name || '';
-  console.log('here', props.row.original.native_name);
   const name = JSON.parse(props.cell.getValue());
   return (
     <a className="provider-name-link" href={name.link}>
