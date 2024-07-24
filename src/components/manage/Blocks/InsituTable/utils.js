@@ -18,11 +18,13 @@ export const fnName = (row) => {
   return JSON.stringify(row['name']);
 };
 
-export const ProviderNameCell = ({ cell }) => {
-  const name = JSON.parse(cell.getValue());
+export const ProviderNameCell = (props) => {
+  const nativeName = props.row?.original?.native_name || '';
+  console.log('here', props.row.original.native_name);
+  const name = JSON.parse(props.cell.getValue());
   return (
     <a className="provider-name-link" href={name.link}>
-      {name.title}
+      {name.title} <span className="native-name">{nativeName}</span>
     </a>
   );
 };

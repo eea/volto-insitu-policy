@@ -16,6 +16,7 @@ import {
 } from './columns';
 
 const DataProvidersTable = ({ dataProvider, tableType }) => {
+  // console.log(dataProvider);
   const [filtering, setFiltering] = React.useState('');
   const [sorting, setSorting] = React.useState(
     tableType === 'national_institutions'
@@ -31,7 +32,9 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     columns = network_columns;
   } else if (tableType === 'national_institutions') {
     defaultData = dataProvider.simple.filter(
-      (row) => row.countries.length === 1,
+      (row) =>
+        row.countries.length === 1 &&
+        row.countries[0] !== 'Multiple Countries /Not a specific country',
     );
     columns = institution_columns;
   } else if (tableType === 'all_organisations') {
