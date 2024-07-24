@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   useReactTable,
   flexRender,
@@ -16,12 +16,14 @@ import {
 } from './columns';
 
 const DataProvidersTable = ({ dataProvider, tableType }) => {
-  const [filtering, setFiltering] = React.useState('');
-  const [sorting, setSorting] = React.useState(
+  const [filtering, setFiltering] = useState('');
+  const [sorting, setSorting] = useState(
     tableType === 'national_institutions'
       ? [{ id: 'countries', desc: false }]
       : [],
   );
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
 
   let defaultData;
   let columns;
@@ -41,9 +43,37 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     columns = simple_columns;
   }
 
+  useEffect(() => {
+    if (
+      tableType === 'national_institutions' ||
+      tableType === 'all_organisations'
+    ) {
+      setSorting([{ id: 'countries', desc: false }]);
+    }
+  }, [tableType]);
+
+  const sortedData = useMemo(() => {
+    if (sorting.length === 0) return defaultData;
+    const sorted = [...defaultData].sort((a, b) => {
+      const colId = sorting[0].id;
+      const aValue = a[colId] ? a[colId][0] : '';
+      const bValue = b[colId] ? b[colId][0] : '';
+      if (aValue < bValue) return sorting[0].desc ? 1 : -1;
+      if (aValue > bValue) return sorting[0].desc ? -1 : 1;
+      return 0;
+    });
+    return sorted;
+  }, [defaultData, sorting]);
+
+  const paginatedData = useMemo(() => {
+    const start = pageIndex * pageSize;
+    const end = start + pageSize;
+    return sortedData.slice(start, end);
+  }, [sortedData, pageIndex, pageSize]);
+
   const table = useReactTable({
     columns,
-    data: defaultData,
+    data: paginatedData,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -76,6 +106,24 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     if (event.key === 'Enter' || event.key === ' ') {
       toggleSorting(columnId);
     }
+  };
+
+  const handleNextPage = () => {
+    setPageIndex((prev) =>
+      Math.min(prev + 1, Math.ceil(defaultData.length / pageSize) - 1),
+    );
+  };
+
+  const handlePreviousPage = () => {
+    setPageIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleFirstPage = () => {
+    setPageIndex(0);
+  };
+
+  const handleLastPage = () => {
+    setPageIndex(Math.ceil(defaultData.length / pageSize) - 1);
   };
 
   return (
@@ -139,6 +187,57 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
             ))}
           </tbody>
         </table>
+        <div className="pagination-controls">
+          <button onClick={handleFirstPage} disabled={pageIndex === 0}>
+            {'<<'}
+          </button>
+          <button onClick={handlePreviousPage} disabled={pageIndex === 0}>
+            {'<'}
+          </button>
+          <button
+            onClick={handleNextPage}
+            disabled={pageIndex >= Math.ceil(defaultData.length / pageSize) - 1}
+          >
+            {'>'}
+          </button>
+          <button
+            onClick={handleLastPage}
+            disabled={pageIndex >= Math.ceil(defaultData.length / pageSize) - 1}
+          >
+            {'>>'}
+          </button>
+          <span>
+            Page{' '}
+            <strong>
+              {pageIndex + 1} of {Math.ceil(defaultData.length / pageSize)}
+            </strong>{' '}
+          </span>
+          <span>
+            | Go to page:
+            <input
+              type="number"
+              defaultValue={pageIndex + 1}
+              onChange={(e) => {
+                const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                setPageIndex(page);
+              }}
+              style={{ width: '50px' }}
+            />
+          </span>
+          <select
+            value={pageSize}
+            onChange={(e) => {
+              setPageSize(Number(e.target.value));
+              setPageIndex(0); // Reset to first page when page size changes
+            }}
+          >
+            {[10, 20, 30, 40, 50].map((size) => (
+              <option key={size} value={size}>
+                Show {size}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </>
   );
