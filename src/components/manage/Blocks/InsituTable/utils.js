@@ -1,4 +1,6 @@
 import React from 'react';
+import { Flag } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
 export const removeSpecialCharsSortingFn = (rowA, rowB, columnId) => {
   const getCleanedValue = (row) => {
@@ -56,6 +58,23 @@ export const ListCell = ({ cell }) => {
       {items.map((item, index) => (
         <React.Fragment key={index}>
           <span>
+            {item}
+            {items.length > 1 && index < items.length - 1 ? ', ' : ''}
+          </span>
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+
+export const countriesCell = ({ cell }) => {
+  const items = cell.getValue().split('|||');
+  return (
+    <>
+      {items.map((item, index) => (
+        <React.Fragment key={index}>
+          <span>
+            <Flag name={item.toLowerCase()} />
             {item}
             {items.length > 1 && index < items.length - 1 ? ', ' : ''}
           </span>
