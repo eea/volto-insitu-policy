@@ -1,17 +1,11 @@
 import { mergeConfig } from '@eeacms/search';
 import { build_runtime_mappings } from '@eeacms/volto-globalsearch/utils';
+import { getClientProxyAddress, getSearchThumbUrl } from './utils';
 import vocabs from './vocabulary';
 import facets from './facets';
 
 const insituConfig = {
   title: 'Insitu Main',
-};
-
-const getClientProxyAddress = () => {
-  const url = new URL(window.location);
-  url.pathname = '';
-  url.search = '';
-  return url.toString();
 };
 
 export const clusters = {
@@ -93,6 +87,22 @@ export default function install(config) {
       ),
     ),
   };
+
+  insituSearch.resultItemModel = {
+    factory: 'ResultModel',
+    urlField: 'about',
+    titleField: 'title',
+    metatypeField: 'objectProvides',
+    descriptionField: 'description',
+    tagsField: 'topic',
+    issuedField: 'issued',
+    getThumbnailUrl: 'getSearchThumbUrl',
+    getIconUrl: 'getGlobalsearchIconUrl',
+    fallbackThumbUrl:
+      'https://react.semantic-ui.com/images/wireframe/white-image.png',
+  };
+
+  config.resolve.getSearchThumbUrl = getSearchThumbUrl();
 
   if (typeof window !== 'undefined') {
     config.searchui.insituSearch.host =
