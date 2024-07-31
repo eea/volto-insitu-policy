@@ -1,6 +1,6 @@
 const vocab = {
   cluster_name: {
-    insitu: 'InSitu',
+    copernicus_insitu: 'In Situ',
   },
   objectProvides: {
     'insitu.report': 'Report',

@@ -98,8 +98,6 @@ export default function install(config) {
     issuedField: 'issued',
     getThumbnailUrl: 'getSearchThumbUrl',
     getIconUrl: 'getGlobalsearchIconUrl',
-    fallbackThumbUrl:
-      'https://react.semantic-ui.com/images/wireframe/white-image.png',
   };
 
   config.resolve.getSearchThumbUrl = getSearchThumbUrl();
