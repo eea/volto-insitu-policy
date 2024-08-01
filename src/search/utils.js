@@ -35,8 +35,8 @@ export function getClientProxyAddress() {
   return url.toString();
 }
 
-export const getSearchThumbUrl = () => (result, config, fallback) => {
-  let image = fallback;
+export const getSearchThumbUrl = () => (result, config) => {
+  let image = `https://www.eea.europa.eu/portal_depiction/term/image_preview`;
 
   if (result.about?.raw?.indexOf('://demo-insitu-p6.eea.europa.eu') !== -1) {
     if (result.image_preview) {
