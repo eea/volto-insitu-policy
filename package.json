@@ -36,7 +36,8 @@
     "@eeacms/volto-searchlib": "*",
     "@eeacms/volto-tabs-block": "*",
     "@elastic/search-ui": "1.21.2",
-    "@tanstack/react-table": "^8.17.3"
+    "@tanstack/react-table": "^8.17.3",
+    "semantic-ui-css": "2.5.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",

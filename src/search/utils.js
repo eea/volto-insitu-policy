@@ -34,3 +34,18 @@ export function getClientProxyAddress() {
   url.search = '';
   return url.toString();
 }
+
+export const getSearchThumbUrl = () => (result, config) => {
+  let image = `https://www.eea.europa.eu/portal_depiction/term/image_preview`;
+
+  if (result.about?.raw?.indexOf('://demo-insitu-p6.eea.europa.eu') !== -1) {
+    if (result.image_preview) {
+      image = result.image_preview.raw;
+    }
+    if (result.insitu_preview_image) {
+      image = result.insitu_preview_image.raw;
+    }
+  }
+
+  return image;
+};
