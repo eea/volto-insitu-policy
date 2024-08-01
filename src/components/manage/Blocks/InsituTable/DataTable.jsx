@@ -22,7 +22,6 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
       ? [{ id: 'countries', desc: false }]
       : [],
   );
-
   let defaultData;
   let columns;
 
@@ -31,7 +30,9 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     columns = network_columns;
   } else if (tableType === 'national_institutions') {
     defaultData = dataProvider.simple.filter(
-      (row) => row.countries.length === 1,
+      (row) =>
+        row.countries.length === 1 &&
+        row.countries[0] !== 'Multiple Countries /Not a specific country',
     );
     columns = institution_columns;
   } else if (tableType === 'all_organisations') {
@@ -52,11 +53,9 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     onGlobalFilterChange: setFiltering,
     onSortingChange: setSorting,
   });
-
   const handleSort = (columnId, direction) => {
     setSorting([{ id: columnId, desc: direction === 'desc' }]);
   };
-
   const toggleSorting = (columnId) => {
     setSorting((prevSorting) => {
       const currentSort = prevSorting.find((sort) => sort.id === columnId);
@@ -69,13 +68,11 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
       return [];
     });
   };
-
   const handleKeyDown = (event, columnId) => {
     if (event.key === 'Enter' || event.key === ' ') {
       toggleSorting(columnId);
     }
   };
-
   return (
     <>
       <SearchInput value={filtering} onChange={setFiltering} />
@@ -141,5 +138,4 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     </>
   );
 };
-
 export default DataProvidersTable;
