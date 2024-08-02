@@ -67,16 +67,61 @@ export const ListCell = ({ cell }) => {
   );
 };
 
+const CountryFlag = ({ country }) => {
+  const countryAlias = {
+    'North Macedonia': 'Macedonia',
+    'British Indian Ocean Territory': 'United Kingdom',
+    'Bosnia And Herzegovina': 'ba',
+    'Moldova, Republic Of': 'Moldova',
+    'Russian Federation': 'Russia',
+    'Congo, The Democratic Republic Of The': 'Congo',
+    'Bolivia, Plurinational State Of': 'bo',
+    'Venezuela (Bolivarian Republic of)': 'Venezuela',
+    'Tanzania, United Republic of': 'Tanzania',
+    'Iran (Islamic Republic of)': 'Iran',
+    'Syrian Arab Republic': 'Syria',
+    "Lao People's Democratic Republic": 'Laos',
+    'Viet Nam': 'Vietnam',
+    'Hong Kong Special Administrative Region of China': 'Hong Kong',
+    'Macao Special Administrative Region of China': 'Macao',
+    'Palestine, State of': 'Palestine',
+    'Korea, Republic Of': 'kr',
+    "Korea, Democratic People'S Republic Of": 'kp',
+    'United States of America': 'United States',
+    'United Republic of Tanzania': 'Tanzania',
+    Czechia: 'Czech Republic',
+    'Ivory Coast': "Côte d'Ivoire",
+    'Taiwan, Province Of China': 'tw',
+    'Svalbard And Jan Mayen': 'sj',
+    Réunion: 're',
+    "Côte d'Ivoire": 'ci',
+  };
+
+  let countryName = countryAlias[country] || country;
+
+  return (
+    <Flag
+      name={countryName.toLowerCase()}
+      style={{ marginRight: '2px', marginLeft: '4px' }}
+    />
+  );
+};
+
 export const countriesCell = ({ cell }) => {
+  const withoutFlag = {
+    Antarctica: 'Antarctica',
+    'Multiple Countries /Not a specific country': 'Multiple Countries',
+    'Republic of Kosovo': 'XK',
+  };
   const items = cell.getValue().split('|||');
   return (
     <>
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          <span>
-            <Flag name={item.toLowerCase()} />
+          <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+            {withoutFlag[item] ? '' : <CountryFlag country={item} />}
             {item}
-            {items.length > 1 && index < items.length - 1 ? ', ' : ''}
+            {items.length > 1 && index < items.length - 1 ? ',' : ''}
           </span>
         </React.Fragment>
       ))}

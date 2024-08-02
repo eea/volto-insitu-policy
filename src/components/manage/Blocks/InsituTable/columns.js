@@ -53,7 +53,7 @@ const institution_columns = [
   {
     accessorFn: (row) => row['countries'].join('|||'),
     id: 'countries',
-    header: 'Countries',
+    header: 'Country',
     cell: countriesCell,
     width: 200,
     sortingFn: 'alphanumeric',

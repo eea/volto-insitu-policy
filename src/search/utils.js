@@ -1,3 +1,5 @@
+// import config from '@plone/volto/registry';
+
 export function getTodayWithTime() {
   const d = new Date();
   const month = d.getMonth() + 1;
@@ -37,8 +39,9 @@ export function getClientProxyAddress() {
 
 export const getSearchThumbUrl = () => (result, config) => {
   let image = `https://www.eea.europa.eu/portal_depiction/term/image_preview`;
+  const domain = window.location.origin.replace(/^https?/, '');
 
-  if (result.about?.raw?.indexOf('://demo-insitu-p6.eea.europa.eu') !== -1) {
+  if (result.about?.raw?.indexOf(domain) !== -1) {
     if (result.image_preview) {
       image = result.image_preview.raw;
     }
