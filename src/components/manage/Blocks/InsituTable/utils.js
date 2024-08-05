@@ -118,7 +118,7 @@ export const countriesCell = ({ cell }) => {
     <>
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'baseline' }}>
             {withoutFlag[item] ? '' : <CountryFlag country={item} />}
             {item}
             {items.length > 1 && index < items.length - 1 ? ',' : ''}
