@@ -6,6 +6,16 @@
 
 .loadAddonVariables();
 
+.ui.menu[class*='ary']:not(.vertical, .inverted):not(.pagination) .item.active,
+.ui.menu[class*='ary']:not(.vertical, .inverted):not(.pagination) .item:active {
+  border-bottom: 0.1875rem solid #783f34 !important;
+  margin-bottom: -0.0625rem;
+}
+
+.active.item {
+  color: #783f34 !important;
+}
+
 .tabs-block {
   [hidden] {
     display: none !important;
