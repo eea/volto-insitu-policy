@@ -43,13 +43,13 @@ export const AssetTab = ({ props, tabIndex, tabTitle, isActivePage }) => {
         </div>
       )}
 
-      {isActivePage && <div className="active-page-border"></div>}
+      {/* {isActivePage && <div className="active-page-border"></div>} */}
     </div>
   );
 };
 
 const MenuItem = (props) => {
-  const { activeTab = null, tabs = {}, tab, index } = props;
+  const { tabs = {}, tab, index } = props;
   const tabIndex = index + 1;
   const defaultTitle = `Tab ${tabIndex}`;
   const tabSettings = tabs[tab];
@@ -60,8 +60,9 @@ const MenuItem = (props) => {
     <React.Fragment>
       <Menu.Item
         name={defaultTitle}
-        aria-selected={tab === activeTab}
+        aria-selected={tabs[tab]?.isActive ? true : false}
         tabIndex={0}
+        active={tabs[tab]?.isActive}
       >
         <>
           {assetType ? (
@@ -75,9 +76,9 @@ const MenuItem = (props) => {
             <div>
               <span className="menu-item-count">{tabIndex}</span>
               <span className="menu-item-text">{tabTitle}</span>
-              {tabs[tab]?.isActive && (
+              {/* {tabs[tab]?.isActive && (
                 <div className="active-page-border-text"></div>
-              )}
+              )} */}
             </div>
           )}
         </>
