@@ -6,7 +6,23 @@
   }
   .hero-block {
     .hero-block-inner-wrapper {
-      width: 41% !important;
+      width: 45% !important;
+    }
+
+    .hero-block-text {
+      h1.secondary,
+      h2.secondary,
+      h3.secondary,
+      h4.secondary,
+      h5.secondary,
+      h6.secondary,
+      p.secondary,
+      span.secondary,
+      .header.secondary {
+        color: white !important;
+      }
+      padding: 20px !important;
+      background-color: #783f34c7 !important;
     }
 
     .hero-block-image-wrapper.full-width {
