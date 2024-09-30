@@ -138,6 +138,10 @@ footer {
     }
   }
 
+  .social {
+    display: inline;
+  }
+
   .social a {
     color: @socialLinkColor;
 
