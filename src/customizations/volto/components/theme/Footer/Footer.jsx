@@ -72,7 +72,7 @@ const Footer = () => {
               <Divider />
               <UniversalLink
                 className="ui button inverted"
-                href="/inSituUpdates"
+                href="/insituupdates"
                 title="Subscribe to In Situ updates"
               >
                 Subscribe
