@@ -141,3 +141,40 @@ export const LinksList = ({ cell }) => {
     </>
   );
 };
+
+export const EUCountries = [
+  'Austria',
+  'Belgium',
+  'Bulgaria',
+  'Croatia',
+  'Cyprus',
+  'Czech Republic',
+  'Denmark',
+  'Estonia',
+  'Finland',
+  'France',
+  'Germany',
+  'Greece',
+  'Hungary',
+  'Ireland',
+  'Italy',
+  'Latvia',
+  'Lithuania',
+  'Luxembourg',
+  'Malta',
+  'Netherlands',
+  'Poland',
+  'Portugal',
+  'Romania',
+  'Slovakia',
+  'Slovenia',
+  'Spain',
+  'Sweden',
+];
+
+export const whiteListCountries = [
+  ...EUCountries,
+  'Norway',
+  'Iceland',
+  'United Kingdom',
+];
