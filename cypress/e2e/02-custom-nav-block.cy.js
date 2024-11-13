@@ -11,7 +11,9 @@ describe('Blocks Tests', () => {
 
     cy.get('.documentFirstHeading').contains('My Add-on Page');
 
-    cy.getSlate().click({ force: true }).type('/nav{enter}');
+    cy.getSlate().click({ force: true }).type('/nav');
+    cy.contains('Custom navigation block').click();
+
     cy.contains('Item 1');
     cy.get('.field-wrapper-verticalAlign').click();
     cy.contains('Middle').click();

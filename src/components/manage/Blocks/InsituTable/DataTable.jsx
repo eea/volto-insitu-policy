@@ -14,6 +14,7 @@ import {
   network_columns,
   institution_columns,
 } from './columns';
+import { whiteListCountries } from './utils';
 
 const DataProvidersTable = ({ dataProvider, tableType }) => {
   const [filtering, setFiltering] = React.useState('');
@@ -32,7 +33,8 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     defaultData = dataProvider.simple.filter(
       (row) =>
         row.countries.length === 1 &&
-        row.countries[0] !== 'Multiple Countries /Not a specific country',
+        row.countries[0] !== 'Multiple Countries /Not a specific country' &&
+        whiteListCountries.includes(row.countries[0]),
     );
     columns = institution_columns;
   } else if (tableType === 'all_organisations') {
