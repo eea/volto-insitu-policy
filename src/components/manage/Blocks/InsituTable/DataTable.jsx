@@ -59,6 +59,11 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     setSorting([{ id: columnId, desc: direction === 'desc' }]);
   };
   const toggleSorting = (columnId) => {
+    if (columnId === 'link') {
+      // Disabled sorting for Website column
+      return;
+    }
+
     setSorting((prevSorting) => {
       const currentSort = prevSorting.find((sort) => sort.id === columnId);
       if (!currentSort) {
@@ -74,6 +79,12 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     if (event.key === 'Enter' || event.key === ' ') {
       toggleSorting(columnId);
     }
+  };
+  const getClass = (column) => {
+    if (column === 'link') {
+      return 'no-sort-column';
+    }
+    return 'sort-column';
   };
   return (
     <>
@@ -95,6 +106,7 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
                     {header.isPlaceholder ? null : (
                       <div className="header-cell">
                         <span
+                          className={getClass(header.column.id)}
                           role="button"
                           tabIndex={0}
                           onClick={() => toggleSorting(header.column.id)}

@@ -23,7 +23,8 @@ const simple_columns = [
     header: 'Website',
     cell: LinkCell,
     width: 200,
-    sortingFn: 'alphanumeric',
+    enableSorting: false,
+    disableSortBy: true,
   },
   {
     accessorFn: (row) => row['countries'].join('|||'),
@@ -72,7 +73,8 @@ const institution_columns = [
     header: 'Website',
     cell: LinkCell,
     width: 200,
-    sortingFn: 'alphanumeric',
+    enableSorting: false,
+    disableSortBy: true,
   },
   {
     accessorKey: 'provider_type',
@@ -104,7 +106,8 @@ const network_columns = [
     accessorKey: 'link',
     header: 'Website',
     cell: LinkCell,
-    sortingFn: 'alphanumeric',
+    enableSorting: false,
+    disableSortBy: true,
     width: 200,
   },
   {
