@@ -100,6 +100,33 @@ export default function install(config) {
     getIconUrl: 'getGlobalsearchIconUrl',
   };
 
+  insituSearch.sortOptions = [
+    // {
+    //   name: 'Title a-z',
+    //   value: 'title.index',
+    //   direction: 'asc',
+    // },
+    // {
+    //   name: 'Title z-a',
+    //   value: 'title.index',
+    //   direction: 'desc',
+    // },
+    {
+      name: 'Oldest',
+      value: 'issued.date',
+      direction: 'asc',
+    },
+    {
+      name: 'Newest',
+      value: 'issued.date',
+      direction: 'desc',
+    },
+    {
+      name: 'Relevance',
+      value: '',
+      direction: '',
+    },
+  ];
   config.resolve.getSearchThumbUrl = getSearchThumbUrl();
 
   if (typeof window !== 'undefined') {
