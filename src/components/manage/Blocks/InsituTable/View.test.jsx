@@ -118,7 +118,8 @@ describe('DataProvidersTable', () => {
     expect(getByText('Countries')).toBeInTheDocument();
     expect(getByText('Website')).toBeInTheDocument();
     expect(getByText('Type')).toBeInTheDocument();
-    expect(getByText('Requirement groups')).toBeInTheDocument();
+    expect(getByText('Copernicus Services')).toBeInTheDocument();
+    expect(getByText('Copernicus Components')).toBeInTheDocument();
   });
 
   it('renders empty network table correctly', () => {
@@ -149,7 +150,8 @@ describe('DataProvidersTable', () => {
     expect(getByText('Countries')).toBeInTheDocument();
     expect(getByText('Members')).toBeInTheDocument();
     expect(getByText('Website')).toBeInTheDocument();
-    expect(getByText('Requirement groups')).toBeInTheDocument();
+    expect(getByText('Copernicus Services')).toBeInTheDocument();
+    expect(getByText('Copernicus Components')).toBeInTheDocument();
   });
 
   it('renders simple table with data correctly', () => {
