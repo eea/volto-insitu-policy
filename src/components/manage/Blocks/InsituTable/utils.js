@@ -21,11 +21,11 @@ export const fnName = (row) => {
 };
 
 export const ProviderNameCell = (props) => {
-  const nativeName = props.row?.original?.native_name || '';
+  const acronym = props.row?.original?.acronym || '';
   const name = JSON.parse(props.cell.getValue());
   return (
     <a className="provider-name-link" href={name.link}>
-      {name.title} <span className="native-name">{nativeName}</span>
+      {name.title} <span className="acronym">{acronym}</span>
     </a>
   );
 };
