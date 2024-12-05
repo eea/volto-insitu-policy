@@ -34,7 +34,17 @@ export const fnServices = (row) => {
   return result;
 };
 
-export const ProviderNameCell = (props) => {
+export const ProviderNameNativeNameCell = (props) => {
+  const acronym = props.row?.original?.native_name || '';
+  const name = JSON.parse(props.cell.getValue());
+  return (
+    <a className="provider-name-link" href={name.link}>
+      {name.title} <span className="native-name">{acronym}</span>
+    </a>
+  );
+};
+
+export const ProviderNameAcronymCell = (props) => {
   const acronym = props.row?.original?.acronym || '';
   const name = JSON.parse(props.cell.getValue());
   return (
