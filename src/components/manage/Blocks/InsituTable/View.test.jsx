@@ -42,7 +42,7 @@ const storeWithSimpleData = mockStore({
               provider_type: 'Type A',
               services: {
                 'Service 1': ['Component 1', 'Component 2'],
-                'Services 2': ['Component 3'],
+                'Service 2': ['Component 3'],
               },
             },
           ],
@@ -79,8 +79,11 @@ const storeWithNetworkData = mockStore({
                 },
               ],
               link: 'http://example.com',
-              services: ['Service 1', 'Service 2'],
               components: ['Component 1', 'Component 2'],
+              services: {
+                'Service 1': ['Component 1', 'Component 2'],
+                'Service 2': ['Component 3'],
+              },
             },
           ],
         },
