@@ -20,6 +20,20 @@ export const fnName = (row) => {
   return JSON.stringify(row['name']);
 };
 
+export const fnServices = (row) => {
+  let result = '';
+  for (const [key, value] of Object.entries(row['services'])) {
+    result += key;
+    result += '|||';
+    for (let val of value) {
+      result += '>>>'; // marker in order to set italics for this item
+      result += val;
+      result += '|||';
+    }
+  }
+  return result;
+};
+
 export const ProviderNameCell = (props) => {
   const acronym = props.row?.original?.acronym || '';
   const name = JSON.parse(props.cell.getValue());
@@ -51,19 +65,45 @@ export const ListCellMembers = ({ cell }) => {
   );
 };
 
-export const ListCell = ({ cell }) => {
+export const ServicesComponentsCell = ({ cell }) => {
   const items = cell.getValue().split('|||');
+  if (cell.getValue() === '') {
+    return '';
+  }
+
+  const processedItems = [];
+  let currentCategory = null;
+
+  items.forEach((item) => {
+    if (item.startsWith('>>>')) {
+      if (currentCategory) {
+        currentCategory.children.push(item.slice(3));
+      }
+    } else {
+      if (item.length > 0) {
+        currentCategory = { name: item, children: [] };
+        processedItems.push(currentCategory);
+      }
+    }
+  });
+
   return (
-    <>
-      {items.map((item, index) => (
-        <React.Fragment key={index}>
-          <span>
-            {item}
-            {items.length > 1 && index < items.length - 1 ? ', ' : ''}
-          </span>
-        </React.Fragment>
+    <ul className="services-components-list">
+      {processedItems.map((category, index) => (
+        <li key={index}>
+          {category.name}
+          {category.children.length > 0 && (
+            <ul>
+              {category.children.map((child, childIndex) => (
+                <li key={childIndex}>
+                  <i>{child}</i>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
       ))}
-    </>
+    </ul>
   );
 };
 

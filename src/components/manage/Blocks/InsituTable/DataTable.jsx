@@ -10,9 +10,9 @@ import './styles.less';
 import SearchInput from './SearchInput';
 import SortButtons from './SortButtons';
 import {
-  simple_columns,
-  network_columns,
-  institution_columns,
+  national_institutions_columns,
+  networks_columns,
+  all_organisations_columns,
 } from './columns';
 import { whiteListCountries } from './utils';
 
@@ -28,7 +28,7 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
 
   if (tableType === 'networks') {
     defaultData = dataProvider.network;
-    columns = network_columns;
+    columns = networks_columns;
   } else if (tableType === 'national_institutions') {
     defaultData = dataProvider.simple.filter(
       (row) =>
@@ -36,10 +36,10 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
         row.countries[0] !== 'Multiple Countries /Not a specific country' &&
         whiteListCountries.includes(row.countries[0]),
     );
-    columns = institution_columns;
+    columns = national_institutions_columns;
   } else if (tableType === 'all_organisations') {
     defaultData = dataProvider.simple;
-    columns = simple_columns;
+    columns = all_organisations_columns;
   }
 
   const table = useReactTable({
@@ -86,6 +86,24 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
     }
     return 'sort-column';
   };
+
+  const isEditDefaultMode = (table) => {
+    // Don't crash when adding the block in the page.
+    try {
+      const headerGroups = table?.getHeaderGroups();
+      headerGroups.map((item) => {
+        return item;
+      });
+      return false;
+    } catch (error) {
+      return true;
+    }
+  };
+
+  if (isEditDefaultMode(table)) {
+    return <div>Table placeholder</div>;
+  }
+
   return (
     <>
       <SearchInput value={filtering} onChange={setFiltering} />
