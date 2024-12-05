@@ -16,7 +16,7 @@ const national_institutions_columns = [
     id: 'countries',
     header: 'Country',
     cell: countriesCell,
-    width: 150,
+    width: 120,
     sortingFn: 'alphanumeric',
   },
   {
@@ -26,20 +26,20 @@ const national_institutions_columns = [
     header: 'Name',
     cell: ProviderNameCell,
     sortingFn: removeSpecialCharsSortingFn,
-    width: 250,
+    width: 230,
   },
   {
     accessorKey: 'link',
     header: 'Website',
     cell: LinkCell,
-    width: 150,
+    width: 120,
     enableSorting: false,
     disableSortBy: true,
   },
   {
     accessorKey: 'provider_type',
     header: 'Type',
-    width: 100,
+    width: 80,
     sortingFn: 'alphanumeric',
   },
   {
@@ -61,7 +61,7 @@ const networks_columns = [
     header: 'Name',
     cell: ProviderNameCell,
     sortingFn: removeSpecialCharsSortingFn,
-    width: 200,
+    width: 180,
   },
   {
     accessorKey: 'link',
@@ -69,7 +69,7 @@ const networks_columns = [
     cell: LinkCell,
     enableSorting: false,
     disableSortBy: true,
-    width: 150,
+    width: 120,
   },
   {
     accessorFn: (row) => row['countries'].join('|||'),
@@ -86,7 +86,7 @@ const networks_columns = [
     header: 'Members',
     cell: ListCellMembers,
     sortingFn: 'alphanumeric',
-    width: 200,
+    width: 220,
   },
   {
     accessorFn: fnServices,
