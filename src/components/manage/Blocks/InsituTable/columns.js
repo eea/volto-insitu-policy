@@ -1,70 +1,23 @@
 import {
   removeSpecialCharsSortingFn,
   LinkCell,
-  ListCell,
+  ServicesComponentsCell,
   ListCellMembers,
-  ProviderNameCell,
+  ProviderNameNativeNameCell,
+  ProviderNameAcronymCell,
   countriesCell,
   fnName,
+  fnServices,
 } from './utils';
 
-const simple_columns = [
-  {
-    accessorFn: fnName,
-    id: 'name',
-    accessorKey: 'name',
-    header: 'Name',
-    cell: ProviderNameCell,
-    sortingFn: removeSpecialCharsSortingFn,
-    width: 250,
-  },
-  {
-    accessorKey: 'link',
-    header: 'Website',
-    cell: LinkCell,
-    width: 100,
-    enableSorting: false,
-    disableSortBy: true,
-  },
-  {
-    accessorFn: (row) => row['countries'].join('|||'),
-    id: 'countries',
-    header: 'Countries',
-    cell: countriesCell,
-    width: 150,
-    sortingFn: 'alphanumeric',
-  },
-  {
-    accessorKey: 'provider_type',
-    header: 'Type',
-    width: 100,
-    sortingFn: 'alphanumeric',
-  },
-  {
-    accessorFn: (row) => row['services'].join('|||'),
-    id: 'services',
-    header: 'Copernicus Services',
-    cell: ListCell,
-    width: 150,
-    sortingFn: 'alphanumeric',
-  },
-  {
-    accessorFn: (row) => row['components'].join('|||'),
-    id: 'components',
-    header: 'Copernicus Components',
-    cell: ListCell,
-    width: 150,
-    sortingFn: 'alphanumeric',
-  },
-];
-
-const institution_columns = [
+// Copernicus Participating Countries data providers - National Institutions
+const national_institutions_columns = [
   {
     accessorFn: (row) => row['countries'].join('|||'),
     id: 'countries',
     header: 'Country',
     cell: countriesCell,
-    width: 150,
+    width: 120,
     sortingFn: 'alphanumeric',
   },
   {
@@ -72,51 +25,44 @@ const institution_columns = [
     id: 'name',
     accessorKey: 'name',
     header: 'Name',
-    cell: ProviderNameCell,
+    cell: ProviderNameNativeNameCell,
     sortingFn: removeSpecialCharsSortingFn,
-    width: 250,
+    width: 230,
   },
   {
     accessorKey: 'link',
     header: 'Website',
     cell: LinkCell,
-    width: 150,
+    width: 120,
     enableSorting: false,
     disableSortBy: true,
   },
   {
     accessorKey: 'provider_type',
     header: 'Type',
-    width: 100,
+    width: 80,
     sortingFn: 'alphanumeric',
   },
   {
-    accessorFn: (row) => row['services'].join('|||'),
+    accessorFn: fnServices,
     id: 'services',
-    header: 'Copernicus Services',
-    cell: ListCell,
-    width: 150,
-    sortingFn: 'alphanumeric',
-  },
-  {
-    accessorFn: (row) => row['components'].join('|||'),
-    id: 'components',
-    header: 'Copernicus Components',
-    cell: ListCell,
+    header: 'Services/Components',
+    cell: ServicesComponentsCell,
     width: 150,
     sortingFn: 'alphanumeric',
   },
 ];
 
-const network_columns = [
+// Data Provider Networks - Networks
+const networks_columns = [
   {
     accessorFn: fnName,
     id: 'name',
     accessorKey: 'name',
     header: 'Name',
-    cell: ProviderNameCell,
+    cell: ProviderNameAcronymCell,
     sortingFn: removeSpecialCharsSortingFn,
-    width: 200,
+    width: 180,
   },
   {
     accessorKey: 'link',
@@ -124,7 +70,7 @@ const network_columns = [
     cell: LinkCell,
     enableSorting: false,
     disableSortBy: true,
-    width: 150,
+    width: 120,
   },
   {
     accessorFn: (row) => row['countries'].join('|||'),
@@ -141,24 +87,63 @@ const network_columns = [
     header: 'Members',
     cell: ListCellMembers,
     sortingFn: 'alphanumeric',
-    width: 200,
+    width: 220,
   },
   {
-    accessorFn: (row) => row['services'].join('|||'),
+    accessorFn: fnServices,
     id: 'services',
-    header: 'Copernicus Services',
-    cell: ListCell,
-    width: 150,
-    sortingFn: 'alphanumeric',
-  },
-  {
-    accessorFn: (row) => row['components'].join('|||'),
-    id: 'components',
-    header: 'Copernicus Components',
-    cell: ListCell,
+    header: 'Services/Components',
+    cell: ServicesComponentsCell,
     width: 150,
     sortingFn: 'alphanumeric',
   },
 ];
 
-export { simple_columns, network_columns, institution_columns };
+// All Data Providers - All Organisations
+const all_organisations_columns = [
+  {
+    accessorFn: fnName,
+    id: 'name',
+    accessorKey: 'name',
+    header: 'Name',
+    cell: ProviderNameNativeNameCell,
+    sortingFn: removeSpecialCharsSortingFn,
+    width: 250,
+  },
+  {
+    accessorKey: 'link',
+    header: 'Website',
+    cell: LinkCell,
+    width: 100,
+    enableSorting: false,
+    disableSortBy: true,
+  },
+  {
+    accessorFn: (row) => row['countries'].join('|||'),
+    id: 'countries',
+    header: 'Countries',
+    cell: countriesCell,
+    width: 150,
+    sortingFn: 'alphanumeric',
+  },
+  {
+    accessorKey: 'provider_type',
+    header: 'Type',
+    width: 100,
+    sortingFn: 'alphanumeric',
+  },
+  {
+    accessorFn: fnServices,
+    id: 'services',
+    header: 'Services/Components',
+    cell: ServicesComponentsCell,
+    width: 150,
+    sortingFn: 'alphanumeric',
+  },
+];
+
+export {
+  national_institutions_columns,
+  networks_columns,
+  all_organisations_columns,
+};

@@ -40,8 +40,10 @@ const storeWithSimpleData = mockStore({
               countries: ['Romania'],
               link: 'http://example.com',
               provider_type: 'Type A',
-              services: ['Service 1', 'Service 2'],
-              components: ['Component 1', 'Component 2'],
+              services: {
+                'Service 1': ['Component 1', 'Component 2'],
+                'Service 2': ['Component 3'],
+              },
             },
           ],
         },
@@ -77,8 +79,11 @@ const storeWithNetworkData = mockStore({
                 },
               ],
               link: 'http://example.com',
-              services: ['Service 1', 'Service 2'],
               components: ['Component 1', 'Component 2'],
+              services: {
+                'Service 1': ['Component 1', 'Component 2'],
+                'Service 2': ['Component 3'],
+              },
             },
           ],
         },
@@ -118,8 +123,7 @@ describe('DataProvidersTable', () => {
     expect(getByText('Countries')).toBeInTheDocument();
     expect(getByText('Website')).toBeInTheDocument();
     expect(getByText('Type')).toBeInTheDocument();
-    expect(getByText('Copernicus Services')).toBeInTheDocument();
-    expect(getByText('Copernicus Components')).toBeInTheDocument();
+    expect(getByText('Services/Components')).toBeInTheDocument();
   });
 
   it('renders empty network table correctly', () => {
@@ -150,8 +154,7 @@ describe('DataProvidersTable', () => {
     expect(getByText('Countries')).toBeInTheDocument();
     expect(getByText('Members')).toBeInTheDocument();
     expect(getByText('Website')).toBeInTheDocument();
-    expect(getByText('Copernicus Services')).toBeInTheDocument();
-    expect(getByText('Copernicus Components')).toBeInTheDocument();
+    expect(getByText('Services/Components')).toBeInTheDocument();
   });
 
   it('renders simple table with data correctly', () => {
@@ -168,8 +171,8 @@ describe('DataProvidersTable', () => {
       .querySelector('a');
     expect(linkElement).toHaveAttribute('href', 'http://example.com/Provider1');
     expect(getByText('Type A')).toBeInTheDocument();
-    expect(getByText(/Service 1,/)).toBeInTheDocument();
-    expect(getByText('Component 2')).toBeInTheDocument();
+    expect(getByText('Service 1')).toBeInTheDocument();
+    expect(getByText('Component 1')).toBeInTheDocument();
   });
 
   it('renders network table with data correctly', () => {
@@ -196,7 +199,7 @@ describe('DataProvidersTable', () => {
       'href',
       'http://example-member2.com',
     );
-    expect(getByText(/Service 1,/)).toBeInTheDocument();
-    expect(getByText('Component 2')).toBeInTheDocument();
+    expect(getByText('Service 1')).toBeInTheDocument();
+    expect(getByText('Component 1')).toBeInTheDocument();
   });
 });
