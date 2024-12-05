@@ -168,8 +168,8 @@ describe('DataProvidersTable', () => {
       .querySelector('a');
     expect(linkElement).toHaveAttribute('href', 'http://example.com/Provider1');
     expect(getByText('Type A')).toBeInTheDocument();
-    expect(getByText(/Service 1/)).toBeInTheDocument();
-    expect(getByText(/Component 1/)).toBeInTheDocument();
+    expect(getByText('Service 1')).toBeInTheDocument();
+    expect(getByText('Component 1')).toBeInTheDocument();
   });
 
   it('renders network table with data correctly', () => {
@@ -196,7 +196,7 @@ describe('DataProvidersTable', () => {
       'href',
       'http://example-member2.com',
     );
-    expect(getByText(/Service 1/)).toBeInTheDocument();
-    expect(getByText(/Component 1/)).toBeInTheDocument();
+    expect(getByText('Service 1')).toBeInTheDocument();
+    expect(getByText('Component 1')).toBeInTheDocument();
   });
 });
