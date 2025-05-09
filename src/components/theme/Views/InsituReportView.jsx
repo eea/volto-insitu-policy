@@ -7,11 +7,11 @@ import './styles.less';
 
 function InsituReportView(props) {
   const { content } = props;
-  const { blocks, file, report_category, ...filteredContent } = content;
-  const descriptionBlockId = Object.keys(blocks || {}).find(
-    (blockId) => blocks?.[blockId]?.['@type'] === 'description',
+  const { file, report_category, ...filteredContent } = content;
+  const descriptionBlockId = Object.keys(content.blocks || {}).find(
+    (blockId) => content.blocks?.[blockId]?.['@type'] === 'description',
   );
-  const descriptionBlockValue = blocks?.[descriptionBlockId]?.value;
+  const descriptionBlockValue = content.blocks?.[descriptionBlockId]?.value;
 
   useEffect(() => {
     const descriptionElement = document.querySelector(
