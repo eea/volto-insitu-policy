@@ -8,8 +8,8 @@ import './styles.less';
 function InsituReportView(props) {
   const { content } = props;
   const { blocks, file, report_category, ...filteredContent } = content;
-  const descriptionBlockId = (Object.keys(blocks) || []).find(
-    (blockId) => blocks[blockId]?.['@type'] === 'description',
+  const descriptionBlockId = Object.keys(blocks||{}).find(
+    (blockId) => blocks?.[blockId]?.['@type'] === 'description',
   );
   const descriptionBlockValue = blocks?.[descriptionBlockId]?.value;
 
