@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
 import { Grid, Image, Button } from 'semantic-ui-react';
 import articleLine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/extras/article-line.svg';
-
+import { serializeNodes } from '@plone/volto-slate/editor/render';
 import './styles.less';
 
 function InsituReportView(props) {
   const { content } = props;
-  const { description, file, report_category, ...filteredContent } = content;
+  const { blocks, file, report_category, ...filteredContent } = content;
+  const descriptionBlockId = (Object.keys(blocks) || []).find(
+    (blockId) => blocks[blockId]?.['@type'] === 'description',
+  );
+  const descriptionBlockValue = blocks?.[descriptionBlockId]?.value;
 
   useEffect(() => {
     const descriptionElement = document.querySelector(
@@ -31,7 +35,9 @@ function InsituReportView(props) {
                 <>
                   <h3>Summary</h3>
                   <p className="documentDescription eea callout">
-                    {content.description}
+                    {descriptionBlockValue
+                      ? serializeNodes(descriptionBlockValue)
+                      : content.description}
                   </p>
                 </>
               )}
