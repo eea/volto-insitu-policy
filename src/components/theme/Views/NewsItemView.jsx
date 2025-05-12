@@ -11,16 +11,18 @@ function NewsItemView(props) {
     <div className="insitu-newsitem-view">
       <div className="ui container">
         <p className="documentDescription eea callout">{content.description}</p>
-        {!!content.image && content?.created && new Date(content?.created) <= lastMigrationDate && (
-          <div className="lead-img">
-            <img
-              className="main-img"
-              src={content.image?.download}
-              alt={content.title}
-            />
-            <p className="main-img-caption">{content.image_caption}</p>
-          </div>
-        )}
+        {!!content.image &&
+          content?.created &&
+          new Date(content?.created) <= lastMigrationDate && (
+            <div className="lead-img">
+              <img
+                className="main-img"
+                src={content.image?.download}
+                alt={content.title}
+              />
+              <p className="main-img-caption">{content.image_caption}</p>
+            </div>
+          )}
         <HTMLField value={content.text} />
         <RenderBlocks {...props} />
       </div>
