@@ -5,12 +5,13 @@ import './styles.less';
 
 function NewsItemView(props) {
   const { content } = props;
+  const lastMigrationDate = new Date('2025-05-01T00:00:00');
 
   return (
     <div className="insitu-newsitem-view">
       <div className="ui container">
         <p className="documentDescription eea callout">{content.description}</p>
-        {!!content.image && (
+        {!!content.image && new Date(content?.created) <= lastMigrationDate && (
           <div className="lead-img">
             <img
               className="main-img"
