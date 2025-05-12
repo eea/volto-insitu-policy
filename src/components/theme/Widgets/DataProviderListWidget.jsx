@@ -29,13 +29,11 @@ function DataProviderListWidget(props) {
 
   return (
     <div className="data-providers">
-      <ul>
-        {data_providers.map((item, index) => (
-          <li key={index}>
-            <a href={item.link}>{item.name}</a>
-          </li>
-        ))}
-      </ul>
+      {data_providers.map((item, index) => (
+        <div key={index}>
+          <a href={item.link}>{item.name}</a>
+        </div>
+      ))}
     </div>
   );
 }
