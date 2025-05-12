@@ -11,7 +11,7 @@ function NewsItemView(props) {
     <div className="insitu-newsitem-view">
       <div className="ui container">
         <p className="documentDescription eea callout">{content.description}</p>
-        {!!content.image && new Date(content?.created) <= lastMigrationDate && (
+        {!!content.image && content?.created && new Date(content?.created) <= lastMigrationDate && (
           <div className="lead-img">
             <img
               className="main-img"
