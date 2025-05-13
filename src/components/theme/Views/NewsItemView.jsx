@@ -5,7 +5,7 @@ import './styles.less';
 
 function NewsItemView(props) {
   const { content } = props;
-  const lastMigrationDate = new Date('2025-05-01T00:00:00');
+  const lastMigrationDate = new Date('2024-11-01T00:00:00');
 
   return (
     <div className="insitu-newsitem-view">
