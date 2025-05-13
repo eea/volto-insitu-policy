@@ -5,21 +5,24 @@ import './styles.less';
 
 function NewsItemView(props) {
   const { content } = props;
+  const lastMigrationDate = new Date('2024-11-01T00:00:00');
 
   return (
     <div className="insitu-newsitem-view">
       <div className="ui container">
         <p className="documentDescription eea callout">{content.description}</p>
-        {!!content.image && (
-          <div className="lead-img">
-            <img
-              className="main-img"
-              src={content.image?.download}
-              alt={content.title}
-            />
-            <p className="main-img-caption">{content.image_caption}</p>
-          </div>
-        )}
+        {!!content.image &&
+          content?.created &&
+          new Date(content?.created) <= lastMigrationDate && (
+            <div className="lead-img">
+              <img
+                className="main-img"
+                src={content.image?.download}
+                alt={content.title}
+              />
+              <p className="main-img-caption">{content.image_caption}</p>
+            </div>
+          )}
         <HTMLField value={content.text} />
         <RenderBlocks {...props} />
       </div>
