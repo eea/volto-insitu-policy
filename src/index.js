@@ -29,6 +29,7 @@ import installSearchEngine from './search';
 const applyConfig = (config) => {
   //Routes
   config.addonRoutes = [
+    ...config.addonRoutes,
     {
       path: '/sitemap',
       component: Sitemap,
