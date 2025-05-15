@@ -7,9 +7,13 @@ import './styles.less';
 
 function InsituReportView(props) {
   const { content } = props;
-  const { file, report_category, ...filteredContent } = content;
   const descriptionBlockId = Object.keys(content.blocks || {}).find(
     (blockId) => content.blocks?.[blockId]?.['@type'] === 'description',
+  );
+  const fileMetadataBlockId = Object.keys(content.blocks || {}).find(
+    (blockId) =>
+      content.blocks?.[blockId]?.['@type'] === 'metadata' &&
+      content.blocks?.[blockId]?.data?.id === 'file',
   );
   const descriptionBlockValue = content.blocks?.[descriptionBlockId]?.value;
 
@@ -69,8 +73,23 @@ function InsituReportView(props) {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        {/* Remove  the blocks that are rendered already via the layout,
+        currently, these include the description and file metadata blocks. */}
         {Object.keys(content.blocks).length > 0 && (
-          <RenderBlocks {...props} content={filteredContent} />
+          <RenderBlocks
+            {...props}
+            content={{
+              ...content,
+              blocks_layout: {
+                ...content.blocks_layout,
+                items: (content?.blocks_layout?.items || []).filter(
+                  (blockId) =>
+                    blockId !== descriptionBlockId &&
+                    blockId !== fileMetadataBlockId,
+                ),
+              },
+            }}
+          />
         )}
       </div>
     </div>
