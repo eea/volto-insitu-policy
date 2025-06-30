@@ -58,13 +58,7 @@
   background: transparent;
 }
 
-div.insitu-newsitem-view,
 div.insitu-report-view {
-  .ui.grid {
-    margin-top: 1em;
-    margin-bottom: 1em !important;
-  }
-
   p.documentDescription.callout {
     padding-left: 0;
     border: none;
@@ -73,6 +67,20 @@ div.insitu-report-view {
     overflow-wrap: break-word !important;
     word-break: normal !important;
     word-wrap: break-word !important;
+  }
+}
+
+div.insitu-newsitem-view {
+  p.documentDescription.callout {
+    font-weight: 600;
+  }
+}
+
+div.insitu-newsitem-view,
+div.insitu-report-view {
+  .ui.grid {
+    margin-top: 1em;
+    margin-bottom: 1em !important;
   }
 
   .file-download {
