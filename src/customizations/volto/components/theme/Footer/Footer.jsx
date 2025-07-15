@@ -77,7 +77,7 @@ const Footer = () => {
               >
                 Subscribe
               </UniversalLink>
-              <h4 className="footer-section-title">Follow us</h4>
+              <h4 className="footer-section-title">Connect with us</h4>
               <Divider />
               <EEAFooter.Social social={social} />
             </Grid.Column>
