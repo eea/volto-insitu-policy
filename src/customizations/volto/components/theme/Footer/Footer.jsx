@@ -67,7 +67,7 @@ const Footer = () => {
               className="footer-follow-us"
             >
               <h4 className="footer-section-title">
-                Sign up to In Situ updates
+                Sign up to In-Situ updates
               </h4>
               <Divider />
               <UniversalLink
