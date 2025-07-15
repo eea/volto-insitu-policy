@@ -67,7 +67,7 @@ const Footer = () => {
               className="footer-follow-us"
             >
               <h4 className="footer-section-title">
-                Sign up to In Situ updates
+                Sign up to In-Situ updates
               </h4>
               <Divider />
               <UniversalLink
@@ -77,7 +77,7 @@ const Footer = () => {
               >
                 Subscribe
               </UniversalLink>
-              <h4 className="footer-section-title">Follow us</h4>
+              <h4 className="footer-section-title">Connect with us</h4>
               <Divider />
               <EEAFooter.Social social={social} />
             </Grid.Column>
