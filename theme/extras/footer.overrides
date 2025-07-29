@@ -139,14 +139,16 @@ footer {
   }
 
   .social {
-    display: inline;
+    display: flex;
+    margin: 0;
+    justify-content: space-around;
   }
 
   .social a {
     color: @socialLinkColor;
 
     i.icon {
-      font-size: 1.6rem;
+      font-size: 2.5rem;
     }
   }
 }
