@@ -41,7 +41,7 @@ const applyConfig = (config) => {
     description:
       'Looking for more information? Try searching the full EEA website content',
     path: '/advanced-search',
-    placeholder: 'Search InSitu...',
+    placeholder: 'Search In-Situ...',
     buttonUrl: 'https://www.eea.europa.eu/en/advanced-search',
   };
 
