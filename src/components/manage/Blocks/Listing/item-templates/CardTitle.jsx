@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card as UiCard } from 'semantic-ui-react';
-import { ConditionalLink } from '@plone/volto/components';
+import ConditionalLink from '@plone/volto/components/manage/ConditionalLink/ConditionalLink';
 
 const CardTitle = (props) => {
   const { item, isEditMode, itemModel } = props;

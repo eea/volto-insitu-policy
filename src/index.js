@@ -1,4 +1,5 @@
-import { Sitemap, NotFound } from '@plone/volto/components';
+import Sitemap from '@plone/volto/components/theme/Sitemap/Sitemap';
+import NotFound from '@plone/volto/components/theme/NotFound/NotFound';
 import copernicusLogo from '@eeacms/volto-insitu-policy/../theme/assets/images/Header/copernicus_eu_logo.svg';
 import insituLogo from '@eeacms/volto-insitu-policy/../theme/assets/images/Header/in_situ_logo.svg';
 import athmosphere from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/Footer/athmosphere.svg';

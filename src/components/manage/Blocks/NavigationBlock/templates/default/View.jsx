@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { Menu, Tab, Image } from 'semantic-ui-react';
 import { getMenuPosition } from '../../utils';
 
-import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
+import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers/Url/Url';
 
 import '../../less/menu.less';
 
