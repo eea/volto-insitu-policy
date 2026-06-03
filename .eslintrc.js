@@ -2,6 +2,44 @@ const fs = require('fs');
 const path = require('path');
 const projectRootPath = fs.realpathSync(__dirname + '/../../../');
 
+const loadAddonRegistry = (projectRootPath, voltoPath) => {
+  const resolvers = [
+    () =>
+      require.resolve('@plone/registry/addon-registry', {
+        paths: [projectRootPath],
+      }),
+    () =>
+      require.resolve('@plone/registry/addon-registry', {
+        paths: [voltoPath],
+      }),
+  ];
+  const fileCandidates = [
+    path.join(
+      projectRootPath,
+      'node_modules/@plone/registry/dist/addon-registry/addon-registry.cjs',
+    ),
+    path.join(
+      voltoPath,
+      'node_modules/@plone/registry/dist/addon-registry/addon-registry.cjs',
+    ),
+  ];
+
+  for (const resolveRegistry of resolvers) {
+    try {
+      return require(resolveRegistry());
+    } catch {
+      // Try the next known Volto 18 registry location.
+    }
+  }
+
+  const registryPath = fileCandidates.find((candidate) =>
+    fs.existsSync(candidate),
+  );
+  if (registryPath) return require(registryPath);
+
+  throw new Error('Unable to resolve @plone/registry/addon-registry');
+};
+
 let voltoPath = path.join(projectRootPath, 'node_modules/@plone/volto');
 let configFile;
 if (fs.existsSync(`${projectRootPath}/tsconfig.json`))
@@ -16,7 +54,7 @@ if (configFile) {
     voltoPath = `./${jsConfig.baseUrl}/${pathsConfig['@plone/volto'][0]}`;
 }
 
-const { AddonRegistry } = require('@plone/registry/addon-registry');
+const { AddonRegistry } = loadAddonRegistry(projectRootPath, voltoPath);
 const reg = new AddonRegistry(projectRootPath);
 
 // Extends ESlint configuration for adding the aliases to `src` directories in Volto addons
