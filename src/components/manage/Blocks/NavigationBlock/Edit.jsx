@@ -1,11 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 import config from '@plone/volto/registry';
-import {
-  SidebarPortal,
-  BlocksToolbar,
-  BlockDataForm,
-} from '@plone/volto/components';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
+import BlocksToolbar from '@plone/volto/components/manage/Form/BlocksToolbar';
+import BlockDataForm from '@plone/volto/components/manage/Form/BlockDataForm';
 import { empty, emptyTab } from './helpers';
 import { StyleWrapperView } from '@eeacms/volto-block-style/StyleWrapper';
 import { BlockStyleWrapperEdit } from '@eeacms/volto-block-style/BlockStyleWrapper';

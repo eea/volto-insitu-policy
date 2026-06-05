@@ -3,16 +3,16 @@
 [![Releases](https://img.shields.io/github/v/release/eea/volto-insitu-policy)](https://github.com/eea/volto-insitu-policy/releases)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-insitu-policy%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-insitu-policy/job/master/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-master&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-master)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-master&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-master)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-master&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-master)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-master&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-master)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-insitu-policy%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-insitu-policy/job/develop/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-develop)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-develop)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-develop)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy-develop)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&branch=develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy&branch=develop)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&branch=develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy&branch=develop)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&branch=develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy&branch=develop)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-insitu-policy&branch=develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-insitu-policy&branch=develop)
 
 
 [Volto](https://github.com/plone/volto) add-on

@@ -1,5 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import { emptyBlocksForm, applySchemaDefaults } from '@plone/volto/helpers';
+import {
+  emptyBlocksForm,
+  applySchemaDefaults,
+} from '@plone/volto/helpers/Blocks/Blocks';
 
 export const empty = ({ schema, intl }) => {
   const tabId = uuid();

@@ -2,14 +2,15 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import Edit from './Edit';
 
 const mockOnChangeBlock = jest.fn();
 
-jest.mock('@plone/volto/components', () => ({
-  BlockDataForm: ({ title, children, onChangeField }) => (
+jest.mock('@plone/volto/components/manage/Form/BlockDataForm', () => ({
+  __esModule: true,
+  default: ({ title, children, onChangeField }) => (
     <div>
       <div>
         <input
@@ -22,7 +23,11 @@ jest.mock('@plone/volto/components', () => ({
       <h1>{title}</h1>
     </div>
   ),
-  SidebarPortal: ({ children }) => (
+}));
+
+jest.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => ({
+  __esModule: true,
+  default: ({ children }) => (
     <div data-testid="mock-sidebar-portal">{children}</div>
   ),
 }));

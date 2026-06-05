@@ -1,5 +1,6 @@
 import React from 'react';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
+import Image from '@plone/volto/components/theme/Image/Image';
 import { HTMLField } from '@eeacms/volto-insitu-policy/helpers';
 import './styles.less';
 
@@ -15,7 +16,7 @@ function NewsItemView(props) {
           content?.created &&
           new Date(content?.created) <= lastMigrationDate && (
             <div className="lead-img">
-              <img
+              <Image
                 className="main-img"
                 src={content.image?.download}
                 alt={content.title}

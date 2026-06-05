@@ -5,8 +5,8 @@
 
 import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
-import { flattenToAppURL } from '@plone/volto/helpers';
-import { UniversalLink } from '@plone/volto/components';
+import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
+import UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
 import EEAFooter from '@eeacms/volto-eea-design-system/ui/Footer/Footer';
 import config from '@plone/volto/registry';
 import { Grid, Divider } from 'semantic-ui-react';

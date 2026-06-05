@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import View from './View';
 
