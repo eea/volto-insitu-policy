@@ -3,11 +3,15 @@ import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
 import ReportsCardTemplate from './ReportsCardTemplate';
 import articleLine from '@eeacms/volto-insitu-policy/../theme/themes/assets/images/extras/article-line.svg';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
-jest.mock('@plone/volto/components', () => ({
-  ConditionalLink: (props) => <div>{props.item.title || props.item.Title}</div>,
-}));
+jest.mock(
+  '@plone/volto/components/manage/ConditionalLink/ConditionalLink',
+  () => ({
+    __esModule: true,
+    default: (props) => <div>{props.item.title || props.item.Title}</div>,
+  }),
+);
 
 const mockStore = configureStore();
 const store = mockStore({
