@@ -96,6 +96,49 @@ const storeWithNetworkData = mockStore({
   },
 });
 
+const storeWithNationalData = mockStore({
+  content: {
+    data: {
+      '@components': {
+        data_providers_table: {
+          simple: [
+            {
+              name: {
+                title: 'Beta Provider',
+                link: 'http://example.com/beta',
+              },
+              native_name: 'Beta Provider',
+              countries: ['Romania'],
+              link: 'http://example.com/beta',
+              provider_type: 'Type B',
+              services: {
+                'Service 1': ['Component 1'],
+              },
+            },
+            {
+              name: {
+                title: 'Alpha Provider',
+                link: 'http://example.com/alpha',
+              },
+              native_name: 'Alpha Provider',
+              countries: ['Romania'],
+              link: 'http://example.com/alpha',
+              provider_type: 'Type A',
+              services: {
+                'Service 1': ['Component 1'],
+              },
+            },
+          ],
+        },
+      },
+    },
+  },
+  intl: {
+    locale: 'en',
+    messages: {},
+  },
+});
+
 describe('DataProvidersTable', () => {
   it('renders empty simple table correctly', () => {
     const { container, getByPlaceholderText, getByText } = render(
@@ -201,5 +244,19 @@ describe('DataProvidersTable', () => {
     );
     expect(getByText('Service 1')).toBeInTheDocument();
     expect(getByText('Component 1')).toBeInTheDocument();
+  });
+
+  it('sorts national institution rows by name', () => {
+    const { container, getByTitle } = render(
+      <Provider store={storeWithNationalData}>
+        <View data={{ tableType: 'national_institutions' }} />
+      </Provider>,
+    );
+
+    fireEvent.click(getByTitle('Sort name ascending'));
+
+    const providerLinks = container.querySelectorAll('.provider-name-link');
+    expect(providerLinks[0]).toHaveTextContent('Alpha Provider');
+    expect(providerLinks[1]).toHaveTextContent('Beta Provider');
   });
 });
