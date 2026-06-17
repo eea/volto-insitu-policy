@@ -23,24 +23,43 @@ const DataProvidersTable = ({ dataProvider, tableType }) => {
       ? [{ id: 'countries', desc: false }]
       : [],
   );
-  let defaultData;
-  let columns;
 
-  if (tableType === 'networks') {
-    defaultData = dataProvider.network;
-    columns = networks_columns;
-  } else if (tableType === 'national_institutions') {
-    defaultData = dataProvider.simple.filter(
-      (row) =>
-        row.countries.length === 1 &&
-        row.countries[0] !== 'Multiple Countries /Not a specific country' &&
-        whiteListCountries.includes(row.countries[0]),
-    );
-    columns = national_institutions_columns;
-  } else if (tableType === 'all_organisations') {
-    defaultData = dataProvider.simple;
-    columns = all_organisations_columns;
-  }
+  const defaultData = React.useMemo(() => {
+    if (tableType === 'networks') {
+      return dataProvider.network || [];
+    }
+
+    if (tableType === 'national_institutions') {
+      return (dataProvider.simple || []).filter(
+        (row) =>
+          row.countries.length === 1 &&
+          row.countries[0] !== 'Multiple Countries /Not a specific country' &&
+          whiteListCountries.includes(row.countries[0]),
+      );
+    }
+
+    if (tableType === 'all_organisations') {
+      return dataProvider.simple || [];
+    }
+
+    return [];
+  }, [dataProvider.network, dataProvider.simple, tableType]);
+
+  const columns = React.useMemo(() => {
+    if (tableType === 'networks') {
+      return networks_columns;
+    }
+
+    if (tableType === 'national_institutions') {
+      return national_institutions_columns;
+    }
+
+    if (tableType === 'all_organisations') {
+      return all_organisations_columns;
+    }
+
+    return [];
+  }, [tableType]);
 
   const table = useReactTable({
     columns,
