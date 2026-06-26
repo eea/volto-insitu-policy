@@ -14,6 +14,21 @@ const getRandomItems = (arr, max) => {
   );
 };
 
+const getSearchInput = (config = [], location) => {
+  const matchesPath = (item) => {
+    const path = item.matchpath ? item.matchpath : item.path;
+    return path && location.pathname.match(path);
+  };
+
+  return (
+    config.filter((v) => v.type === 'search-input' && matchesPath(v))[0] ||
+    config.filter((v) => v.type === 'search-input')[0] ||
+    config.filter((v) => v.isDefault)[0] ||
+    config[0] ||
+    {}
+  );
+};
+
 function HeaderSearchPopUp({
   history,
   location,
@@ -24,11 +39,7 @@ function HeaderSearchPopUp({
 }) {
   const nodeRef = React.useRef();
   const headerSearchViews = headerSearchBox || [];
-  const defaultView = headerSearchViews.filter((v) => v.isDefault);
-  const localView = headerSearchViews.filter((v) =>
-    location.pathname.match(v.matchpath ? v.matchpath : v.path),
-  );
-  const activeView = localView.length > 0 ? localView[0] : defaultView[0];
+  const activeView = getSearchInput(headerSearchViews, location);
 
   const {
     path = '',
@@ -39,6 +50,8 @@ function HeaderSearchPopUp({
     searchSuggestions,
   } = activeView || {};
   const { suggestionsTitle, suggestions, maxToShow } = searchSuggestions || {};
+  const defaultView =
+    headerSearchViews.filter((v) => v.isDefault)[0] || activeView;
 
   const [visibleSuggestions, setVisibileSuggestions] = React.useState(
     getRandomItems(suggestions, maxToShow),
@@ -52,7 +65,7 @@ function HeaderSearchPopUp({
 
   const onSubmit = (event) => {
     const text = searchInputRef?.current?.inputRef?.current?.value;
-    history.push(`${path}?q=${text}`);
+    history.push(`${path}?q=${encodeURIComponent(text)}`);
 
     if (window?.searchContext?.resetSearch) {
       window.searchContext.resetSearch({ searchTerm: text });
@@ -99,7 +112,7 @@ function HeaderSearchPopUp({
                   return (
                     <List.Item key={i}>
                       <Link
-                        to={`${path}?q=${item}`}
+                        to={`${path}?q=${encodeURIComponent(item)}`}
                         onClick={() => onClickHandler(item)}
                       >
                         {item}
@@ -116,7 +129,7 @@ function HeaderSearchPopUp({
             <Container>
               <div>{description}</div>
               <a
-                href={buttonUrl || defaultView[0].path}
+                href={buttonUrl || defaultView.path}
                 className="ui button white inverted"
                 title="Advanced search"
               >
