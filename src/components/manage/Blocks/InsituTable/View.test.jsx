@@ -35,7 +35,7 @@ const storeWithSimpleData = mockStore({
             {
               name: {
                 title: 'Provider 1',
-                link: 'http://example.com/Provider1',
+                link: 'cis2.eea.europa.eu/provider/43/',
               },
               countries: ['Romania'],
               link: 'http://example.com',
@@ -212,7 +212,10 @@ describe('DataProvidersTable', () => {
     const linkElement = getByText('Provider 1')
       .closest('tr')
       .querySelector('a');
-    expect(linkElement).toHaveAttribute('href', 'http://example.com/Provider1');
+    expect(linkElement).toHaveAttribute(
+      'href',
+      'https://cis2.eea.europa.eu/provider/43/',
+    );
     expect(getByText('Type A')).toBeInTheDocument();
     expect(getByText('Service 1')).toBeInTheDocument();
     expect(getByText('Component 1')).toBeInTheDocument();
