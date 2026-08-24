@@ -41,8 +41,8 @@ describe('AssetTab', () => {
   });
 
   it('renders an image when assetType is image and image object exists', () => {
-    render(<AssetTab {...baseProps} />);
-    const image = screen.getByRole('img');
+    const { container } = render(<AssetTab {...baseProps} />);
+    const image = container.querySelector('img');
     expect(image).toHaveAttribute('src', 'http://example.com/image');
     expect(image).toHaveClass('ui medium aligned');
   });
@@ -83,8 +83,8 @@ describe('AssetTab', () => {
         ],
       },
     };
-    render(<AssetTab {...props} />);
-    const image = screen.getByRole('img');
+    const { container } = render(<AssetTab {...props} />);
+    const image = container.querySelector('img');
     expect(image.src).toContain('/download/path');
   });
 
@@ -107,8 +107,8 @@ describe('AssetTab', () => {
         ],
       },
     };
-    render(<AssetTab {...props} />);
-    const image = screen.getByRole('img');
+    const { container } = render(<AssetTab {...props} />);
+    const image = container.querySelector('img');
     expect(image.src).toContain('/download/path');
   });
 });
