@@ -27,6 +27,12 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    // uuid >=14 (Volto 18.35.1, jest-junit 17) is ESM-only: "type": "module",
+    // no "main", only an "exports" map. jest-resolve here predates "exports",
+    // so `import { v4 } from 'uuid'` in @plone/volto/src/helpers/Blocks/Blocks.js
+    // fails with "Cannot find module 'uuid'". Resolve the file directly and let
+    // babel transform it (see the transformIgnorePatterns exception below).
+    '^uuid$': '<rootDir>/node_modules/uuid/dist/index.js',
     '@plone/volto/cypress': '<rootDir>/node_modules/@plone/volto/cypress',
     '@plone/volto/babel': '<rootDir>/node_modules/@plone/volto/babel',
     '@plone/volto/addon-registry':
@@ -47,7 +53,7 @@ module.exports = {
       '<rootDir>/node_modules/@plone/volto/jest-addons-loader.js',
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(@plone|@root|@package|@eeacms)/).*/',
+    '/node_modules/(?!(@plone|@root|@package|@eeacms)/|uuid/).*/',
   ],
   transform: {
     '^.+\\.js(x)?$': 'babel-jest',
