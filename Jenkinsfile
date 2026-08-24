@@ -11,7 +11,7 @@ pipeline {
     BACKEND_PROFILES = "eea.kitkat:testing"
     BACKEND_ADDONS = ""
     CURRENT_VOLTO = "18-yarn"
-    PREVIOUS_VOLTO = "17"
+    PREVIOUS_VOLTO = ""
     IMAGE_NAME = BUILD_TAG.toLowerCase()
   }
 
